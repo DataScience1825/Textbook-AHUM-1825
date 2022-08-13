@@ -739,9 +739,6 @@ track down which part might contain the error.</p>
 <div id="section-homework" class="section level2">
 <h2>Homework</h2>
 <hr />
-<!-- ```{r include_hmw_data_desc, child=hmw_data_desc} -->
-<!-- ``` -->
-<!-- {{dataset:FarmInventory}} -->
 <p><img src="SharedResources/datasets/FarmInventory/banner.jpg"
 style="width:100.0%"
 alt="A banner with a centered message of Farming Dataset, on the left are a collection of vegetables, and on the right is a milk can and a hen with its chicks" /></p>
@@ -1004,15 +1001,8 @@ gradethis::gradethis_setup()
 ## WARNING: The default values are set inside the "session_start" event handler, which is inside of homework.Rmd
 hmw_info <- NULL
 
-#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()
-#hmw_dataset <- "FarmInventory"#&& <-don't remove "#&&"
-#hmw_number <- 1#&& <- don't remove "#&&"
-
-#hmw_data_desc <- paste("../SharedResources/datasets/",hmw_dataset,"/description.Rmd", sep="")
-#hmw_file <- paste("homework_",hmw_number,".Rmd", sep="")
-
 ##Extra practice problems
-farm_data <- read_csv(here::here("SharedResources","datasets","FarmInventory","data.csv"), col_types="ccddffi");
+farm_data <- read_csv(here::here("inst","tutorials","SharedResources","datasets","FarmInventory","data.csv"), col_types="ccddffi");
 
 #Uncomment to view all the Learnr events and their data
 #new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {
@@ -1020,7 +1010,7 @@ farm_data <- read_csv(here::here("SharedResources","datasets","FarmInventory","d
 #}
 #options(tutorial.event_recorder = new_recorder)
 
-shiny::addResourcePath("SharedResources", here::here("SharedResources"))#Needed for accessing images/other files
+shiny::addResourcePath("SharedResources", here::here("inst","tutorials","SharedResources"))#Needed for accessing images/other files
 knitr::opts_chunk$set(error = FALSE, message = FALSE)
 </script>
 
@@ -1158,16 +1148,12 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice1", code = "filter(penguins, sex == _____)", 
@@ -1216,16 +1202,12 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice2", code = "filter(penguins, ____ bill_length_mm ____)", 
@@ -1274,16 +1256,12 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice3", code = "", opts = list(label = "\"filter_practice3\"", 
@@ -1330,16 +1308,12 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice4", code = "", opts = list(label = "\"filter_practice4\"", 
@@ -1386,16 +1360,12 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice5", code = "filter(penguins, species == \"adelie\")", 
@@ -1500,16 +1470,12 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice6", code = "filter(penguins, island ____ ____ flipper_length_mm ____)", 
@@ -1558,16 +1524,12 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice7", code = "filter(penguins, body_mass_g ____ 3000 ____ body_mass_g ____ 3500 )", 
@@ -1616,16 +1578,12 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice8", code = "", opts = list(label = "\"filter_practice8\"", 
@@ -1672,16 +1630,12 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice9", code = "", opts = list(label = "\"filter_practice9\"", 
@@ -1728,16 +1682,12 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice10", code = "filter(penguins, body_mass_g < 3500 | body_mass_g > 2000)", 
@@ -1822,10 +1772,10 @@ event_register_handler("session_start", function(session, event, data) {
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "filter_hmw1", 
     question = structure("(True or False), filter() modifies the dataframe passed to it.", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_1279dbb", 
+    "character")), answers = list(structure(list(id = "lnr_ans_9c91134", 
         option = "True", value = "True", label = structure("True", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_b8f014", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_8d7c655", 
         option = "False", value = "False", label = structure("False", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1837,30 +1787,30 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
         answer = "filter_hmw1-answer", question = "filter_hmw1"), 
     loading = structure("<strong>Loading:<\u002fstrong> \n(True or False), filter() modifies the dataframe passed to it.\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 808130003.123685, options = list()), class = c("learnr_radio", 
+    seed = 362042846.331411, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "filter_hmw2", 
     question = structure("The &amp; operator only evaulates to true if :", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_dd72119", 
+    "character")), answers = list(structure(list(id = "lnr_ans_56606f5", 
         option = "both conditions are true", value = "both conditions are true", 
         label = structure("both conditions are true", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_ceb66", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e887285", 
         option = "neither condition is true", value = "neither condition is true", 
         label = structure("neither condition is true", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_861c6b6", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9b9514c", 
         option = "either condition is true", value = "either condition is true", 
         label = structure("either condition is true", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_813efbf", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_83d165", 
         option = "both conditions are false", value = "both conditions are false", 
         label = structure("both conditions are false", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a95d4e7", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_15134dc", 
         option = "None of the above", value = "None of the above", 
         label = structure("None of the above", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1873,7 +1823,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
         answer = "filter_hmw2-answer", question = "filter_hmw2"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nThe &amp; operator only evaulates to true if :\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1713367018.20215, options = list()), class = c("learnr_radio", 
+    seed = 662385920.691553, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
@@ -1891,24 +1841,20 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
-    label = "setup", include = FALSE)), setup = "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
-    chunks = list(list(label = "prepare-hmw", code = "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
-        opts = list(label = "\"prepare-hmw\"", echo = "FALSE"), 
+    label = "setup", include = FALSE)), setup = "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+    chunks = list(list(label = "prepare-hmw-filter-1", code = "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+        opts = list(label = "\"prepare-hmw-filter-1\"", echo = "FALSE"), 
         engine = "r"), list(label = "filter_hmw3", code = "filter(farm_data, ____ == \"Peppridge\" ____ type ____ \"VEGETABLE\")", 
         opts = list(label = "\"filter_hmw3\"", exercise = "TRUE", 
             exercise.blanks = "\"___+\"", exercise.completion = "FALSE", 
-            exercise.setup = "\"prepare-hmw\""), engine = "r")), 
+            exercise.setup = "\"prepare-hmw-filter-1\""), engine = "r")), 
     code_check = NULL, error_check = NULL, check = structure(c("grade_result(", 
     "  pass_if(~identical(.result, filter(farm_data, f_name == \"Peppridge\" & type == \"VEGETABLE\")))", 
     ")"), chunk_opts = list(label = "filter_hmw3-check")), solution = NULL, 
@@ -1931,9 +1877,9 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
         max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
         label = "filter_hmw3", exercise = TRUE, exercise.blanks = "___+", 
-        exercise.completion = FALSE, exercise.setup = "prepare-hmw", 
+        exercise.completion = FALSE, exercise.setup = "prepare-hmw-filter-1", 
         code = "filter(farm_data, ____ == \"Peppridge\" ____ type ____ \"VEGETABLE\")", 
-        out.width.px = 624, out.height.px = 384, params.src = "filter_hmw3, exercise = TRUE, exercise.blanks = \"___+\", exercise.completion = FALSE, exercise.setup = \"prepare-hmw\"", 
+        out.width.px = 624, out.height.px = 384, params.src = "filter_hmw3, exercise = TRUE, exercise.blanks = \"___+\", exercise.completion = FALSE, exercise.setup = \"prepare-hmw-filter-1\"", 
         fig.num = 0, exercise.df_print = "paged"), engine = "r"), class = "tutorial_exercise"))
 </script>
 
@@ -1951,23 +1897,19 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
-    label = "setup", include = FALSE)), setup = "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
-    chunks = list(list(label = "prepare-hmw", code = "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
-        opts = list(label = "\"prepare-hmw\"", echo = "FALSE"), 
+    label = "setup", include = FALSE)), setup = "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+    chunks = list(list(label = "prepare-hmw-filter-1", code = "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+        opts = list(label = "\"prepare-hmw-filter-1\"", echo = "FALSE"), 
         engine = "r"), list(label = "filter_hmw4", code = "filter(farm_data, type = \"dairy\")", 
         opts = list(label = "\"filter_hmw4\"", exercise = "TRUE", 
-            exercise.completion = "FALSE", exercise.setup = "\"prepare-hmw\""), 
+            exercise.completion = "FALSE", exercise.setup = "\"prepare-hmw-filter-1\""), 
         engine = "r")), code_check = NULL, error_check = NULL, 
     check = structure(c("grade_result(", "  pass_if(~identical(.result, filter(farm_data, type == \"DAIRY\")))", 
     ")"), chunk_opts = list(label = "filter_hmw4-check")), solution = NULL, 
@@ -1990,8 +1932,8 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
         max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
         label = "filter_hmw4", exercise = TRUE, exercise.completion = FALSE, 
-        exercise.setup = "prepare-hmw", code = "filter(farm_data, type = \"dairy\")", 
-        out.width.px = 624, out.height.px = 384, params.src = "filter_hmw4, exercise = TRUE, exercise.completion = FALSE, , exercise.setup = \"prepare-hmw\"", 
+        exercise.setup = "prepare-hmw-filter-1", code = "filter(farm_data, type = \"dairy\")", 
+        out.width.px = 624, out.height.px = 384, params.src = "filter_hmw4, exercise = TRUE, exercise.completion = FALSE, , exercise.setup = \"prepare-hmw-filter-1\"", 
         fig.num = 0, exercise.df_print = "paged"), engine = "r"), class = "tutorial_exercise"))
 </script>
 
@@ -2009,23 +1951,19 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
-    label = "setup", include = FALSE)), setup = "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
-    chunks = list(list(label = "prepare-hmw", code = "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
-        opts = list(label = "\"prepare-hmw\"", echo = "FALSE"), 
+    label = "setup", include = FALSE)), setup = "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+    chunks = list(list(label = "prepare-hmw-filter-1", code = "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+        opts = list(label = "\"prepare-hmw-filter-1\"", echo = "FALSE"), 
         engine = "r"), list(label = "filter_hmw5", code = "", 
         opts = list(label = "\"filter_hmw5\"", exercise = "TRUE", 
-            exercise.completion = "FALSE", exercise.setup = "\"prepare-hmw\""), 
+            exercise.completion = "FALSE", exercise.setup = "\"prepare-hmw-filter-1\""), 
         engine = "r")), code_check = NULL, error_check = NULL, 
     check = structure(c("grade_result(", "  pass_if(~identical(.result, filter(farm_data, type == \"LEGUME\", avg_sl >= 30)))", 
     ")"), chunk_opts = list(label = "filter_hmw5-check")), solution = NULL, 
@@ -2048,8 +1986,8 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
         max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
         label = "filter_hmw5", exercise = TRUE, exercise.completion = FALSE, 
-        exercise.setup = "prepare-hmw", code = "", out.width.px = 624, 
-        out.height.px = 384, params.src = "filter_hmw5, exercise = TRUE, exercise.completion = FALSE, exercise.setup = \"prepare-hmw\"", 
+        exercise.setup = "prepare-hmw-filter-1", code = "", out.width.px = 624, 
+        out.height.px = 384, params.src = "filter_hmw5, exercise = TRUE, exercise.completion = FALSE, exercise.setup = \"prepare-hmw-filter-1\"", 
         fig.num = 0L, exercise.df_print = "paged"), engine = "r"), class = "tutorial_exercise"))
 </script>
 
@@ -2067,23 +2005,19 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
-    label = "setup", include = FALSE)), setup = "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
-    chunks = list(list(label = "prepare-hmw", code = "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
-        opts = list(label = "\"prepare-hmw\"", echo = "FALSE"), 
+    label = "setup", include = FALSE)), setup = "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+    chunks = list(list(label = "prepare-hmw-filter-1", code = "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+        opts = list(label = "\"prepare-hmw-filter-1\"", echo = "FALSE"), 
         engine = "r"), list(label = "filter_hmw6", code = "", 
         opts = list(label = "\"filter_hmw6\"", exercise = "TRUE", 
-            exercise.completion = "FALSE", exercise.setup = "\"prepare-hmw\""), 
+            exercise.completion = "FALSE", exercise.setup = "\"prepare-hmw-filter-1\""), 
         engine = "r")), code_check = NULL, error_check = NULL, 
     check = structure(c("grade_result(", "  pass_if(~identical(.result, filter(farm_data, p_name == \"Russian Blue Potato\" | p_name == \"Purple Sweet Potato\",  q_in_lbs > 2000)))", 
     ")"), chunk_opts = list(label = "filter_hmw6-check")), solution = NULL, 
@@ -2106,8 +2040,8 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
         max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
         label = "filter_hmw6", exercise = TRUE, exercise.completion = FALSE, 
-        exercise.setup = "prepare-hmw", code = "", out.width.px = 624, 
-        out.height.px = 384, params.src = "filter_hmw6, exercise = TRUE, exercise.completion = FALSE, exercise.setup = \"prepare-hmw\"", 
+        exercise.setup = "prepare-hmw-filter-1", code = "", out.width.px = 624, 
+        out.height.px = 384, params.src = "filter_hmw6, exercise = TRUE, exercise.completion = FALSE, exercise.setup = \"prepare-hmw-filter-1\"", 
         fig.num = 0L, exercise.df_print = "paged"), engine = "r"), class = "tutorial_exercise"))
 </script>
 
@@ -2207,16 +2141,12 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice11", code = "", opts = list(
@@ -2261,16 +2191,12 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice12", code = "", opts = list(
@@ -2315,16 +2241,12 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice13", code = "", opts = list(
@@ -2369,16 +2291,12 @@ learnr:::store_exercise_cache(structure(list(global_setup = structure(c("library
 "library(emo) # Emojis library", "library(palmerpenguins)#practice dataset", 
 "library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem", 
 "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
-"hmw_info <- NULL", "", "#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()", 
-"#hmw_dataset <- \"FarmInventory\"#&& <-don't remove \"#&&\"", 
-"#hmw_number <- 1#&& <- don't remove \"#&&\"", "", "#hmw_data_desc <- paste(\"../SharedResources/datasets/\",hmw_dataset,\"/description.Rmd\", sep=\"\")", 
-"#hmw_file <- paste(\"homework_\",hmw_number,\".Rmd\", sep=\"\")", 
-"", "##Extra practice problems", "farm_data <- read_csv(here::here(\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
+"hmw_info <- NULL", "", "##Extra practice problems", "farm_data <- read_csv(here::here(\"inst\",\"tutorials\",\"SharedResources\",\"datasets\",\"FarmInventory\",\"data.csv\"), col_types=\"ccddffi\");", 
 "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
-"shiny::addResourcePath(\"SharedResources\", here::here(\"SharedResources\"))#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"SharedResources\", here::here(\"inst\",\"tutorials\",\"SharedResources\"))#Needed for accessing images/other files", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice14", code = "groceries <- c(\"Fuji Apple\", \"Soy Yogurt\", \"Whole Duck\", \"Cheddar Cheese\", \"Seeded Watermelon\")\n\nfilter(farm_data, _________)", 

@@ -48,15 +48,15 @@ event_register_handler("session_start", function(session, event, data) {
 
 ```
 
-```{r include_hmw, child=here::here("SharedResources","datasets","FarmInventory","description.Rmd")}
+```{r include_hmw, child=here::here("inst","tutorials","SharedResources","datasets","FarmInventory","description.Rmd")}
 ```
 
 ```{r prepare-hmw-filter-1, echo=FALSE}
-farm_data <- read_csv(here::here("SharedResources","datasets","FarmInventory","data.csv"), col_types="ccddffi");
+farm_data <- read_csv(here::here("inst","tutorials","SharedResources","datasets","FarmInventory","data.csv"), col_types="ccddffi");
 ```
 
 ```{r, echo=FALSE}
-farm_data <- read_csv(here::here("SharedResources","datasets","FarmInventory","data.csv"), col_types="ccddffi");
+farm_data <- read_csv(here::here("inst","tutorials","SharedResources","datasets","FarmInventory","data.csv"), col_types="ccddffi");
 ```
 
 ```{r}

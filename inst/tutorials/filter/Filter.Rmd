@@ -40,15 +40,8 @@ gradethis::gradethis_setup()
 ## WARNING: The default values are set inside the "session_start" event handler, which is inside of homework.Rmd
 hmw_info <- NULL
 
-#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()
-#hmw_dataset <- "FarmInventory"#&& <-don't remove "#&&"
-#hmw_number <- 1#&& <- don't remove "#&&"
-
-#hmw_data_desc <- paste("../SharedResources/datasets/",hmw_dataset,"/description.Rmd", sep="")
-#hmw_file <- paste("homework_",hmw_number,".Rmd", sep="")
-
 ##Extra practice problems
-farm_data <- read_csv(here::here("SharedResources","datasets","FarmInventory","data.csv"), col_types="ccddffi");
+farm_data <- read_csv(here::here("inst","tutorials","SharedResources","datasets","FarmInventory","data.csv"), col_types="ccddffi");
 
 #Uncomment to view all the Learnr events and their data
 #new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {
@@ -56,7 +49,7 @@ farm_data <- read_csv(here::here("SharedResources","datasets","FarmInventory","d
 #}
 #options(tutorial.event_recorder = new_recorder)
 
-shiny::addResourcePath("SharedResources", here::here("SharedResources"))#Needed for accessing images/other files
+shiny::addResourcePath("SharedResources", here::here("inst","tutorials","SharedResources"))#Needed for accessing images/other files
 knitr::opts_chunk$set(error = FALSE, message = FALSE)
 ```
 
@@ -76,8 +69,8 @@ This means that `filter()` will search through the data you provide it, evaluate
 
 
 ## Practice Dataset  
-
-```{r, child=here::here("SharedResources","datasets","PalmerPenguins","description.Rmd")}
+ 
+```{r, child=here::here("inst","tutorials","SharedResources","datasets","PalmerPenguins","description.Rmd")}
 
 ```
 
@@ -556,9 +549,9 @@ grade_result(
 ```{r include_hmw, child="homework_1.Rmd"}
 ```
 
-```{r include_hmw_grader, child=here::here("SharedResources","grading","hmw_grader.Rmd")}
+```{r include_hmw_grader, child=here::here("inst","tutorials","SharedResources","grading","hmw_grader.Rmd")}
 ```
-```{r include_hmw_dwnld, child=here::here("SharedResources","grading","download_homework.Rmd")}
+```{r include_hmw_dwnld, child=here::here("inst","tutorials","SharedResources","grading","download_homework.Rmd")}
 ```
 
 ## Additional Practice Problems
@@ -566,7 +559,7 @@ grade_result(
 --- 
 
 
-```{r  child=here::here("SharedResources","datasets","FarmInventory","description.Rmd")}
+```{r  child=here::here("inst","tutorials","SharedResources","datasets","FarmInventory","description.Rmd")}
 ```
 
 ```{r, echo=FALSE}
