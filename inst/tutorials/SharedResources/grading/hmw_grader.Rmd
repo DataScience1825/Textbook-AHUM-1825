@@ -1,0 +1,50 @@
+```{r context="server-start"}
+
+event_register_handler("exercise_result", function(session, event, data) {
+  if(!is.null(data$label)){#Ensure the label has been set.
+    if(grepl("hmw", data$label, fixed =TRUE)){ #Only grade homework problems  
+      if(!is.null(data$feedback)){#If feedback is present, then this is a submitted problem
+        if(data$feedback$correct){
+          #Only update for a correct answer once. Ignore repeated correct answers.
+          if(!hmw_info$submissions[[strsplit(data$label, split="_")[[1]][2]]]$is_correct){
+            hmw_info$submissions[[strsplit(data$label, split="_")[[1]][2]]]$is_correct <<- TRUE
+            hmw_info$submissions[[strsplit(data$label, split="_")[[1]][2]]]$submitted_answer <<- data$code
+            hmw_info$submissions[[strsplit(data$label, split="_")[[1]][2]]]$error_msg <<- ""
+            hmw_info$hmw_grade <<- hmw_info$hmw_grade + 1
+          }
+        }
+        #Check if they haven't answered the question correctly. If not, we want to store their most recent incorrect attempt
+        else if(!hmw_info$submissions[[strsplit(data$label, split="_")[[1]][2]]]$is_correct){
+          hmw_info$submissions[[strsplit(data$label, split="_")[[1]][2]]]$submitted_answer <<- data$code
+          #If an error occurred, store the error message
+          if(data$feedback$type == "error")
+            hmw_info$submissions[[strsplit(data$label, split="_")[[1]][2]]]$error_msg <<- data$output 
+          else
+            hmw_info$submissions[[strsplit(data$label, split="_")[[1]][2]]]$error_msg <<- ""
+        }
+      }
+    }
+  }
+})
+
+event_register_handler("question_submission", function(session, event, data) {
+  if(!is.null(data$label)){#Ensure the label has been set.
+    if(grepl("hmw", data$label, fixed =TRUE)){ #Only grade homework problems  
+      #Check if they answered the interactive question correctly
+      if(data$correct){
+        #Only update for a correct answer once. Ignore repeated correct answers.
+        if(!hmw_info$submissions[[strsplit(data$label, split="_")[[1]][2]]]$is_correct){
+          hmw_info$submissions[[strsplit(data$label, split="_")[[1]][2]]]$is_correct <<- TRUE
+          hmw_info$submissions[[strsplit(data$label, split="_")[[1]][2]]]$submitted_answer <<- data$answer
+          hmw_info$hmw_grade <<- hmw_info$hmw_grade + 1
+        }
+      }
+      #Check if they haven't answered the question correctly. If not, we want to store their most recent incorrect attempt
+      else if(!hmw_info$submissions[[strsplit(data$label, split="_")[[1]][2]]]$is_correct){
+        hmw_info$submissions[[strsplit(data$label, split="_")[[1]][2]]]$submitted_answer <<- data$answer
+      }
+    }
+  }
+})
+
+```

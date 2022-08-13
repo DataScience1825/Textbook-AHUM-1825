@@ -1,0 +1,642 @@
+---
+title: "Using Filter"
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+    fig_caption: false
+    css: css/textbook.min.css
+runtime: shiny_prerendered
+description: >
+  Learn how to filter the rows in a tibble with `filter()`.
+---
+
+<!-- Known Issues 
+
+  1. The TOC breaks if SASS is compiled in the rmarkdown file
+  2. Currently the TOC progress bar isn't progressing correctly - cause unknown, might be css modifications added or shinyjs?
+-->
+
+<!-- Code for including shinyJS, currently used for toggling css classes toggleClass() | https://deanattali.com/shinyjs/advanced#usage-prerendered -->
+```{r, echo=FALSE}
+shiny::addResourcePath("shinyjs", system.file("srcjs", package = "shinyjs"))
+```
+```{r, context="server"}
+shinyjs::useShinyjs(html = TRUE)
+```
+<script src="shinyjs/inject.js"></script>
+
+<!-- End Code for shinyJs -->
+```{r setup, include=FALSE}
+library(tidyverse) 
+library(reactable) #Pretty prints the tables 
+library(shinyjs) #allows for the inclusion of javascript commands and handles dynamically modifying css
+library(emo) # Emojis library
+library(palmerpenguins)#practice dataset
+library(learnr)
+gradethis::gradethis_setup()
+
+##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem
+## WARNING: The default values are set inside the "session_start" event handler, which is inside of homework.Rmd
+hmw_info <- NULL
+
+#These two attributes can be updated with the updateAllHomeworks() or updateOneHomework()
+#hmw_dataset <- "FarmInventory"#&& <-don't remove "#&&"
+#hmw_number <- 1#&& <- don't remove "#&&"
+
+#hmw_data_desc <- paste("../SharedResources/datasets/",hmw_dataset,"/description.Rmd", sep="")
+#hmw_file <- paste("homework_",hmw_number,".Rmd", sep="")
+
+##Extra practice problems
+farm_data <- read_csv(here::here("SharedResources","datasets","FarmInventory","data.csv"), col_types="ccddffi");
+
+#Uncomment to view all the Learnr events and their data
+#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {
+   #cat("Original: \n", tutorial_id, " (", tutorial_version, "): ", user_id, ", ", event, "\n", sep = "")
+#}
+#options(tutorial.event_recorder = new_recorder)
+
+shiny::addResourcePath("SharedResources", here::here("SharedResources"))#Needed for accessing images/other files
+knitr::opts_chunk$set(error = FALSE, message = FALSE)
+```
+
+
+## What is filter()?
+
+### <span style="opacity:0;">filter()</span>
+
+![Cartoon showing three fuzzy monsters either selecting or crossing out rows of a data table. If the type of animal in the table is “otter” and the site is “bay”, a monster is drawing a purple rectangle around the row. If those conditions are not met, another monster is putting a line through the column indicating it will be excluded. Stylized text reads “dplyr::filter() - keep rows that satisfy your conditions.”](images/tutorial_banner.jpg){width=100%} 
+<p align="center">"Artwork by <a href="https://twitter.com/allison_horst?lang=en">@allison_horst</a>" </p>
+ 
+If you review the R Documentation for the [filter function](https://dplyr.tidyverse.org/reference/filter.html) you'll find the following explanation:  
+
+ > The filter() function is used to subset a data frame, retaining all rows that satisfy your conditions. To be retained, the row must produce a value of TRUE for all conditions. Note that when a condition evaluates to NA the row will be dropped, unlike base subsetting with [.  
+ 
+This means that `filter()` will search through the data you provide it, evaluate each row against the provided condition, and then return to you only the rows that met the condition. Keep in mind, this is all done **without modifying or altering the original dataset!** 
+
+
+## Practice Dataset  
+
+```{r, child=here::here("SharedResources","datasets","PalmerPenguins","description.Rmd")}
+
+```
+
+## Filtering on One Condition  
+
+--- 
+
+<span style="font-weight:bold; font-size:2em"> <span class="color1">subset</span> <- filter(<span class="color2">data</span>, <span class="color3" >condition</span>)</span>
+
+<dl>
+  <dt class="color1 medium">subset</dt>
+  <dd> Filter doesn't actually modify the provided dataset, so you'll need to store the results in order to use them in other operations. Later on we'll discuss how we can use the pipe **%>%** operator to remove the need for storing our results! But for now, make sure to always catch your filter results in a variable.</dd>
+  <dt class="color2 medium">data</dt>
+  <dd>Here you provide the name of the dataset you want to work with. For most of our practice exercises, that will be the **penguin** dataset.</dd>
+  <dt class="color3 medium ">condition</dt>
+  <dd>This is the most important part for using filter, the condition that determines which rows you want to keep. This expression must evaluate to either TRUE (keep the row) or FALSE (don't keep the row). So always make sure to double check your condition! Just because filter returns a result, doesn't mean it's the correct result.To create a condition you'll typically use one of the basic conditional operators, listed below: 
+    </dd>
+</dl> 
+
+<table class="table">
+  <tr>
+    <td colspan="2">**Conditional Statement Syntax: **</td>
+    <td colspan="2">**A operand B**</td>
+  </tr>
+  <tr>
+    <td>**==**</td><td> Equal to </td><td>**!=**</td><td> Not Equal to*</td>
+  </tr>
+  <tr>
+    <td>**&lt;**</td><td> Less than </td><td>**&lt;=**</td><td> Less than or Equal to*</td>
+  </tr>
+  <tr>
+    <td>**&gt;**</td><td> Greater than </td><td>**&gt;=**</td><td> Greater than or Equal to*</td>
+  </tr>
+  <tr>
+    <td colspan="2"></td>
+    <td colspan="2">**\*Order matters, =>, =<, and =! are not valid syntax!**</td>
+  </tr>
+</table>
+
+---  
+
+### Simple Dataset Example\
+Using the provided widget, construct a call to `filter()` that will list all the numbers that are:\
+
+  * Less than 3
+  * Greater than or equal to 7
+  * Not equal to 5
+
+```{r, echo=FALSE}
+sidebarLayout(
+    sidebarPanel(
+      selectInput("compareOp_S", "Comparison Operator", c("Equal to (==)", "Not Equal to (!=)", "Less Than (<)", "Less Than or Equal to (<=)", "Greater Than (>)", "Greater Than or Equal to (>=)")),
+      div(id="sliderDiv_S", sliderInput("slider_S", "Var Value", value=5, min=0, max=10, step=1))
+      ),
+  mainPanel(
+    htmlOutput("filterOneExpression_S"), 
+    htmlOutput("filterOneTable_S")))
+```
+
+```{r, context="server"}
+expression_S <- reactive(
+  switch(input$compareOp_S, 
+    "Equal to (==)" = paste("result <- filter(simple, var == <span style=\"color:red\">", input$slider_S, "</span>)\nresult", sep=""),
+    "Not Equal to (!=)"=paste("result <- filter(penguins, var != <span style=\"color:red\">", input$slider_S, "</span>)\nresult", sep=""),
+    "Less Than (<)"=paste("result <- filter(simple, var < <span style=\"color:red\">", input$slider_S, "</span>)\nresult", sep=""),
+    "Less Than or Equal to (<=)"=paste("result <- filter(simple, var <= <span style=\"color:red\">", input$slider_S, "</span>)\nresult", sep=""),
+    "Greater Than (>)"=paste("result <- filter(simple, var > <span style=\"color:red\">", input$slider_S, "</span>)\nresult", sep=""),
+    "Greater Than or Equal to (>=)"=paste("result <- filter(simple, var >= <span style=\"color:red\">", input$slider_S, "</span>)\nresult", sep=""),
+    "None Set"))
+
+output$filterOneExpression_S <- renderUI(HTML(paste("<pre><code>simple <- tibble(var = 0:10)#A column containing 0 - 10\n",expression_S(),"</code></pre>", sep="")))
+
+# Add CSS Classes to modify the slider so the bar is colored correctly. By default, the number slider fills in on the left slide of 
+# the slider's marker, but that doesn't correctly denote all conditions. For example, > should fill in from the right side!
+# Current Classes
+# noSlider <- removes the blue bar completely (==)
+# fullSlider<- completely fills in the blue bar (!=)
+# includeSlider <- modifies the marker to denote a value is included (==, <=, >=)
+# reverseSlider <- modifies the blue bar to fill in from the right (>, >=)
+observeEvent(input$compareOp_S, {
+ toggleClass("sliderDiv_S", "fullSlider", condition = input$compareOp_S == "Not Equal to (!=)")
+ toggleClass("sliderDiv_S", "noSlider", condition = input$compareOp_S == "Equal to (==)")
+ toggleClass("sliderDiv_S", "includeSlider", condition = input$compareOp_S == "Equal to (==)" || input$compareOp_S == "Less Than or Equal to (<=)" || input$compareOp_S == "Greater Than or Equal to (>=)")
+ toggleClass("sliderDiv_S", "reverseSlider", condition = input$compareOp_S == "Greater Than (>)" || input$compareOp_S == "Greater Than or Equal to (>=)")
+})
+
+#Basic numeric dataset for testing conditional statements
+simple <- tibble(var = 0:10)
+
+data_Included <- reactive(
+  switch(input$compareOp_S, 
+    "Equal to (==)" = filter(simple, var == as.numeric(input$slider_S)),
+    "Not Equal to (!=)"= filter(simple, var != as.numeric(input$slider_S)),
+    "Less Than (<)"= filter(simple, var < as.numeric(input$slider_S)),
+    "Less Than or Equal to (<=)"= filter(simple, var <= as.numeric(input$slider_S)),
+    "Greater Than (>)"= filter(simple, var > as.numeric(input$slider_S)),
+    "Greater Than or Equal to (>=)"= filter(simple, var >= as.numeric(input$slider_S)),
+    simple$var))
+
+data_Excluded<- reactive(
+  switch(input$compareOp_S, 
+    "Equal to (==)" = filter(simple, var != as.numeric(input$slider_S)),
+    "Not Equal to (!=)"= filter(simple, var == as.numeric(input$slider_S)),
+    "Less Than (<)"= filter(simple, var >= as.numeric(input$slider_S)),
+    "Less Than or Equal to (<=)"= filter(simple, var > as.numeric(input$slider_S)),
+    "Greater Than (>)"= filter(simple, var <= as.numeric(input$slider_S)),
+    "Greater Than or Equal to (>=)"= filter(simple, var < as.numeric(input$slider_S)),
+    c("")))
+
+output$filterOneTable_S <- renderUI(
+    HTML(paste("<table class=\"table\"><tr><th>Included Data</th><th style=\"color:red\">Excluded Data</th></tr><tr><td>",
+               paste(as.list(data_Included()$var), collapse=", "),
+               "</td><td style=\"color:red; font-weight:bold\" >",
+              paste(as.list(data_Excluded()$var), collapse=", "),
+               "</td></tr></table>", sep="")))
+
+```
+
+### Palmer Penguins Example\
+Using the provided widget, construct a call to `filter()` that will list only the penquins that:\
+
+  * have a flipper length less than or equal to 205mm
+  * are a member of the Gentoo species
+  * that have a bill length greater than 51mm
+
+<!-- Shiny App for Comparison Operators -->
+```{r, echo=FALSE}
+sidebarLayout(
+    sidebarPanel(
+      selectInput("compareOp", "Comparison Operator", c("Equal to (==)", "Not Equal to (!=)", "Less Than (<)", "Less Than or Equal to (<=)", "Greater Than (>)", "Greater Than or Equal to (>=)")),
+      conditionalPanel(
+        condition = "input.compareOp == \"Equal to (==)\" || input.compareOp == \"Not Equal to (!=)\"",
+        selectInput("equalSelect", label = "Penguin Species", choices = levels(penguins$species)),
+      ),
+      conditionalPanel(
+        condition = "input.compareOp == \"Less Than (<)\"",
+        sliderInput("lessThanSlider", "Bill Length", value=30, min=0, max=60, step=1),
+      ),
+      conditionalPanel(
+        condition = "input.compareOp == \"Less Than or Equal to (<=)\"",
+        div(class="includeSlider", sliderInput("lessEqualSlider", "Flipper Length", value=170, min=170, max=235, step=1)) 
+      ),
+      conditionalPanel(
+        condition = "input.compareOp == \"Greater Than (>)\"",
+        div(class="reverseSlider", sliderInput("greaterThanSlider", "Bill Length", value=30, min=0, max=60, step=1)) 
+      ),
+      conditionalPanel(
+        condition = "input.compareOp == \"Greater Than or Equal to (>=)\"",
+        div(class="reverseSlider includeSlider", sliderInput("greaterEqualSlider", "Flipper Length", value=170, min=170, max=235, step=1)) 
+      )),
+  mainPanel(
+    htmlOutput("filterOneExpression"), 
+    reactableOutput("filterOneTable")))
+```
+
+```{r, context="server"}
+expression <- reactive(
+  switch(input$compareOp, 
+    "Equal to (==)" = paste("result <- filter(penguins, species == <span style=\"color:red\">\"", input$equalSelect, "\"</span>)\nresult", sep=""),
+    "Not Equal to (!=)"=paste("result <- filter(penguins, species != <span style=\"color:red\">\"", input$equalSelect, "\"</span>)\nresult", sep=""),
+    "Less Than (<)"=paste("result <- filter(penguins, bill_length_mm < <span style=\"color:red\">", input$lessThanSlider, "</span>)\nresult", sep=""),
+    "Less Than or Equal to (<=)"=paste("result <- filter(penguins, flipper_length_mm <= <span style=\"color:red\">", input$lessEqualSlider, "</span>)\nresult", sep=""),
+    "Greater Than (>)"=paste("result <- filter(penguins, bill_length_mm > <span style=\"color:red\">", input$greaterThanSlider, "</span>)\nresult", sep=""),
+    "Greater Than or Equal to (>=)"=paste("result <- filter(penguins, flipper_length_mm >= <span style=\"color:red\">", input$greaterEqualSlider, "</span>)\nresult", sep=""),
+    "None Set"))
+
+output$filterOneExpression <- renderUI(HTML(paste("<pre><code>",expression(),"</code></pre>", sep="")))
+
+data <- reactive(
+  switch(input$compareOp, 
+    "Equal to (==)" = filter(penguins, species == input$equalSelect),
+    "Not Equal to (!=)"=filter(penguins, species != input$equalSelect),
+    "Less Than (<)"=filter(penguins, bill_length_mm < as.numeric(input$lessThanSlider)),
+    "Less Than or Equal to (<=)"=filter(penguins, flipper_length_mm <= as.numeric(input$lessEqualSlider)),
+    "Greater Than (>)"=filter(penguins, bill_length_mm > as.numeric(input$greaterThanSlider)),
+    "Greater Than or Equal to (>=)"=filter(penguins, flipper_length_mm >= as.numeric(input$greaterEqualSlider)),
+    penguins))
+
+output$filterOneTable <- renderReactable({
+  reactable(
+    data(),
+    defaultPageSize = 5,
+    columns = list(
+      species = colDef(minWidth = 100), 
+      island = colDef(minWidth = 100),   
+      bill_length_mm = colDef(minWidth = 125),
+      bill_depth_mm = colDef(minWidth = 125),
+      flipper_length_mm = colDef(minWidth = 145),
+      body_mass_g = colDef(minWidth = 125),
+      sex = colDef(minWidth = 75),
+      year= colDef(minWidth = 50)
+    ))})
+
+```
+
+### Practice Problems
+
+#### Practice Problem 1
+Finish the code block, so that you list only the female penguins
+```{r filter_practice1, exercise = TRUE, exercise.blanks = "___+"}
+filter(penguins, sex == _____)
+```
+
+```{r filter_practice1-solution}
+filter(penguins, sex == "female")
+```
+
+```{r filter_practice1-check}
+grade_result(
+  pass_if(~identical(.result, filter(penguins, sex == "female")))
+)
+```
+
+#### Practice Problem 2
+Finish the code block, so that you list only the penguins whose bill length wasn't recorded.
+```{r filter_practice2, exercise = TRUE, exercise.blanks = "___+"}
+filter(penguins, ____ bill_length_mm ____)
+```
+
+```{r filter_practice2-solution}
+filter(penguins, is.na(bill_length_mm))
+```
+
+
+```{r filter_practice2-check}
+grade_result(
+  pass_if(~identical(.result, filter(penguins, is.na(bill_length_mm))))
+)
+```
+
+#### Practice Problem 3
+Write the necessary code so that only penguins with a body mass that is at least 3250 are listed.
+```{r filter_practice3, exercise = TRUE}
+
+```
+
+```{r filter_practice3-solution}
+filter(penguins, body_mass_g >= 3250)
+```
+
+
+```{r filter_practice3-check}
+grade_result(
+  pass_if(~identical(.result, filter(penguins, body_mass_g >= 3250)))
+)
+```
+
+#### Practice Problem 4
+Write the necessary code to list all the penguins found on the Torgersen island.
+```{r filter_practice4, exercise = TRUE}
+
+```
+
+```{r filter_practice4-solution}
+filter(penguins, island == "Torgersen")
+```
+
+
+```{r filter_practice4-check}
+grade_result(
+  pass_if(~identical(.result, filter(penguins, island == "Torgersen")))
+)
+```
+
+#### Practice Problem 5
+The following code segment returns an empty frame. Fix the code so that it returns the expected dataframe.
+```{r filter_practice5, exercise = TRUE}
+filter(penguins, species == "adelie")
+```
+
+<div id="filter_practice5-hint">
+**Hint:** Text searches are case sensitive and the results should have 152 rows.
+</div>
+
+
+```{r filter_practice5-check}
+grade_result(
+  pass_if(~identical(.result, filter(penguins, species == "Adelie")))
+)
+```
+
+## Filtering on Multiple Conditions
+In the previous section, we learned how to apply filter to a dataset using a single condition but often you'll need to apply multiple conditions to widdle down to just the rows you want. When we need to apply multiple conditions at once, we turn to the logical operators! There are three primary logical operators we will work with, which are AND (&), OR (|), and NOT (!).  
+
+  *  **AND &** \
+      * An **&** statement will only evaluate to TRUE if **both** conditions evaluate to TRUE.\
+      * When using filter, the comma (,) acts as an implicit & between each condition. 
+      * `filter(data, conditionA & conditionB)` &nbsp; `filter(data, conditionA, conditionB)`\
+  *  **OR |** \
+      * An **|** statement will evaluate to TRUE if **either** condition evaluates to TRUE.\
+      * `filter(data, conditionA | conditionB)`\
+  *  **NOT !** \
+      * The **!** operator will **flip** a condition's boolean value. Which means !(TRUE) becomes FALSE and !(FALSE) becomes TRUE.\
+      * `filter(data, !(conditionA) )`\
+    
+---  
+
+### Simple Dataset Example  
+```{r, echo=FALSE}
+fluidRow(
+    column(1),
+    column(4,
+      fluidRow(
+        column(1,  checkboxInput("compareOp_Left_Not", NULL, FALSE)),
+        column(1, p(id="leftNotSymbol", style="font-size:1.5em; font-weight:bold; color:grey", "!")),
+        column(2,p(style="font-size:1.5em;font-weight:bold","(var")),
+        column(5, style="font-size:1.5em;", selectInput("compareOp_Left", NULL, c("==", "!=", "<", "<=", ">", ">="))),
+        column(2, style="padding-left:0px", span(style="font-size:1.5em;font-weight:bold", textOutput("leftConditionVal")))),
+        div(id="divSlider_Left", sliderInput("slider_Left", NULL, value=5, min=0, max=10, step=1)) 
+      ),
+    column(2, 
+           fluidRow(
+             column(2, p()),
+             column(8, div(style="font-size:1.5em;", selectInput("boolOp", NULL, c("&", "|")))),
+             column(2, p()))),
+    column(4,
+      fluidRow(
+        column(1,  checkboxInput("compareOp_Right_Not", NULL, FALSE)),
+        column(1, p(id="rightNotSymbol", style="font-size:1.5em; font-weight:bold; color:grey", "!")),
+        column(2,p(style="font-size:1.5em;font-weight:bold","(var")),
+        column(5, style="font-size:1.5em;", selectInput("compareOp_Right", NULL, c("==", "!=", "<", "<=", ">", ">="))),
+        column(2, style="padding-left:0px", span(style="font-size:1.5em;font-weight:bold", textOutput("rightConditionVal")))),
+        div(id="divSlider_Right", sliderInput("slider_Right", NULL, value=5, min=0, max=10, step=1)) 
+      ),
+    column(1))
+  htmlOutput("filterTwoExpression_S") 
+  htmlOutput("filterTwoTable_S")
+```
+
+```{r, context="server"}
+output$leftConditionVal <- renderText({ paste(input$slider_Left, ")", sep="") })
+output$rightConditionVal <- renderText({ paste(input$slider_Right, ")", sep="") })
+# Add CSS Classes to modify the slider so the bar is colored correctly. By default, the number slider fills in on the left slide of 
+# the slider's marker, but that doesn't correctly denote all conditions. For example, > should fill in from the right side!
+# Current Classes: 
+# noSlider <- removes the blue bar completely (==)
+# fullSlider<- completely fills in the blue bar (!=)
+# includeSlider <- modifies the marker to denote a value is included (==, <=, >=)
+# reverseSlider <- modifies the blue bar to fill in from the right (<, <=)
+observeEvent(input$compareOp_Left, {
+ toggleClass("divSlider_Left", "fullSlider", condition = input$compareOp_Left == "!=")
+ toggleClass("divSlider_Left", "noSlider", condition = input$compareOp_Left == "==")
+ toggleClass("divSlider_Left", "includeSlider", condition = (input$compareOp_Left == "==" || input$compareOp_Left == "<=" || input$compareOp_Left == ">="))
+ toggleClass("divSlider_Left", "reverseSlider", condition = (input$compareOp_Left == ">" || input$compareOp_Left == ">="))
+})
+observeEvent(input$compareOp_Right, {
+ toggleClass("divSlider_Right", "fullSlider", condition = input$compareOp_Right == "!=")
+ toggleClass("divSlider_Right", "noSlider", condition = input$compareOp_Right == "==")
+ toggleClass("divSlider_Right", "includeSlider", condition = (input$compareOp_Right == "==" || input$compareOp_Right == "<=" || input$compareOp_Right == ">="))
+ toggleClass("divSlider_Right", "reverseSlider", condition = (input$compareOp_Right == ">" || input$compareOp_Right == ">="))
+})
+
+#Toggle the not (!) symbol, so it is displayed only when the checkbox is marked.
+observeEvent(input$compareOp_Left_Not, { 
+  if(input$compareOp_Left_Not){
+    runjs("document.getElementById('leftNotSymbol').style.color='black'")
+  }
+  else{
+    runjs("document.getElementById('leftNotSymbol').style.color='grey'")
+  }
+})
+
+observeEvent(input$compareOp_Right_Not, { 
+  if(input$compareOp_Right_Not){
+    runjs("document.getElementById('rightNotSymbol').style.color='black'")
+  }
+  else{
+    runjs("document.getElementById('rightNotSymbol').style.color='grey'")
+  }
+})
+ 
+expressionBool_S <- reactive(paste("simple <- tibble(var = 0:10)#A column containing 0 - 10\nfilter(simple, ", 
+                          ifelse(input$compareOp_Left_Not, "!", ""), "(var ", input$compareOp_Left," ", 
+                          input$slider_Left,") ", input$boolOp," ", 
+                          ifelse(input$compareOp_Right_Not, "!", "") ,"(var ", 
+                          input$compareOp_Right," ",input$slider_Right,"))", sep=""))
+
+output$filterTwoExpression_S <- renderUI(HTML(paste("<pre><code>",expressionBool_S(),"</code></pre>", sep="")))
+#observe(print(expressionBool_S()))
+#observe(print(eval(expressionBool_S())))
+output$filterTwoTable_S <- renderUI(
+    HTML(paste("<table class=\"table\"><tr><th>Included Data</th><th style=\"color:red\">Excluded Data</th></tr><tr><td>",
+               paste(as.list(eval(parse(text=expressionBool_S()))$var), collapse=", "),
+               "</td><td style=\"color:red; font-weight:bold\" >",
+              paste(simple$var[!(simple$var %in% as.list(eval(parse(text=expressionBool_S()))$var))], collapse=", "),
+               "</td></tr></table>", sep="")))
+```
+
+### Practice Problems
+
+#### Practice Problem 6
+Finish the code block, so that you only list the penguins from Torgersen island with a flipper length of exactly 195 mm.
+```{r filter_practice6, exercise = TRUE, exercise.blanks = "___+"}
+filter(penguins, island ____ ____ flipper_length_mm ____)
+```
+
+```{r filter_practice6-solution}
+filter(penguins, island == "Torgersen" & flipper_length_mm == 195)
+```
+
+```{r filter_practice6-check}
+grade_result(
+  pass_if(~identical(.result, filter(penguins, island == "Torgersen" & flipper_length_mm == 195)))
+)
+```
+
+#### Practice Problem 7
+Finish the code block, so that you list only the penguins that have a body mass between 3000 and 3500 (inclusive).
+```{r filter_practice7, exercise = TRUE, exercise.blanks = "___+"}
+filter(penguins, body_mass_g ____ 3000 ____ body_mass_g ____ 3500 )
+```
+
+```{r filter_practice7-solution}
+filter(penguins, body_mass_g >= 3000 & body_mass_g <= 3500)
+```
+
+```{r filter_practice7-check}
+grade_result(
+  pass_if(~identical(.result, filter(penguins, body_mass_g >= 3000 & body_mass_g <= 3500)))
+)
+```
+
+#### Practice Problem 8
+Write the necessary code to list all of the Gentoo penguins who have measurements entered for both their bill depth and bill length.
+```{r filter_practice8, exercise = TRUE}
+
+```
+
+```{r filter_practice8-solution}
+filter(penguins, species == "Gentoo", !is.na(bill_depth_mm), !is.na(bill_length_mm))
+```
+
+```{r filter_practice8-check}
+grade_result(
+  pass_if(~identical(.result, filter(penguins, species == "Gentoo", !is.na(bill_depth_mm), !is.na(bill_length_mm))))
+)
+```
+
+#### Practice Problem 9
+Write the necessary code to retrieve all the penguins who had their data recorded in 2007 or 2009, do not live on Biscoe island, and a flipper length between 190 and 200 (exclusive)
+```{r filter_practice9, exercise = TRUE}
+
+```
+
+```{r filter_practice9-solution}
+filter(penguins, (year == 2007 | year == 2009), island != "Biscoe", flipper_length_mm >190, flipper_length_mm < 200)
+```
+
+```{r filter_practice9-check}
+grade_result(
+  pass_if(~identical(.result, filter(penguins, (year == 2007 | year == 2009), island != "Biscoe", flipper_length_mm >190, flipper_length_mm < 200)))
+)
+```
+
+#### Practice Problem 10
+The following code segment is intended to only list the lighter penguins, but is instead listing all of the penguins, regardless of size. Fix the code, so that only the chosen set of penguins are listed.
+```{r filter_practice10, exercise = TRUE}
+filter(penguins, body_mass_g < 3500 | body_mass_g > 2000)
+```
+
+<div id="filter_practice10-hint">
+**Hint:** You should have a result with 71 rows. If you don't, try picking two test values for body mass. One that should pass the condition and one that should fail. Manually test your condition to track down which part might contain the error.
+</div>
+
+
+```{r filter_practice10-check}
+grade_result(
+  pass_if(~identical(.result, filter(penguins, body_mass_g < 3500 & body_mass_g > 2000)))
+)
+```
+
+## Homework 
+
+--- 
+
+```{r include_hmw, child="homework_1.Rmd"}
+```
+
+```{r include_hmw_grader, child=here::here("SharedResources","grading","hmw_grader.Rmd")}
+```
+```{r include_hmw_dwnld, child=here::here("SharedResources","grading","download_homework.Rmd")}
+```
+
+## Additional Practice Problems
+
+--- 
+
+
+```{r  child=here::here("SharedResources","datasets","FarmInventory","description.Rmd")}
+```
+
+```{r, echo=FALSE}
+head(farm_data)
+```
+**Warning**: These additional practice problems go beyond what is covered in this tutorial. They are meant to help you strengthen your coding skills and work on more complex calls to `filter()`. This means that you may have to use new functions, new libraries, or really think "out of the box" to solve them. If you get stuck, make sure to read through the provided hints! 
+
+#### Practice Problem 11 
+Write the necessary code to list all of the Russian Blue Potatoes and Purple Sweet Potatoes that have a potential revenue over $3,000.
+```{r filter_practice11, exercise = TRUE}
+
+```
+
+<div id="filter_practice11-hint">
+**Hint 1:** "Potential revenue" refers to how much money would be earned if all of a food item's stock was sold at once. <br> **Hint 2:** Besides checking the value of individual variables (columnA >= 2), you can also incorporate math equations (5 * columnA < 100) into your conditions.
+</div>
+
+```{r filter_practice11-check}
+grade_result(
+  pass_if(~identical(.result, filter(farm_data, p_name == "Russian Blue Potato" | p_name == "Purple Sweet Potato", p_per_lb * q_in_lbs > 3000)))
+)
+```
+
+#### Practice Problem 12 
+Write the necessary code to list all of the the beef products.
+```{r filter_practice12, exercise = TRUE}
+
+```
+
+<div id="filter_practice12-hint">
+**Hint:** To solve this problem, you'll need to use a method like [str_detect()](https://stringr.tidyverse.org/reference/str_detect.html), which can search for a specific phrase within a piece of text.
+</div>
+
+```{r filter_practice12-check}
+grade_result(
+  pass_if(~identical(.result, filter(farm_data, str_detect(p_name, "Beef"), type=="MEAT")))
+)
+```
+
+#### Practice Problem 13 
+Write the necessary code to list all of the food items that are missing an average shelf life.
+```{r filter_practice13, exercise = TRUE, exercise.completion = FALSE}
+
+```
+
+<div id="filter_practice13-hint">
+**Hint:** In this context, "missing values" would be the same as saying ***NA***. Try reading about R's built in function  [is.na()](https://r4ds.had.co.nz/transform.html?q=is.na#missing-values), which can determine if a variable is or is not equal to NA.
+</div>
+
+```{r filter_practice13-check}
+grade_result(
+  pass_if(~identical(.result, filter(farm_data, is.na(avg_sl))))
+)
+```
+
+#### Practice Problem 14 
+Finish the code below, so that only the food items on the grocery list from Sevier Farm are listed. 
+```{r filter_practice14, exercise = TRUE, exercise.completion = FALSE}
+groceries <- c("Fuji Apple", "Soy Yogurt", "Whole Duck", "Cheddar Cheese", "Seeded Watermelon")
+
+filter(farm_data, _________)
+```
+
+<div id="filter_practice14-hint">
+**Hint:** You'll need to incorporate the %in% operator, which can check if a value is present in a vector. For example `1 %in% c(1,2,3)` would be TRUE, but `5 %in% c(1,2,3)` would be FALSE.
+</div>
+
+```{r filter_practice14-check}
+groceries <- c("Fuji Apple", "Seeded Watermelon", "Soy Yogurt", "Whole Duck", "Cheddar Cheese")
+grade_result(
+  pass_if(~identical(.result, filter(farm_data, p_name %in% groceries, f_name == "Sevier")))
+)
+```

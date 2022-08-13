@@ -1,0 +1,85 @@
+
+```{r context="server-start"}
+##When the student begins a tutorial or hits "start over" this will reset their homework information. This will clear their
+## homework grade and any homework problems submissions currently stored.
+event_register_handler("session_start", function(session, event, data) {
+  hmw_info <<- reactiveValues(s_id = "Not Set ", 
+                           hmw_grade = 0.0, 
+                           submissions = list(
+                                  hmw1 = list(type="questionaire", 
+                                               q_text="A multiple choice or true/false question",
+                                               choices=c("Choice A", "Choice B", "Choice C"), 
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw2 = list(type="code", 
+                                               q_text="This is a coding question with starter code ", 
+                                               choices="starte_code_here",
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw3 = list(type="code", 
+                                               q_text="This is a coding question without starter code ", 
+                                               choices=NULL,
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = "")
+                                   ))
+})
+```
+
+```{r, child=here::here("SharedResources","datasets","GreenVehicles","description.Rmd")}
+```
+
+<!-- Each exercise runs in a separate environment. To have a common dataset in a homework tutorial, there needs to be a shared setup chunk. -->
+
+```{r prepare-select-hw1, include=FALSE}
+green_vehicles <- read_csv(here::here("SharedResources","datasets","GreenVehicles","data.csv"), col_types="fcddffffcccfdddddcd")
+```
+
+<!-- Repeat so that the head(data) block will load when the file is knitted -->
+```{r, include=FALSE}
+green_vehicles <- read_csv(here::here("SharedResources","datasets","GreenVehicles","data.csv"), col_types="fcddffffcccfdddddcd")
+```
+
+```{r}
+head(green_vehicles)
+```
+
+
+#### Problem 1
+```{r starter_hmw1, echo=FALSE, exercise.startover = TRUE}
+  question("Multiple Choice Quesiton :",
+  answer("Choice A", correct = TRUE),
+  answer("Choice B"),
+  answer("Choice C"),
+  answer("None of the above"),
+  incorrect = "feedback on wrong answer",
+  allow_retry = TRUE
+)
+```
+
+#### Problem 2 
+Fill in the blanks with the necessary code so that...
+```{r starter_hmw2, exercise = TRUE, exercise.blanks = "___+", exercise.completion = FALSE, exercise.setup="prepare-select-hw1"}
+complete code ____ by filling ____ in blanks _____ 
+```
+
+```{r starter_hmw2-check}
+grade_result(
+  pass_if(~identical(.result, TRUE))#Replace TRUE with the solution's code
+)
+```
+
+
+#### Problem 3
+Write the necessary code to ...
+```{r starter_hmw3, exercise = TRUE, exercise.completion = FALSE}
+
+```  
+
+```{r starter_hmw3-check}
+grade_result(
+  pass_if(~identical(.result, TRUE))#Replace TRUE with the solution's code
+)
+```

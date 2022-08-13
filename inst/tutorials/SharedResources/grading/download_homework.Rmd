@@ -1,0 +1,40 @@
+
+<!-- Create a button for downloading the homework submission and displaying the grade -->
+```{r, echo=FALSE}
+fluidRow(
+      column(6, align="center", downloadButton("hmw_submission", "Download Homework Submission")),
+      column(6, align="center", textOutput("grade")))
+
+```
+
+
+<!-- Read the student's homework submission to update their displayed grade and for generating their homework report -->
+```{r, context="server"}
+
+  s_id <- reactive({hmw_info$s_id})
+  grade <- reactive({hmw_info$hmw_grade})
+  homework <- reactive({hmw_info$submissions})
+  
+  output$grade <- renderText({ 
+      paste("Grade: ", format(round((grade() / length(homework())) * 100, 2), nsmall = 2), "%")
+    })
+  
+  output$hmw_submission <- downloadHandler(
+  filename = function() {
+    paste0("Filter_Homework_", Sys.Date(), ".html")
+  },
+  content = function(file) {
+    rmarkdown::render("../SharedResources/grading/hmw_submission.Rmd",
+                      output_file = file, 
+                      params = list(
+                        title = "Filter Homework", 
+                        user = s_id(),
+                        grade = format(round((grade() / length(homework())) * 100, 2), nsmall = 2),
+                        submissions = homework()
+                      ),
+                      envir = new.env(),
+                      intermediates_dir = tempdir())
+  }
+)
+
+```

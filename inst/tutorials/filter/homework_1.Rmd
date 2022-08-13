@@ -1,0 +1,138 @@
+```{r context="server-start"}
+##When the student begins a tutorial or hits "start over" this will reset their homework information. This will clear their
+## homework grade and any homework problems submissions currently stored.
+event_register_handler("session_start", function(session, event, data) {
+  hmw_info <<- reactiveValues(s_id = get_tutorial_info()$user_id, #Student's id. Uses their currently running account's username, which if its the campus RStudio Online server will be their student username
+                           hmw_grade = 0, # The number of homework questions they have answer correctly 
+                           submissions = list( # A list for tracking the information on all of the student's homework problem submissions
+                               hmw1 = list(type="questionaire", 
+                                           q_text="(True or False), filter() modifies the dataframe passed to it.",
+                                           choices=c("True", "False"), 
+                                           is_correct = FALSE, 
+                                           submitted_answer = "",
+                                           error_msg = ""),
+                               hmw2 = list(type="questionaire", 
+                                           q_text="The & operator only evaulates to true if :",
+                                           choices=c("both conditions are true", "neither condition is true", 
+                                                     "either condition is true", "both conditions are false", "None of the above"), 
+                                           is_correct = FALSE, 
+                                           submitted_answer = "",
+                                           error_msg = ""),
+                               hmw3 = list(type="code", 
+                                           q_text="Fill in the blanks with the necessary code so that only the vegetables from Bailey Farm are listed. ", 
+                                           choices="filter(data, ____ == \"Peppridge\" ____ type ____ \"VEGETABLE\")",
+                                           is_correct = FALSE, 
+                                           submitted_answer = "",
+                                           error_msg = ""),
+                               hmw4 = list(type="code", 
+                                           q_text="Debugging Exercise - Fix the following piece of code so that only the dairy products are listed.", 
+                                           choices="filter(farm_data, type = \"dairy\")", 
+                                           is_correct = FALSE, 
+                                           submitted_answer = "",
+                                           error_msg = ""),
+                               hmw5 = list(type="code", 
+                                           q_text="Write the necessary code to list all of the legumes that have an average shelf life of at least 30 days.", 
+                                           choices=NULL, 
+                                           is_correct = FALSE, 
+                                           submitted_answer = "",
+                                           error_msg = ""),
+                               hmw6 = list(type="code", 
+                                           q_text="Write the necessary code to list all of the Russian Blue Potatoes and Purple Sweet Potatoes that have over 2,000 pounds in stock.", 
+                                           choices=NULL, 
+                                           is_correct = FALSE, 
+                                           submitted_answer = "",
+                                           error_msg = "")))
+
+})
+
+
+```
+
+```{r include_hmw, child=here::here("SharedResources","datasets","FarmInventory","description.Rmd")}
+```
+
+```{r prepare-hmw-filter-1, echo=FALSE}
+farm_data <- read_csv(here::here("SharedResources","datasets","FarmInventory","data.csv"), col_types="ccddffi");
+```
+
+```{r, echo=FALSE}
+farm_data <- read_csv(here::here("SharedResources","datasets","FarmInventory","data.csv"), col_types="ccddffi");
+```
+
+```{r}
+head(farm_data)
+```
+
+#### Problem 1 
+
+```{r filter_hmw1, echo=FALSE}
+
+question("(True or False), filter() modifies the dataframe passed to it.",
+  answer("True"),
+  answer("False", correct=TRUE),
+  incorrect = "Incorrect, as stated [here](https://r4ds.had.co.nz/transform.html?q=filter#filter-rows-with-filter), filter() does not modify the data passed to it. filter() instead creates and returns a new dataframe.",
+  allow_retry = TRUE
+)
+```
+
+#### Problem 2 
+```{r filter_hmw2, echo=FALSE, exercise.startover = TRUE}
+  question("The & operator only evaulates to true if :",
+  answer("both conditions are true", correct = TRUE),
+  answer("neither condition is true"),
+  answer("either condition is true"),
+  answer("both conditions are false"),
+  answer("None of the above"),
+  allow_retry = TRUE
+)
+```
+
+#### Problem 3 
+Fill in the blanks with the necessary code so that only the vegetables from Bailey Farm are listed.
+
+```{r filter_hmw3, exercise = TRUE, exercise.blanks = "___+", exercise.completion = FALSE, exercise.setup = "prepare-hmw-filter-1"}
+filter(farm_data, ____ == "Peppridge" ____ type ____ "VEGETABLE")
+```
+
+```{r filter_hmw3-check}
+grade_result(
+  pass_if(~identical(.result, filter(farm_data, f_name == "Peppridge" & type == "VEGETABLE")))
+)
+```
+
+#### Problem 4 
+Debugging Exercise - Fix the following piece of code so that only the dairy products are listed.
+```{r filter_hmw4, exercise = TRUE, exercise.completion = FALSE, , exercise.setup = "prepare-hmw-filter-1"}
+filter(farm_data, type = "dairy")
+```
+
+```{r filter_hmw4-check}
+grade_result(
+  pass_if(~identical(.result, filter(farm_data, type == "DAIRY")))
+)
+```
+
+#### Problem 5
+Write the necessary code to list all of the legumes that have an average shelf life of at least 30 days.
+```{r filter_hmw5, exercise = TRUE, exercise.completion = FALSE, exercise.setup = "prepare-hmw-filter-1"}
+
+```  
+
+```{r filter_hmw5-check}
+grade_result(
+  pass_if(~identical(.result, filter(farm_data, type == "LEGUME", avg_sl >= 30)))
+)
+```
+
+#### Problem 6
+Write the necessary code to list all of the Russian Blue Potatoes and Purple Sweet Potatoes that have over 2,000 pounds in stock.
+```{r filter_hmw6, exercise = TRUE, exercise.completion = FALSE, exercise.setup = "prepare-hmw-filter-1"}
+
+```
+
+```{r filter_hmw6-check}
+grade_result(
+  pass_if(~identical(.result, filter(farm_data, p_name == "Russian Blue Potato" | p_name == "Purple Sweet Potato",  q_in_lbs > 2000)))
+)
+```
+

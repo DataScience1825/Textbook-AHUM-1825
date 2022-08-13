@@ -1,0 +1,99 @@
+
+![A banner with a centered message of Farming Dataset, on the left are a collection of vegetables, and on the right is a milk can and a hen with its chicks ](shared_images/Farm Dataset Banner_Black.png){width=100%} 
+
+This tutorial's homework exercises will use a dataset representing the foods goods stored at four fictitious farms. Each row represents a food item being stored at a given farm and each column provides additional details on that food item:\
+
+  - **p_name** : [character] a food product's name (e.g. Fuji Apples, Sweet Corn)
+  - **f_name**:  [character] the name of the farm storing the food item (Peppridge, Old Mcdonald, Bailey, Sevier)
+  - **p_per_lb** : [number] the food item's price per pound   
+  - **q_in_lbs** : [number] the quantity of food being store in pounds
+  - **season** : [factor] the typical season for harvesting the food item (Fall, Winter, Spring, Summer, Year Round)  
+  - **type** : [factor] the food item's type (FRUIT, VEGETABLE, TUBER, LEGUME, CEREAL, MEAT, or DAIRY)
+  - **avg_sl** : [integer] the average shelf life (in days) for the food item  
+
+```{r}
+head(farm_data)
+```
+
+
+```{r context="server-start"}
+##When the student begins a tutorial or hits "start over" this will reset their homework information. This will clear their
+## homework grade and any homework problems submissions currently stored.
+event_register_handler("session_start", function(session, event, data) {
+  hmw_info <<- reactiveValues(s_id = "Not Set ", 
+                           hmw_grade = 0.0, 
+                           submissions = list(
+                                  hmw1 = list(type="questionaire", 
+                                               q_text="A multiple choice or true/false question",
+                                               choices=c("Choice A", "Choice B", "Choice C"), 
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw2 = list(type="code", 
+                                               q_text="This is a coding question with starter code ", 
+                                               choices="starte_code_here",
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw3 = list(type="code", 
+                                               q_text="This is a coding question without starter code ", 
+                                               choices=NULL,
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = "")
+                                   ))
+})
+```
+
+<!--
+  Each homework problem requires a unique identifier. The naming convention used here is:
+    tutorialName_hmw#  where # represents the homework problem's number
+
+  A template has been provided for three different question types:
+    Problem 1 - a multiple choice question
+    Problem 2 - a coding question that uses fill in the blanks
+    Problem 3 - a coding question that provides no code snippets for the user
+  
+  More details on multiple choice sytle questions can be found here:
+      https://pkgs.rstudio.com/learnr/articles/questions.html 
+    
+  More details on coding questions can be found here: 
+      https://pkgs.rstudio.com/learnr/articles/exercises.html 
+-->
+
+#### Problem 1
+```{r starter_hmw1, echo=FALSE, exercise.startover = TRUE}
+  question("Multiple Choice Quesiton :",
+  answer("Choice A", correct = TRUE),
+  answer("Choice B"),
+  answer("Choice C"),
+  answer("None of the above"),
+  incorrect = "feedback on wrong answer",
+  allow_retry = TRUE
+)
+```
+
+#### Problem 2 
+Fill in the blanks with the necessary code so that...
+```{r starter_hmw2, exercise = TRUE, exercise.blanks = "___+", exercise.completion = FALSE}
+complete code ____ by filling ____ in blanks _____ 
+```
+
+```{r starter_hmw2-check}
+grade_result(
+  pass_if(~identical(.result, TRUE))#Replace TRUE with the solution's code
+)
+```
+
+
+#### Problem 3
+Write the necessary code to ...
+```{r starter_hmw3, exercise = TRUE, exercise.completion = FALSE}
+
+```  
+
+```{r starter_hmw3-check}
+grade_result(
+  pass_if(~identical(.result, TRUE))#Replace TRUE with the solution's code
+)
+```

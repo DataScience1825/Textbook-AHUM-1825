@@ -1,0 +1,211 @@
+
+/* Color Pallete */
+$color1: #D326E0
+$color2: #049AE0
+$color3: #E0871B
+$color4: #6AE010
+$color5: #F00502
+
+/*Underscores */
+.underline
+  text-decoration: underline 
+  text-decoration-color: #FFFFFF
+  text-decoration-thickness: 0.2em
+
+.uOne 
+  text-decoration-color: $color1 
+
+.uTwo 
+  text-decoration-color: $color2 
+
+.uThree 
+  text-decoration-color: $color3 
+
+.uFour 
+  text-decoration-color: $color4 
+
+.uFive 
+  text-decoration-color: $color5 
+
+.color1 
+  color: $color1 
+
+.color2 
+  color: $color2 
+  
+.color3 
+  color: $color3 
+  
+.color4 
+  color: $color4 
+  
+.color5 
+  color: $color5 
+
+.thin
+  text-decoration-thickness: 0.15em
+  
+/* Quick font sizing */ 
+  
+.small 
+  font-size: 0.75em 
+  
+.normal 
+  font-size: 1em  
+  
+.medium 
+  font-size: 1.25em  
+  
+.large 
+  font-size: 1.75em  
+  
+.xlarge 
+  font-size: 2.25em 
+  
+/* Font bolding */
+  
+.bold 
+  font-weight: bold 
+  
+.bolder 
+  font-weight: bolder 
+  
+/* Callout boxes */
+
+.quick_note_box 
+  margin: 10px 20% 
+  padding: 20px 
+  border: solid 5px $color1 
+  
+.quick_note_header 
+  font-size: 2.5rem
+  font-weight: bolder 
+  text-align: center 
+  margin-bottom: 0 
+  color: $color1 
+  
+.further_reading_box 
+  margin: 10px 20% 
+  padding: 20px 
+  border: solid 5px $color2 
+  
+.further_reading_header 
+  font-size: 2.5rem
+  font-weight: bolder 
+  text-align: center 
+  margin-bottom: 0 
+  color: $color2
+  
+.video_box 
+  margin: 10px 20% 
+  padding: 20px 
+  border: solid 5px $color3 
+  
+.video_header 
+  font-size: 2.5rem
+  font-weight: bolder 
+  text-align: center 
+  margin-bottom: 0 
+  color: $color3
+  
+.warning_box 
+  margin: 10px 20% 
+  padding: 20px 
+  border: solid 5px $color5 
+  
+.warning_header 
+  font-size: 2.5rem
+  font-weight: bolder 
+  text-align: center 
+  margin-bottom: 0 
+  color: $color5 
+
+
+
+/* CSS To reverse slider coloring, so that it comes from the right side instead of the left */
+
+.reverseSlider .irs-bar 
+    border-top: 1px solid #ddd
+    border-bottom: 1px solid #ddd
+    background: linear-gradient(to bottom, #DDD -50%, #FFF 150%)
+
+.reverseSlider .irs-bar-edge 
+    border: 1px solid #ddd
+    background: linear-gradient(to bottom, #DDD -50%, #FFF 150%)
+    border-right: 0
+
+.reverseSlider .irs-line 
+    background: #428bca
+    border: 1px solid #428bca
+    
+.noSlider .irs-bar 
+    border-top: 1px solid #ddd
+    border-bottom: 1px solid #ddd
+    background: #ddd
+
+.noSlider .irs-bar-edge 
+    border: 1px solid #ddd
+    background: #ddd
+    border-right: 0
+    
+.noSlider .irs-line 
+    background: #ddd
+    border: 1px solid #ddd
+    
+.fullSlider .irs-bar 
+    border-top: 1px solid #ddd
+    border-bottom: 1px solid #ddd
+    background: #428bca
+
+.fullSlider .irs-bar-edge 
+    border: 1px solid #ddd
+    background: #428bca
+    border-right: 0
+
+.fullSlider .irs-line 
+    background: #428bca
+    border: 1px solid #428bca
+
+
+.irs--shiny .irs-handle.state_hover, .irs--shiny .irs-handle:hover
+  background: #dedede
+
+
+.irs--shiny .irs-handle
+   background: #ffffff
+
+
+.includeSlider .irs--shiny .irs-handle
+  background: #428bca
+
+
+/* General modifications of tags */
+dd 
+  margin-bottom: 5px
+  
+/* CSS to enable Shiny App to be printable */
+@media print 
+  .topicsContainer,
+  .topicActions,
+  .exerciseActions .skip 
+    display: none
+  
+  .topics .tutorialTitle,
+  .topics .section.level2,
+  .topics .section.level3:not(.hide) 
+    display: block
+  
+  .topics 
+    width: 100%
+  
+  .tutorial-exercise, .tutorial-question 
+    page-break-inside: avoid
+  
+  .section.level3.done h3 
+    padding-left: 0
+    background-image: none
+  
+  .topics .showSkip .exerciseActions::before 
+    content: "Topic not yet completed..."
+    font-style: italic
+  

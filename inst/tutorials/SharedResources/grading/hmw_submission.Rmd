@@ -1,0 +1,62 @@
+---
+title: "`r params$title`"
+date: "`r format(Sys.time(), '%d %B, %Y')`" 
+author: "`r params$user`"
+comment: "This is another comment to add in here"
+output: html_document
+params:
+  title: Homework 
+  user: Unknown 
+  grade: 0 
+  submissions: NULL  
+---
+
+```{r setup, include=FALSE}
+library(shiny)
+
+hmw_submission <- c()
+if(!is.null(params$submission)){
+  for(i in 1:length(params$submission)){
+
+    q_options <- p()
+    
+    if(params$submission[[i]]$type == "questionaire"){
+      #generate an unorder list of the questionaire choices
+      choices <- c()
+      for(c in 1:length(params$submission[[i]]$choices))
+      {
+        choices[[c]] <- tags$li(params$submission[[i]]$choices[c])
+      }
+      q_options <- tags$ul(choices)
+    }
+    else{
+      #Check if starter code was provided
+      if(!is.null(params$submission[[i]]$choices)){
+        q_options <- p(style="font-weight:bold; padding-left:10px;", params$submission[[i]]$choices)
+      }
+    }
+    
+    hmw_submission[[((i-1)*3)+1]]<- tags$tr(style="border-bottom: 3px solid black", 
+                                              tags$td(style="font-weight:bold; font-size:1.75em; padding-top:20px;", paste("Problem ", i, sep="")))
+    hmw_submission[[((i-1)*3)+2]]<- tags$tr(tags$td(style="font-size:1.5em; border-bottom: 3px solid black; padding: 5px 10px;", 
+                                                    p(style="margin-bottom:0px", params$submission[[i]]$q_text), q_options),
+                                            tags$td(rowspan= 2, style=paste("font-size:4em; color: white; border-left: 3px solid black;", 
+                                            "border-left: 3px solid black; background-color: ", ifelse(params$submission[[i]]$is_correct, "green", "red")),
+                                            p(HTML(ifelse(params$submission[[i]]$is_correct, "&nbsp; &nbsp;  &#10004; &nbsp; &nbsp;", 
+                                                                                "&nbsp; &nbsp; &#x2717; &nbsp; &nbsp;")))))
+    hmw_submission[[((i-1)*3)+3]]<- tags$tr(style="font-size:1.5em; border-bottom: 3px solid black",
+                                            tags$td(style="padding: 5px 10px;",
+                                                      p(style="font-weight: bold;", "Submitted Answer"),
+                                                      p(params$submission[[i]]$submitted_answer), 
+                                                      p(params$submission[[i]]$error_msg)))
+  }
+}
+
+content <- fluidPage(
+       p(span(style= "font-weight:bold", "Grade: "), params$grade, style="font-size:2em"),
+       tags$table(hmw_submission)
+    )
+
+```
+
+`r content`

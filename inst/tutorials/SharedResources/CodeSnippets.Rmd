@@ -1,0 +1,67 @@
+Helpful Code Snippets
+
+# Code Block:
+```{r, eval=FALSE}
+output$id <- renderUI(
+  HTML(paste("<pre><code>starter_code <span style=\"color:red\">\"", 
+             input$var, 
+             "\"</span> end_code </code></pre>", sep="")))
+
+```
+
+# Hidden Seperator
+
+### <span style="opacity:0;">Hidden Separator</span> 
+
+# Widgets
+
+## Generate Table & Code Expression
+
+```{r, echo=FALSE}
+sidebarLayout(
+    sidebarPanel(
+        #Add selectors here 
+        selectInput("selectorName", "Label", c("Option A", "Option B")), #Generic Select for List of Option
+        div(id="sliderDiv", sliderInput("sliderName", "Var Value", value=5, min=0, max=10, step=1)) #Generic Slider
+      ),
+  mainPanel(
+    htmlOutput("expression"), 
+    reactableOutput("table")))
+```
+
+```{r, context="server"}
+#This reactive element is used for generating a code snippet that updates based on the user's actions with the widget controls. 
+#The intent is for students to be able to copy paste the generated code snippet directly into an R workspace and it work correctly. So make sure the code generated is 
+# syntactically correct and functional
+codeSnippet <- reactive(
+  switch(input$selectorName, 
+    "Option A" = paste("replace_with_code_expression <span style=\"color:red\">", input$sliderName, "</span>)", sep=""),
+    "Option B"=paste("replace_with_code_expression_here <span style=\"color:red\">", sliderName, "</span>)", sep=""),
+    "None Set"))
+
+output$expression <- renderUI(HTML(paste("<pre><code>",codeSnippet(),"</code></pre>", sep="")))
+
+# Add CSS Classes to modify the slider so the bar is colored correctly. By default, the number slider fills in on the left slide of 
+# the slider's marker, but that doesn't correctly denote all conditions. For example, > should fill in from the right side!
+# Current Classes
+# noSlider <- removes the blue bar completely (==)
+# fullSlider<- completely fills in the blue bar (!=)
+# includeSlider <- modifies the marker to denote a value is included (==, <=, >=)
+# reverseSlider <- modifies the blue bar to fill in from the right (>, >=)
+observeEvent(input$selectorName, {
+ toggleClass("sliderDiv", "fullSlider", condition = input$selectorName == "Option A")
+ toggleClass("sliderDiv", "noSlider", condition = input$selectorName == "Option B")
+})
+
+
+dataGenerated <- reactive(
+  switch(input$selectorName, 
+    "Option A" = "Actual Code Here to Generate Data"),
+    "Option B"= "Actual Code Here to Generate Data")
+
+output$table <- renderReactable({
+  reactable(
+    dataGenerated(),
+    defaultPageSize = 5,
+  )})
+```
