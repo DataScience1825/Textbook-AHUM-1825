@@ -41,7 +41,7 @@ gradethis::gradethis_setup()
 hmw_info <- NULL
 
 ##Extra practice problems
-farm_data <- read_csv(here::here("inst","tutorials","SharedResources","datasets","FarmInventory","data.csv"), col_types="ccddffi");
+farm_data <- read_csv("../SharedResources/datasets/FarmInventory/data.csv", col_types="ccddffi");
 
 #Uncomment to view all the Learnr events and their data
 #new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {
@@ -49,7 +49,7 @@ farm_data <- read_csv(here::here("inst","tutorials","SharedResources","datasets"
 #}
 #options(tutorial.event_recorder = new_recorder)
 
-shiny::addResourcePath("SharedResources", here::here("inst","tutorials","SharedResources"))#Needed for accessing images/other files
+shiny::addResourcePath("SharedResources", "../SharedResources")#Needed for accessing images/other files
 knitr::opts_chunk$set(error = FALSE, message = FALSE)
 ```
 
@@ -68,11 +68,11 @@ If you review the R Documentation for the [filter function](https://dplyr.tidyve
 This means that `filter()` will search through the data you provide it, evaluate each row against the provided condition, and then return to you only the rows that met the condition. Keep in mind, this is all done **without modifying or altering the original dataset!** 
 
 
-## Practice Dataset  
+## Practice Dataset\  
  
-```{r, child=here::here("inst","tutorials","SharedResources","datasets","PalmerPenguins","description.Rmd")}
+```{r load_practice_set, child="../SharedResources/datasets/PalmerPenguins/description.Rmd" }
 
-```
+```  
 
 ## Filtering on One Condition  
 
@@ -549,17 +549,17 @@ grade_result(
 ```{r include_hmw, child="homework_1.Rmd"}
 ```
 
-```{r include_hmw_grader, child=here::here("inst","tutorials","SharedResources","grading","hmw_grader.Rmd")}
+```{r include_hmw_grader, child="../SharedResources/grading/hmw_grader.Rmd"}
 ```
-```{r include_hmw_dwnld, child=here::here("inst","tutorials","SharedResources","grading","download_homework.Rmd")}
+```{r include_hmw_dwnld, child="../SharedResources/grading/download_homework.Rmd"}
 ```
 
 ## Additional Practice Problems
 
 --- 
 
-
-```{r  child=here::here("inst","tutorials","SharedResources","datasets","FarmInventory","description.Rmd")}
+ 
+```{r  child="../SharedResources/datasets/FarmInventory/description.Rmd"}
 ```
 
 ```{r, echo=FALSE}
