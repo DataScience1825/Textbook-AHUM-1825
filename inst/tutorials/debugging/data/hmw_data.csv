@@ -1,0 +1,237 @@
+p_name,f_name,p_per_lb,q_in_lbs,season,type,avg_sl
+Fuji Apple,Peppridge,1.20,233.73,Fall,FRUIT,28
+Gala Apple,Peppridge,3.97,208.26,Summer,FRUIT,28
+Honeycrisp Apple,Peppridge,3.33,392.48,Fall,FRUIT,28
+Fuji Apple,Old Mcdonald,3.17,265.33,Fall,FRUIT,28
+Gala Apple,Old Mcdonald,2.51,96.45,Summer,FRUIT,28
+Honeycrisp Apple,Old Mcdonald,1.88,313.10,Fall,FRUIT,28
+Fuji Apple,Bailey,3.47,233.16,Fall,FRUIT,28
+Gala Apple,Bailey,2.98,354.32,Summer,FRUIT,28
+Honeycrisp Apple,Bailey,1.22,129.59,Fall,FRUIT,28
+Fuji Apple,Sevier,2.32,191.78,Fall,FRUIT,28
+Gala Apple,Sevier,3.81,83.61,Summer,FRUIT,28
+Honeycrisp Apple,Sevier,1.42,277.89,Fall,FRUIT,28
+Seeded Watermelon,Peppridge,2.26,184.5871926,Summer,FRUIT,10
+Seedless  Watermelon,Peppridge,1.87,126.0417222,Summer,FRUIT,10
+Seeded Watermelon,Old Mcdonald,2.34,184.2694937,Summer,FRUIT,10
+Seedless  Watermelon,Old Mcdonald,3.96,73.87985164,Summer,FRUIT,10
+Seeded Watermelon,Bailey,1.88,221.6344182,Summer,FRUIT,10
+Seedless  Watermelon,Bailey,2.09,117.70107,Summer,FRUIT,10
+Seeded Watermelon,Sevier,2.07,130.128908,Summer,FRUIT,10
+Seedless  Watermelon,Sevier,3.63,196.8561431,Summer,FRUIT,10
+Cherry Tomato,Peppridge,1.92,118.0194367,Summer,FRUIT,4
+Heirloom Tomato,Peppridge,1.16,357.3676495,Fall,FRUIT,2
+Roma Tomato,Peppridge,3.19,449.9545925,Summer,FRUIT,14
+Big Beef Tomato,Peppridge,1.43,270.8812387,Summer,FRUIT,7
+Cherry Tomato,Old Mcdonald,2.47,224.0593231,Summer,FRUIT,4
+Heirloom Tomato,Old Mcdonald,3.23,142.8451421,Fall,FRUIT,2
+Roma Tomato,Old Mcdonald,3.25,153.9451683,Summer,FRUIT,14
+Big Beef Tomato,Old Mcdonald,2.15,335.6525444,Summer,FRUIT,7
+Cherry Tomato,Bailey,3.84,422.123978,Summer,FRUIT,4
+Heirloom Tomato,Bailey,2.74,127.411133,Fall,FRUIT,2
+Roma Tomato,Bailey,3.61,391.0307382,Summer,FRUIT,14
+Big Beef Tomato,Bailey,1.42,443.3303088,Summer,FRUIT,7
+Cherry Tomato,Sevier,3.77,374.0504681,Summer,FRUIT,4
+Heirloom Tomato,Sevier,2.36,385.336804,Fall,FRUIT,2
+Roma Tomato,Sevier,2.98,272.9560298,Summer,FRUIT,14
+Big Beef Tomato,Sevier,1.26,434.2524839,Summer,FRUIT,7
+Sweet Corn,Peppridge,0.96,614.9533867,Summer,VEGETABLE,5
+Dent Corn,Peppridge,1.71,1057.516253,Fall,VEGETABLE,5
+Flint Corn,Peppridge,0.98,1049.568353,Fall,VEGETABLE,5
+Sweet Corn,Old Mcdonald,2.13,694.3875638,Summer,VEGETABLE,5
+Dent Corn,Old Mcdonald,0.87,595.1326297,Fall,VEGETABLE,5
+Flint Corn,Old Mcdonald,2.46,1033.497534,Fall,VEGETABLE,5
+Sweet Corn,Bailey,2.01,1169.054132,Summer,VEGETABLE,5
+Dent Corn,Bailey,1.21,497.5656637,Fall,VEGETABLE,5
+Flint Corn,Bailey,1.01,1290.441367,Fall,VEGETABLE,5
+Sweet Corn,Sevier,0.77,1016.780151,Summer,VEGETABLE,5
+Dent Corn,Sevier,2.18,493.7409513,Fall,VEGETABLE,5
+Flint Corn,Sevier,0.64,1261.489898,Fall,VEGETABLE,5
+Belstair Broccoli,Peppridge,0.67,513.3663543,Fall,VEGETABLE,3
+Calabrese Broccoli,Peppridge,2.37,285.4094061,Fall,VEGETABLE,3
+Belstair Broccoli,Old Mcdonald,0.55,454.2183797,Fall,VEGETABLE,3
+Calabrese Broccoli,Old Mcdonald,1.16,788.5169654,Fall,VEGETABLE,3
+Belstair Broccoli,Bailey,2.34,663.1077591,Fall,VEGETABLE,3
+Calabrese Broccoli,Bailey,2.10,1003.644696,Fall,VEGETABLE,3
+Belstair Broccoli,Sevier,2.00,208.4017153,Fall,VEGETABLE,3
+Calabrese Broccoli,Sevier,2.12,717.798073,Fall,VEGETABLE,3
+Lacinato Kale,Peppridge,1.03,182.9488588,Winter,VEGETABLE,5
+Ornamental Kale,Peppridge,1.81,81.47045297,Winter,VEGETABLE,5
+Redbor Kale,Peppridge,2.37,158.0390526,Winter,VEGETABLE,5
+Lacinato Kale,Old Mcdonald,1.86,269.0648794,Winter,VEGETABLE,5
+Ornamental Kale,Old Mcdonald,1.08,176.3046081,Winter,VEGETABLE,5
+Redbor Kale,Old Mcdonald,2.07,219.5168413,Winter,VEGETABLE,5
+Lacinato Kale,Bailey,1.02,81.49265753,Winter,VEGETABLE,5
+Ornamental Kale,Bailey,1.20,150.298626,Winter,VEGETABLE,5
+Redbor Kale,Bailey,1.52,264.3596992,Winter,VEGETABLE,5
+Lacinato Kale,Sevier,1.07,110.3051321,Winter,VEGETABLE,5
+Ornamental Kale,Sevier,1.91,309.4826251,Winter,VEGETABLE,5
+Redbor Kale,Sevier,1.71,125.3416814,Winter,VEGETABLE,5
+Parisian Carrot,Peppridge,1.07,719.2225101,Fall,TUBER,60
+Nantes Carrot,Peppridge,1.27,1571.715662,Fall,TUBER,60
+Romance Carrot,Peppridge,1.28,1720.779704,Fall,TUBER,60
+Parisian Carrot,Old Mcdonald,0.51,1556.676455,Fall,TUBER,60
+Nantes Carrot,Old Mcdonald,2.19,1919.044957,Fall,TUBER,60
+Romance Carrot,Old Mcdonald,0.59,1791.180833,Fall,TUBER,60
+Parisian Carrot,Bailey,1.08,1878.463109,Fall,TUBER,60
+Nantes Carrot,Bailey,1.38,938.715483,Fall,TUBER,60
+Romance Carrot,Bailey,0.91,1566.059323,Fall,TUBER,60
+Parisian Carrot,Sevier,1.19,705.5455042,Fall,TUBER,60
+Nantes Carrot,Sevier,2.07,698.0457249,Fall,TUBER,60
+Romance Carrot,Sevier,2.17,1630.550859,Fall,TUBER,60
+Yukon Gold Potato,Peppridge,1.77,2226.854514,Summer,TUBER,45
+Russian Blue Potato,Peppridge,1.22,3130.388862,Summer,TUBER,45
+Kerr's Pink Potato,Peppridge,1.19,1350.489721,Summer,TUBER,45
+Purple Sweet Potato,Peppridge,1.58,2324.667617,Fall,TUBER,21
+Yukon Gold Potato,Old Mcdonald,1.07,1264.942897,Summer,TUBER,45
+Russian Blue Potato,Old Mcdonald,1.71,1524.797711,Summer,TUBER,45
+Kerr's Pink Potato,Old Mcdonald,1.28,1325.465447,Summer,TUBER,45
+Purple Sweet Potato,Old Mcdonald,0.67,1773.648726,Fall,TUBER,21
+Yukon Gold Potato,Bailey,1.48,1838.603508,Summer,TUBER,45
+Russian Blue Potato,Bailey,0.97,2429.846391,Summer,TUBER,45
+Kerr's Pink Potato,Bailey,1.64,2049.918856,Summer,TUBER,45
+Purple Sweet Potato,Bailey,1.39,2845.761891,Fall,TUBER,21
+Yukon Gold Potato,Sevier,0.89,2231.682159,Summer,TUBER,45
+Russian Blue Potato,Sevier,0.37,1910.074809,Summer,TUBER,45
+Kerr's Pink Potato,Sevier,0.79,1796.784078,Summer,TUBER,45
+Purple Sweet Potato,Sevier,1.52,1898.401177,Fall,TUBER,21
+Bright Yellow Chard,Peppridge,1.40,227.9502797,Summer,TUBER,2
+Avalanche Beets,Peppridge,0.29,279.827728,Summer,TUBER,14
+Chioggia Beets,Peppridge,0.47,199.2872536,Summer,TUBER,14
+Bright Yellow Chard,Old Mcdonald,1.11,137.9651885,Summer,TUBER,2
+Avalanche Beets,Old Mcdonald,0.74,148.4545294,Summer,TUBER,14
+Chioggia Beets,Old Mcdonald,1.72,318.3030026,Summer,TUBER,14
+Bright Yellow Chard,Bailey,1.84,136.8519593,Summer,TUBER,2
+Avalanche Beets,Bailey,1.68,199.3993186,Summer,TUBER,14
+Chioggia Beets,Bailey,2.04,277.1384448,Summer,TUBER,14
+Bright Yellow Chard,Sevier,1.45,88.13096576,Summer,TUBER,2
+Avalanche Beets,Sevier,0.32,109.7141186,Summer,TUBER,14
+Chioggia Beets,Sevier,0.73,282.5075235,Summer,TUBER,14
+Beef Chuck,Peppridge,3.08,716.4294996,Year Round,MEAT,4
+Beef Brisket,Peppridge,5.96,983.0530052,Year Round,MEAT,4
+Beef Shank,Peppridge,2.01,782.9410814,Year Round,MEAT,4
+Beef Rib,Peppridge,9.63,847.2426441,Year Round,MEAT,4
+Beef Chuck,Old Mcdonald,8.95,689.5333724,Year Round,MEAT,4
+Beef Brisket,Old Mcdonald,9.33,339.8471787,Year Round,MEAT,4
+Beef Shank,Old Mcdonald,4.89,791.1495514,Year Round,MEAT,4
+Beef Rib,Old Mcdonald,6.92,1048.581483,Year Round,MEAT,4
+Beef Chuck,Bailey,2.15,843.8550274,Year Round,MEAT,4
+Beef Brisket,Bailey,8.24,637.0279719,Year Round,MEAT,4
+Beef Shank,Bailey,10.14,868.3486694,Year Round,MEAT,4
+Beef Rib,Bailey,3.34,424.8150544,Year Round,MEAT,4
+Beef Chuck,Sevier,11.35,464.5447713,Year Round,MEAT,4
+Beef Brisket,Sevier,2.18,860.4120839,Year Round,MEAT,4
+Beef Shank,Sevier,6.06,1050.866696,Year Round,MEAT,4
+Beef Rib,Sevier,3.62,514.4303962,Year Round,MEAT,4
+Lamb Shoulder,Peppridge,2.91,188.7931204,Year Round,MEAT,4
+Lamb Leg,Peppridge,2.02,167.021547,Year Round,MEAT,4
+Lamb Flank,Peppridge,9.65,191.6522846,Year Round,MEAT,4
+Lamb Shoulder,Old Mcdonald,4.96,88.80062024,Year Round,MEAT,4
+Lamb Leg,Old Mcdonald,10.10,133.684994,Year Round,MEAT,4
+Lamb Flank,Old Mcdonald,11.98,171.7510394,Year Round,MEAT,4
+Lamb Shoulder,Bailey,4.71,99.49034761,Year Round,MEAT,4
+Lamb Leg,Bailey,5.14,86.41264106,Year Round,MEAT,4
+Lamb Flank,Bailey,6.16,67.78706301,Year Round,MEAT,4
+Lamb Shoulder,Sevier,10.64,84.28709272,Year Round,MEAT,4
+Lamb Leg,Sevier,4.59,87.49783089,Year Round,MEAT,4
+Lamb Flank,Sevier,8.28,89.68242683,Year Round,MEAT,4
+Chicken Wing,Peppridge,8.75,1475.069707,Year Round,MEAT,4
+Chicken Breast,Peppridge,4.60,1602.102683,Year Round,MEAT,4
+Whole Duck,Peppridge,7.86,1349.970046,Year Round,MEAT,4
+Chicken Wing,Old Mcdonald,11.00,1126.974266,Year Round,MEAT,4
+Chicken Breast,Old Mcdonald,10.30,1170.216041,Year Round,MEAT,4
+Whole Duck,Old Mcdonald,2.44,903.4998909,Year Round,MEAT,4
+Chicken Wing,Bailey,9.01,1709.020547,Year Round,MEAT,4
+Chicken Breast,Bailey,3.61,1656.060241,Year Round,MEAT,4
+Whole Duck,Bailey,11.98,1983.07221,Year Round,MEAT,4
+Chicken Wing,Sevier,9.32,1625.413531,Year Round,MEAT,4
+Chicken Breast,Sevier,11.94,1784.091317,Year Round,MEAT,4
+Whole Duck,Sevier,7.36,1956.558364,Year Round,MEAT,4
+Two Percent Cow Milk,Peppridge,4.57,295.2943524,Year Round,DAIRY,21
+Whole Milk Cow Milk,Peppridge,2.30,209.7723337,Year Round,DAIRY,21
+Lactose Free Cow Milk,Peppridge,5.35,371.2417241,Year Round,DAIRY,60
+Goat Milk,Peppridge,4.28,457.6059834,Year Round,DAIRY,14
+Two Percent Cow Milk,Old Mcdonald,1.24,164.4672332,Year Round,DAIRY,21
+Whole Milk Cow Milk,Old Mcdonald,2.85,299.9095673,Year Round,DAIRY,21
+Lactose Free Cow Milk,Old Mcdonald,5.34,332.0926581,Year Round,DAIRY,60
+Goat Milk,Old Mcdonald,2.57,350.7138872,Year Round,DAIRY,14
+Two Percent Cow Milk,Bailey,1.28,142.8289471,Year Round,DAIRY,21
+Whole Milk Cow Milk,Bailey,5.89,155.6039997,Year Round,DAIRY,21
+Lactose Free Cow Milk,Bailey,1.90,208.0998389,Year Round,DAIRY,60
+Goat Milk,Bailey,4.59,291.6964909,Year Round,DAIRY,14
+Two Percent Cow Milk,Sevier,2.24,345.856325,Year Round,DAIRY,21
+Whole Milk Cow Milk,Sevier,4.69,176.0809095,Year Round,DAIRY,21
+Lactose Free Cow Milk,Sevier,1.11,288.664517,Year Round,DAIRY,60
+Goat Milk,Sevier,5.74,350.5159587,Year Round,DAIRY,14
+Cheddar Cheese,Peppridge,3.10,219.4249257,Year Round,DAIRY,21
+Parmesan Cheese,Peppridge,5.51,182.7638579,Year Round,DAIRY,300
+Le Chevrot Cheese,Peppridge,4.66,180.3784826,Year Round,DAIRY,21
+Cheddar Cheese,Old Mcdonald,5.33,113.3289857,Year Round,DAIRY,21
+Parmesan Cheese,Old Mcdonald,3.25,257.0632367,Year Round,DAIRY,300
+Le Chevrot Cheese,Old Mcdonald,2.14,127.2768416,Year Round,DAIRY,21
+Cheddar Cheese,Bailey,5.38,65.14792821,Year Round,DAIRY,21
+Parmesan Cheese,Bailey,4.99,112.5156415,Year Round,DAIRY,300
+Le Chevrot Cheese,Bailey,4.06,167.8785654,Year Round,DAIRY,21
+Cheddar Cheese,Sevier,3.02,212.9623154,Year Round,DAIRY,21
+Parmesan Cheese,Sevier,2.45,263.2483033,Year Round,DAIRY,300
+Le Chevrot Cheese,Sevier,4.60,108.4478611,Year Round,DAIRY,21
+Plain Yogurt,Peppridge,3.62,211.4420147,Year Round,DAIRY,14
+Plain Greek Yogurt,Peppridge,5.40,228.4021055,Year Round,DAIRY,14
+Plain French Yogurt,Peppridge,5.24,111.5780256,Year Round,DAIRY,14
+Plain Lactose Free Yogurt,Peppridge,3.98,37.08610278,Year Round,DAIRY,14
+Plain Goat Milk Yogurt,Peppridge,1.70,214.9298815,Year Round,DAIRY,14
+Plain Yogurt,Old Mcdonald,3.81,187.7901949,Year Round,DAIRY,14
+Plain Greek Yogurt,Old Mcdonald,3.89,179.1463806,Year Round,DAIRY,14
+Plain French Yogurt,Old Mcdonald,4.79,272.2460394,Year Round,DAIRY,14
+Plain Lactose Free Yogurt,Old Mcdonald,1.14,119.516203,Year Round,DAIRY,14
+Plain Goat Milk Yogurt,Old Mcdonald,1.39,233.3557607,Year Round,DAIRY,14
+Plain Yogurt,Bailey,5.90,115.8424025,Year Round,DAIRY,14
+Plain Greek Yogurt,Bailey,5.45,111.0996135,Year Round,DAIRY,14
+Plain French Yogurt,Bailey,5.11,212.0829778,Year Round,DAIRY,14
+Plain Lactose Free Yogurt,Bailey,4.14,189.5517912,Year Round,DAIRY,14
+Plain Goat Milk Yogurt,Bailey,3.79,236.4368443,Year Round,DAIRY,14
+Plain Yogurt,Sevier,2.47,185.7527212,Year Round,DAIRY,14
+Plain Greek Yogurt,Sevier,5.39,161.153496,Year Round,DAIRY,14
+Plain French Yogurt,Sevier,3.91,231.7256093,Year Round,DAIRY,14
+Plain Lactose Free Yogurt,Sevier,1.37,58.94223409,Year Round,DAIRY,14
+Plain Goat Milk Yogurt,Sevier,3.71,99.18720564,Year Round,DAIRY,14
+Chickpeas,Peppridge,0.33,934.9548696,Spring,LEGUME,3
+Kidney Beans,Peppridge,0.30,1789.125572,Spring,LEGUME,365
+Soy Milk,Peppridge,0.81,365.5309273,Year Round,LEGUME,14
+Soy Yogurt,Peppridge,0.86,367.5030815,Year Round,LEGUME,14
+Chickpeas,Old Mcdonald,0.50,1518.506045,Spring,LEGUME,3
+Kidney Beans,Old Mcdonald,0.89,1380.140065,Spring,LEGUME,365
+Soy Milk,Old Mcdonald,1.10,236.062329,Year Round,LEGUME,14
+Soy Yogurt,Old Mcdonald,1.05,304.4238267,Year Round,LEGUME,14
+Chickpeas,Bailey,1.04,1921.186112,Spring,LEGUME,3
+Kidney Beans,Bailey,0.69,1593.916602,Spring,LEGUME,365
+Soy Milk,Bailey,0.66,221.9316626,Year Round,LEGUME,14
+Soy Yogurt,Bailey,0.70,270.3993358,Year Round,LEGUME,14
+Chickpeas,Sevier,0.37,1517.819838,Spring,LEGUME,3
+Kidney Beans,Sevier,0.43,1410.161714,Spring,LEGUME,365
+Soy Milk,Sevier,1.19,215.2636973,Year Round,LEGUME,14
+Soy Yogurt,Sevier,1.01,201.372083,Year Round,LEGUME,14
+Wheat,Peppridge,0.85,2544.817412,Summer,CEREAL,1825
+Steel Cut Oats,Peppridge,0.13,1153.642735,Spring,CEREAL,730
+Milled Rice,Peppridge,0.10,2347.838319,Fall,CEREAL,NA
+Corn Kernels,Peppridge,0.30,280.4052696,Fall,CEREAL,180
+Barley,Peppridge,0.37,1781.979324,Summer,CEREAL,540
+Millet,Peppridge,0.40,410.2448525,Fall,CEREAL,180
+Wheat,Old Mcdonald,0.72,2543.113364,Summer,CEREAL,1825
+Steel Cut Oats,Old Mcdonald,0.39,2916.426545,Spring,CEREAL,730
+Milled Rice,Old Mcdonald,0.21,2226.61932,Fall,CEREAL,NA
+Corn Kernels,Old Mcdonald,0.69,3016.343866,Fall,CEREAL,180
+Barley,Old Mcdonald,0.96,972.7349873,Summer,CEREAL,540
+Millet,Old Mcdonald,0.70,3053.586035,Fall,CEREAL,180
+Wheat,Bailey,0.63,2858.182527,Summer,CEREAL,1825
+Steel Cut Oats,Bailey,0.67,751.0103356,Spring,CEREAL,730
+Milled Rice,Bailey,0.83,421.5942632,Fall,CEREAL,NA
+Corn Kernels,Bailey,0.78,2699.963247,Fall,CEREAL,180
+Barley,Bailey,0.43,1431.792455,Summer,CEREAL,540
+Millet,Bailey,0.87,3210.348686,Fall,CEREAL,180
+Wheat,Sevier,0.79,2720.159897,Summer,CEREAL,1825
+Steel Cut Oats,Sevier,0.84,619.016248,Spring,CEREAL,730
+Milled Rice,Sevier,0.75,1342.395952,Fall,CEREAL,NA
+Corn Kernels,Sevier,0.98,567.0860565,Fall,CEREAL,180
+Barley,Sevier,0.22,1361.468871,Summer,CEREAL,540
+Millet,Sevier,0.63,2421.860805,Fall,CEREAL,180

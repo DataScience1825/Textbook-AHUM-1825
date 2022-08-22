@@ -14,6 +14,7 @@ fluidRow(
   s_id <- reactive({hmw_info$s_id})
   grade <- reactive({hmw_info$hmw_grade})
   homework <- reactive({hmw_info$submissions})
+  t_name <- reactive({hmw_info$tutorial_name})
   
   output$grade <- renderText({ 
       paste("Grade: ", format(round((grade() / length(homework())) * 100, 2), nsmall = 2), "%")
@@ -21,13 +22,13 @@ fluidRow(
   
   output$hmw_submission <- downloadHandler(
   filename = function() {
-    paste0("Filter_Homework_", Sys.Date(), ".html")
+    paste0(t_name(), "_Homework_", Sys.Date(), ".html")
   },
   content = function(file) {
     rmarkdown::render("../SharedResources/grading/hmw_submission.Rmd",
                       output_file = file, 
                       params = list(
-                        title = "Filter Homework", 
+                        title = paste(t_name()," Homework", sep=""), 
                         user = s_id(),
                         grade = format(round((grade() / length(homework())) * 100, 2), nsmall = 2),
                         submissions = homework()

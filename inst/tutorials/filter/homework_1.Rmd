@@ -5,6 +5,7 @@
 ## homework grade and any homework problems submissions currently stored.
 event_register_handler("session_start", function(session, event, data) {
   hmw_info <<- reactiveValues(s_id = get_tutorial_info()$user_id, #Student's id. Uses their currently running account's username, which if its the campus RStudio Online server will be their student username
+                           tutorial_name = "Filter", #The name of the tutorial
                            hmw_grade = 0, # The number of homework questions they have answer correctly 
                            submissions = list( # A list for tracking the information on all of the student's homework problem submissions
                                hmw1 = list(type="questionaire", 
@@ -48,9 +49,6 @@ event_register_handler("session_start", function(session, event, data) {
 })
 
 
-```
-
-```{r include_hmw, child="../SharedResources/datasets/FarmInventory/description.Rmd"}
 ```
 
 ```{r prepare-hmw-filter-1, echo=FALSE}

@@ -741,7 +741,6 @@ track down which part might contain the error.</p>
 <div id="section-homework" class="section level2">
 <h2>Homework</h2>
 <hr />
-<!--{{dataset:FarmInventory}}-->
 <p><img src="SharedResources/datasets/FarmInventory/banner.jpg"
 style="width:100.0%"
 alt="A banner with a centered message of Farming Dataset, on the left are a collection of vegetables, and on the right is a milk can and a hen with its chicks" /></p>
@@ -767,20 +766,13 @@ VEGETABLE, TUBER, LEGUME, CEREAL, MEAT, or DAIRY)</li>
 <li><strong>avg_sl</strong> : [integer] the average shelf life (in days)
 for the food item</li>
 </ul>
-<!--
-
-
-
-```r
-head(farm_data)
-```
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["p_name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["f_name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["p_per_lb"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["q_in_lbs"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["season"],"name":[5],"type":["fct"],"align":["left"]},{"label":["type"],"name":[6],"type":["fct"],"align":["left"]},{"label":["avg_sl"],"name":[7],"type":["int"],"align":["right"]}],"data":[{"1":"Fuji Apple","2":"Peppridge","3":"1.20","4":"233.73","5":"Fall","6":"FRUIT","7":"28"},{"1":"Gala Apple","2":"Peppridge","3":"3.97","4":"208.26","5":"Summer","6":"FRUIT","7":"28"},{"1":"Honeycrisp Apple","2":"Peppridge","3":"3.33","4":"392.48","5":"Fall","6":"FRUIT","7":"28"},{"1":"Fuji Apple","2":"Old Mcdonald","3":"3.17","4":"265.33","5":"Fall","6":"FRUIT","7":"28"},{"1":"Gala Apple","2":"Old Mcdonald","3":"2.51","4":"96.45","5":"Summer","6":"FRUIT","7":"28"},{"1":"Honeycrisp Apple","2":"Old Mcdonald","3":"1.88","4":"313.10","5":"Fall","6":"FRUIT","7":"28"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
--->
+<!-- ```{r, include=FALSE} -->
+<!-- farm_data <- read_csv("data.csv", col_types="ccddffi"); ##Homework Dataset -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- head(farm_data) -->
+<!-- ``` -->
+<!--{{dataset:FarmInventory}}-->
 <pre class="r"><code>head(farm_data)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -1736,6 +1728,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_practice10", global
 ## homework grade and any homework problems submissions currently stored.
 event_register_handler("session_start", function(session, event, data) {
   hmw_info <<- reactiveValues(s_id = get_tutorial_info()$user_id, #Student's id. Uses their currently running account's username, which if its the campus RStudio Online server will be their student username
+                           tutorial_name = "Filter", #The name of the tutorial
                            hmw_grade = 0, # The number of homework questions they have answer correctly 
                            submissions = list( # A list for tracking the information on all of the student's homework problem submissions
                                hmw1 = list(type="questionaire", 
@@ -1785,10 +1778,10 @@ event_register_handler("session_start", function(session, event, data) {
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "filter_hmw1", 
     question = structure("(True or False), filter() modifies the dataframe passed to it.", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_8e34bc1", 
+    "character")), answers = list(structure(list(id = "lnr_ans_3d5fa4e", 
         option = "True", value = "True", label = structure("True", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_81d2803", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_357c2b4", 
         option = "False", value = "False", label = structure("False", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1799,30 +1792,30 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "filter_hmw1-answer", question = "filter_hmw1"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1499583131.3017, options = list()), class = c("learnr_radio", 
+    seed = 1943488128.59499, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "filter_hmw2", 
     question = structure("The &amp; operator only evaulates to true if :", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_82d0147", 
+    "character")), answers = list(structure(list(id = "lnr_ans_dd0f789", 
         option = "both conditions are true", value = "both conditions are true", 
         label = structure("both conditions are true", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_89f197c", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_1244751", 
         option = "neither condition is true", value = "neither condition is true", 
         label = structure("neither condition is true", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a0f4b3f", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_290d7f4", 
         option = "either condition is true", value = "either condition is true", 
         label = structure("either condition is true", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_c9ff83d", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_f5d6a29", 
         option = "both conditions are false", value = "both conditions are false", 
         label = structure("both conditions are false", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d659c0c", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9e944b2", 
         option = "None of the above", value = "None of the above", 
         label = structure("None of the above", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1834,7 +1827,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "filter_hmw2-answer", question = "filter_hmw2"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 305361533.857805, options = list()), class = c("learnr_radio", 
+    seed = 877260044.591494, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
@@ -2117,6 +2110,7 @@ event_register_handler("question_submission", function(session, event, data) {
   s_id <- reactive({hmw_info$s_id})
   grade <- reactive({hmw_info$hmw_grade})
   homework <- reactive({hmw_info$submissions})
+  t_name <- reactive({hmw_info$tutorial_name})
   
   output$grade <- renderText({ 
       paste("Grade: ", format(round((grade() / length(homework())) * 100, 2), nsmall = 2), "%")
@@ -2124,13 +2118,13 @@ event_register_handler("question_submission", function(session, event, data) {
   
   output$hmw_submission <- downloadHandler(
   filename = function() {
-    paste0("Filter_Homework_", Sys.Date(), ".html")
+    paste0(t_name(), "_Homework_", Sys.Date(), ".html")
   },
   content = function(file) {
     rmarkdown::render("../SharedResources/grading/hmw_submission.Rmd",
                       output_file = file, 
                       params = list(
-                        title = "Filter Homework", 
+                        title = paste(t_name()," Homework", sep=""), 
                         user = s_id(),
                         grade = format(round((grade() / length(homework())) * 100, 2), nsmall = 2),
                         submissions = homework()

@@ -134,7 +134,7 @@ sidebarLayout(
 expression_S <- reactive(
   switch(input$compareOp_S, 
     "Equal to (==)" = paste("result <- filter(simple, var == <span style=\"color:red\">", input$slider_S, "</span>)\nresult", sep=""),
-    "Not Equal to (!=)"=paste("result <- filter(penguins, var != <span style=\"color:red\">", input$slider_S, "</span>)\nresult", sep=""),
+    "Not Equal to (!=)"=paste("result <- filter(simple, var != <span style=\"color:red\">", input$slider_S, "</span>)\nresult", sep=""),
     "Less Than (<)"=paste("result <- filter(simple, var < <span style=\"color:red\">", input$slider_S, "</span>)\nresult", sep=""),
     "Less Than or Equal to (<=)"=paste("result <- filter(simple, var <= <span style=\"color:red\">", input$slider_S, "</span>)\nresult", sep=""),
     "Greater Than (>)"=paste("result <- filter(simple, var > <span style=\"color:red\">", input$slider_S, "</span>)\nresult", sep=""),
@@ -545,6 +545,9 @@ grade_result(
 ## Homework 
 
 --- 
+
+```{r include_hmw, child="data/hmw_data_description.Rmd"}
+```
 
 ```{r include_hmw, child="homework_1.Rmd"}
 ```

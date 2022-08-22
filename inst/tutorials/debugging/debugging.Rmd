@@ -1,0 +1,124 @@
+---
+title: "Using debugging"
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+    fig_caption: false
+    css: css/textbook.min.css
+runtime: shiny_prerendered
+description: >
+  debugging Description.
+---
+
+<!-- Code for including shinyJS, currently used for toggling css classes toggleClass() | https://deanattali.com/shinyjs/advanced#usage-prerendered -->
+```{r, echo=FALSE}
+shiny::addResourcePath("shinyjs", system.file("srcjs", package = "shinyjs"))
+```
+```{r, context="server"}
+shinyjs::useShinyjs(html = TRUE)
+```
+<script src="shinyjs/inject.js"></script>
+
+<!-- End Code for shinyJs -->
+```{r setup, include=FALSE}
+library(learnr)
+gradethis::gradethis_setup()
+
+##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem
+## WARNING: The default values are set inside the "session_start" event handler, which is inside of homework.Rmd
+hmw_info <- NULL
+
+#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything
+#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {
+   #cat("Original: \n", tutorial_id, " (", tutorial_version, "): ", user_id, ", ", event, "\nData:\n", sep = "")
+   #print(data)
+#}
+#options(tutorial.event_recorder = new_recorder)
+
+library(tidyverse)
+library(shinyjs)
+library(reactable)
+
+addResourcePath("SharedResources", "../SharedResources")#Add access to a shared set of images. Like the banner for the farm dataset
+farm_data <- read_csv("../SharedResources/datasets/FarmInventory/data.csv", col_types="ccddffi"); #Homework dataset
+
+knitr::opts_chunk$set(error = FALSE, message = FALSE)
+```
+
+
+## What is debugging()?
+
+### <span style="opacity:0;">debugging()</span>
+
+<!-- To create a new banner image: 
+  1A) Use the Google Drive Link: https://docs.google.com/drawings/d/1-JEoNvwsXGHAICgMVFXV3bhM2egj54C1WGeu51RsVYk/copy?usp=sharing
+  or 
+  1B) Copy the Blank Banner.svg file in SharedResources/images
+  2) Edit the text to list the name of the tutorial's datset
+-->
+
+![Cartoon showing a round monster holding up a sign that says dplyr::debugging”](images/Blank Banner.png){width=100%} 
+<p align="center">"Artwork created with sample graphics provided by <a href="https://twitter.com/allison_horst?lang=en">@allison_horst</a>" </p>
+  
+If you review the R Documentation for the [debugging() function](https://dplyr.tidyverse.org/reference/debugging.html) you'll find the following explanation:  
+
+ > Official description for debugging() here
+ 
+Add a student friendly explanation for debugging() here. Keep in mind, this is all done **without modifying or altering the original dataset!** 
+
+## Practice Dataset  
+<!-- All datasets should be stored in the SharedResources/dataset/ directory, 
+      inside a folder named after the dataset. The dataset folder should contain the following:
+        - data.csv - A csv containing the raw data (if available)
+        - description.md - A description of dataset and its variables (a sample is provided below)
+        - banner.png - A fun/interesting/informative image to represent the dataset. 
+                       Ideally a png file, to allow for easy updates to the tutorial's css styling (specifically background-color)
+-->
+
+<!-- To create a new dataset image: 
+  1A) Use the Google Drive Link: https://docs.google.com/drawings/d/1fGYXHNHbKQbhU1VlapILNpuhWuhE-9l_UXi0rX_UbgM/copy?usp=sharing 
+  or 
+  1B) Copy the Blank Dataset.svg file in SharedResources/images
+  2) Edit the text to list the name of the tutorial's datset
+-->
+  
+![Cartoon showing two round monsters holding up a sign between them that reads Blank Dataset](images/Blank Dataset.png){width=100%} 
+<p align="center">"Artwork created with sample graphics provided by <a href="https://twitter.com/allison_horst?lang=en">@allison_horst</a>" </p>
+
+This tutorial's practice exercises will use the [Dataset Name](Dataset URL), which is a (insert description of dataset):\
+
+  - **variable 1** : description 
+  - **variable 2**: description  
+
+```{r view_dataset}
+#code to retrieve dataset 
+#head(dataset)
+```
+
+
+### Debugging your code
+![A cartoon of a fuzzy round monster face showing 10 different emotions experienced during the process of debugging code. The progression goes from (1) “I got this” - looking determined and optimistic; (2) “Huh. Really thought that was it.” - looking a bit baffled; (3) “...” - looking up at the ceiling in thought; (4) “Fine. Restarting.” - looking a bit annoyed; (5) “OH WTF.” Looking very frazzled and frustrated; (6) “Zombie meltdown.” - looking like a full meltdown; (7) (blank) - sleeping; (8) “A NEW HOPE!” - a happy looking monster with a lightbulb above; (9) “insert awesome theme song” - looking determined and typing away; (10) “I love coding” - arms raised in victory with a big smile, with confetti falling.](images/debugging.jpg){width=100%} 
+<p align="center">"Artwork by <a href="https://twitter.com/allison_horst?lang=en">@allison_horst</a>" </p>
+
+In an ideal world, every line of code you write would run just as you intended it to.
+Sadly, that will ***often*** not be the case. A fault or "bug" in your code, 
+
+<div class="further_reading_box">
+  <p class="further_reading_header">`r emo::ji("books")` Further Reading</p>
+  <p> So where did the terms "bug" and "debugging" come from? According to lore, the term was coined by the famous programmer Grace Hopper. 
+  While not entirely true, the story of the "first programming bug" is definitely worth a read. </p>
+  
+#### {.tabset }
+
+##### The First "Bug"
+
+
+<p style="text-align:center; font-size:1.5em; margin-top:15px;">`r emo::ji("link")`<a href="https://americanhistory.si.edu/collections/search/object/nmah_334663">A short read on the first programming "bug".</a></p>
+![A moth tapped to a print out of code.](images/computer_bug.jpg){width="100%"}
+
+##### Grace Hopper
+<p style="text-align:center; font-size:1.5em; margin-top:15px;">`r emo::ji("link")`<a href="https://president.yale.edu/biography-grace-murray-hopper">A Biography of Grace Hopper</a></p>
+![Grace Murray Hopper, in her office in Washington DC, 1978, ©Lynn Gilbert](images/grace_hopper.jpg){width=100%}
+<p style="text-align:center"><a href="https://commons.wikimedia.org/wiki/File:Grace_Murray_Hopper,_in_her_office_in_Washington_DC,_1978,_%C2%A9Lynn_Gilbert.jpg">Image Source</a></td></p>
+      

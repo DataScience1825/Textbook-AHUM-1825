@@ -22,6 +22,10 @@ shinyjs::useShinyjs(html = TRUE)
 
 <!-- End Code for shinyJs -->
 ```{r setup, include=FALSE}
+library(tidyverse)
+library(shinyjs)
+library(reactable)
+library(emo) # Emojis library
 library(learnr)
 gradethis::gradethis_setup()
 
@@ -35,35 +39,10 @@ hmw_info <- NULL
 #}
 #options(tutorial.event_recorder = new_recorder)
 
-library(tidyverse)
-library(shinyjs)
-library(reactable)
-
-shiny::addResourcePath("SharedResources", here::here("SharedResources"))#Needed for accessing images/other files
+shiny::addResourcePath("SharedResources", "../SharedResources")#Needed for accessing images/other files
 
 knitr::opts_chunk$set(error = FALSE, message = FALSE)
 ```
-
-<!-- 
- Todo: 
-    switch to mPG
-    Basic:
-     - 
-   
-   COPY CHANGES TO FILTER - Move HOMEWORK setup into a separate file
-   
-  Helper Functions:
-    - Explanations
-    - Practice Problems
-    - Widgets
-    
-  Renaming Columns:
-    - Explanations
-    - Practice Problems
-    - Widgets
-   
-  Homework Problems
--->
 
 ## What is select()?
 
@@ -80,7 +59,7 @@ In practice, we will use `select()` to help make large datasets more manageable,
 
 ## Practice Dataset  
 
-```{r list-practice-dataset, child=here::here("SharedResources","datasets","Mpg","description.Rmd")}
+```{r list-practice-dataset, child="../SharedResources/datasets/Mpg/description.Rmd"}
 ```
 
 ```{r, echo=FALSE}
@@ -88,7 +67,7 @@ head(mpg)
 ```
 
 
-## Basic Syntax  
+## Selecting Columns  
 
 --- 
 
@@ -113,31 +92,36 @@ simple
 
 --- 
 
+###  {.tabset}
+
+#### <span class="color3 medium bolder">name </span>
+<p style="margin-top:15px"> Explicitly name the variable(s) you want to keep and their order.</p>
 <table class="table">
   <tr>
-    <td colspan="2"><p class="color3 medium bolder" style="margin-bottom:0px;">name</p> Explicitly name the variable(s) you want to keep and their order.</td>
-  </tr>
-  <tr>
-    <td> `select(simple, columnC, columnA)`</td> 
-    <td>
+    <td style="width:40%;"> `select(simple, columnC, columnA)`</td> 
+    <td style="width:60%;">
       `r select(simple, columnC, columnA)`
     </td>
   </tr>
+</table>
+
+#### <span class="color3 medium bolder">position</span> 
+<p style="margin-top:15px">List the position of the variable(s) within the dataset that you want to keep and their new order (i.e. 1 for first, 2 for second, 5 for fifth) </p>
+<table class="table">
   <tr>
-    <td colspan="2"> <p class="color3 medium bolder" style="margin-bottom:0px;">position</p> List the position of the variable(s) within the dataset that you want to keep and their new order <br>(i.e. 1 for first, 2 for second, 5 for fifth) </td>
-  </tr>
-  <tr>
-    <td> `select(simple, 2, 4, 1)`</td> 
-    <td>
+    <td style="width:40%;"> `select(simple, 2, 4, 1)`</td> 
+    <td style="width:60%;">
       `r select(simple, 2, 4, 1)`
     </td>
   </tr>
+</table>
+
+#### <span class="color3 medium bolder">: (colon) </span> 
+<p style="margin-top:15px">Select a range of variables to keep, using either their <span class="color3 bold">names</span> or <span class="color3 bold">positions</span> </p>
+<table class="table">
   <tr>
-    <td colspan="2"> <p class="color3 medium bolder" style="margin-bottom:0px;">: (colon) </p> Select a range of variables to keep, using either their <span class="color3 bold">names</span> or <span class="color3 bold">positions</span> </td>
-  </tr>
-  <tr>
-    <td> `select(simple, columnB:columnD)`</td> 
-    <td>
+    <td style="width:40%;"> `select(simple, columnB:columnD)`</td> 
+    <td style="width:60%;">
       `r select(simple, columnB:columnD)`
     </td>
   </tr>
@@ -147,12 +131,14 @@ simple
       `r select(simple, 1:3)`
     </td>
   </tr>
+</table>
+
+#### <span class="color3 medium bolder">\- (minus)</span> 
+<p style="margin-top:15px">Choose a column to remove, using either its <span class="color3 bold">name</span> or <span class="color3 bold">position</span></p>
+<table class="table">
   <tr>
-    <td colspan="2"><p class="color3 medium bolder" style="margin-bottom:0px;">\- (minus)</p> Choose a column to remove, using either its <span class="color3 bold">name</span> or <span class="color3 bold">position</span></td>
-  </tr>
-  <tr>
-    <td> `select(simple, -columnA)`</td> 
-    <td>
+    <td style="width:40%;"> `select(simple, -columnA)`</td> 
+    <td style="width:60%;">
       `r select(simple, -columnA)`
     </td>
   </tr>
@@ -163,7 +149,7 @@ simple
     </td>
   </tr>
 </table> 
-
+### {-}
 <div class="quick_note_box">
   <p class="quick_note_header">`r emo::ji("bookmark_tabs")` Quick Note</p>
   <p> If you ever forget the names of the variables in your dataset, you can use `colnames()` to quickly list them. For example, if you wanted to know the names of the variables in the mpg dataset you would write:</p>
@@ -242,151 +228,267 @@ grade_result(
 )
 ```
 
-### Renaming Columns {.tabset}
+## Renaming Columns 
 
-<p style="font-weight:bold; font-size:1.5em">select(data, <span class="color1" >new_variable_name</span> = <span class="color2">old_variable_name</span>)</p>
+###  {.tabset}
+
+--- 
+
+<p style="font-weight:bold; font-size: 1.5em">select(data, <span class="color1" >new_variable_name</span> = <span class="color2">old_variable_name</span>)</p>
 
 To rename a variable using `select()` all you have to do is provide a <span class="color1" >new variable name</span>, however the syntax can be a little awkward since the <span class="color1">new name</span> comes first, before the equals sign (=).
 
 #### Rename with One Word   
-The easiest option for renaming a column is to use a single word. Make sure when you are renaming your variables that they still follow good coding practices (lowercase, noun phrase, meaningful).
 
-<table>
+<p style="margin-top: 15px">The easiest option for renaming a column is to use a single word. Make sure when you are renaming your variables that they still follow good coding practices (lowercase, noun phrase, meaningful).</p>
+
+<table class="table">
   <tr>
-    <th>Meaning*ful* Variable Names</th><th>Meaning*less* Variable Names</th>
+    <th style="width: 50%;">Meaning*ful* Variable Names</th>
+    <th style="width: 50%;">Meaning*less* Variable Names</th>
   </tr>
   <tr>
     <td>
-```{r, eval=FALSE}
-select(mpg, transmission = trans)
+```{r}
+select(mpg, transmission = trans) %>%
+  head(n=2)
 ``` 
-
-
-```{r, echo=FALSE}
-head(select(mpg, transmission = trans), n=2)
-```
 
   </td>
   <td>
-```{r, eval=FALSE}
-select(mpg, transmission = trans)
+```{r}
+select(mpg, t = trans) %>%
+  head(n=2)
 ``` 
-
-
-```{r, echo=FALSE}
-head(select(mpg, t = trans), n=2)
-```
   </td>
   </tr>
 </table>
 #### Rename with Multiple Words  
-Be careful when working with multiple words. At first you might try to write out a few words, but be careful variable names cannot contain spaces! Otherwise you'll get an error message like in the code chunk below. Instead make sure to separate your lowercase words with under_scores.
+<p style="margin-top: 15px">Be careful when working with multiple words. At first you might try to write out a few words, but be careful variable names cannot contain spaces! Otherwise you'll get an error message like in the code chunk below. Instead make sure to separate your lowercase words with under_scores.</p>
 ```{r, error=TRUE}
 select(mpg, drive train = drv)
 ```
 
-<table>
+<table class="table">
   <tr>
-    <th>Meaning*ful* Variable Names</th><th>Meaning*less* Variable Names</th>
+    <th style="width: 40%;">Meaning*ful* Variable Names</th>
+    <th style="width: 60%;">Meaning*less* Variable Names</th>
   </tr>
   <tr>
+    <td></td>
     <td>
-```{r, eval=FALSE}
-select(mpg, drive_train = drv)
-```
-
-```{r, echo=FALSE}
-head(select(mpg, front_rear_or_four_wheel_drive = trans), n=2)
+      Long winded variable names are unwieldy and prone to typos. Also never use the actual values for a variable as its name! If new values are added or removed, the name would no longer accurately describe the variable's contents/purpose.
+    </td>
+  <tr>
+    <td>
+```{r}
+select(mpg, drive_train = drv) %>%
+  head(n=2)
 ```
   </td>
   <td>
-Long winded variable names are unwieldy and prone to typos. Also never use the actual values for a variable as its name! If new values are added or removed, the name would no longer accurately describe the variable's contents/purpose.
-```{r, eval=FALSE}
-select(mpg, front_rear_or_four_wheel_drive = trans)
+```{r}
+select(mpg, front_rear_or_four_wheel_drive = trans) %>%
+  head(n=2)
 ``` 
-
-
-```{r, echo=FALSE}
-head(select(mpg, t = trans), n=2)
-```
   </td>
   </tr>
 </table>
 
 #### Be Careful of " " and .   
-When viewing code snippets online, you may see other styles for naming variables with multiple words. But be careful, while some are just different (e.g. CamelCasing) others can be downright problematic. Specifically, don't use dot.notation or "quotation marks".
-<table>
+<p style="margin-top: 15px">When viewing code snippets online, you may see other styles for naming variables with multiple words. But be careful, while some are just different (e.g. CamelCasing) others can be downright problematic. Specifically, don't use dot.notation or "quotation marks".</p>
+<table class="table">
   <tr>
-    <th>Quotes **"** or **'**</th><th>Dot **.** Notation</th>
+    <th style="width: 50%;">Quotes **"** or **'**</th>
+    <th style="width: 50%;">Dot **.** Notation</th>
   </tr>
   <tr>
     <td>
-Double quotes may appear more readable, but it will force all future operations to use quotes as well. Sometimes you will import a dataset where the column names include quotes, but this is consider bad practice.
-```{r, eval=FALSE}
-select(mpg, "city mpg" = cty)
-```
-
-```{r, echo=FALSE}
-head(select(mpg, "city mpg" = cty), n=2)
+      Double quotes may appear more readable, but it will force all future operations to use quotes as well. For example, if you pipe `%>%` the results from select to filter, you'll need to reference your renamed columns using quotes "  ". In general, you should rename columns so that the quotes are removed.        
+    </td>
+    <td>
+      Using dots, i.e. periods, to separate the words in your variable names used to be common practice in R and you can still find plenty of datasets that still follow Dot.Notation, like the `iris` dataset. This practice has fallen out of vogue because it resembles the same notation used by class methods in R. Classes are a topic beyond the scope of this tutorial, so to simplify just **don't use dot.notation**.
+    </td>
+  </tr>
+  <tr>
+    <td>
+```{r}
+select(mpg, "city mpg" = cty) %>%
+  filter("city mpg" > 24) %>%
+  head(n=2)
 ```
   </td>
   <td>
-Using dots, i.e. periods, to separate the words in your variable names used to be common practice in R and you can still find plenty of datasets that still follow Dot.Notation, like the `iris` dataset. This practice hasn't fallen out of vogue because it resembles the same notation used by class methods in R. Classes are a topic beyond the scope of this tutorial, so to simplify just **don't use dot.notation**. 
-```{r, eval=FALSE}
-select(mpg, Fuel.Type = fl)
+```{r}
+select(mpg, Fuel.Type = fl) %>%
+  head(n=2) 
+
 ``` 
-
-
-```{r, echo=FALSE}
-head(select(mpg, Fuel.Type = fl), n=2)
-```
   </td>
   </tr>
 </table>
 
+### Practice Problems
+For each practice problem, ensure you are renaming each variable so that it follows our preferred naming conventions.
 
-## Homwork Problems
+#### Practice Problem 5
+Finish the code block so that the hwy variable is renamed as highway.
+```{r select_practice5, exercise = TRUE, exercise.blanks = "___+"}
+select(mpg, _____= hwy)
+```
+
+```{r select_practice5-solution}
+select(mpg, highway = hwy)
+```
+
+```{r select_practice5-check}
+grade_result(
+  pass_if(~identical(.result, select(mpg, highway = hwy)))
+)
+```
+
+#### Practice Problem 6
+Finish the code block so that the class variable is renamed as car type.
+```{r select_practice6, exercise = TRUE, exercise.blanks = "___+"}
+select(mpg, _____= class)
+```
+
+```{r select_practice6-solution}
+select(mpg, car_type = class)
+```
+
+```{r select_practice6-check}
+grade_result(
+  pass_if(~identical(.result, select(mpg, car_type = class)))
+)
+```
+
+#### Practice Problem 7
+Write the necessary code to list the variables manufacturer, model, and year. They should be followed by the renamed variables fuel type, transmission type, and highway.
+```{r select_practice7, exercise = TRUE}
+
+```
+
+```{r select_practice7-solution}
+select(mpg, manufacturer, model, year, fuel_type = fl, transmission_type = trans, highway = hwy)
+```
+
+```{r select_practice7-check}
+grade_result(
+  pass_if(~identical(.result, select(mpg, manufacturer, model, year, fuel_type = fl, transmission_type = trans, highway = hwy)))
+)
+```
+## Homework Problems
 
 <!-- 
+  The description for the homework dataset
+-->  
 
+```{r include_hmw, child="data/hmw_data_description.Rmd"}
+```
+
+<!-- 
   Homework problems are stored in a separate file "homework_#.Rmd", where the # represents a specific set of homework problems.
   In order to prevent 
 -->
-```{r, child="homework_1.Rmd"}
+```{r include_hmw, child="homework_1.Rmd"}
 ```
 <!-- 
   The hmw_grader.Rmd child contains event listeners that evaluate a student's work each time they submit/answer a problem
 -->
-```{r, child=here::here("SharedResources","grading","hmw_grader.Rmd")}
+```{r, child="../SharedResources/grading/hmw_grader.Rmd"}
 ```
 <!-- 
   The download_homework.Rmd child adds a button for students to download their homework submission.
   This report only includes the homework problems and none of the practice problems.
 -->
-```{r, child=here::here("SharedResources","grading","download_homework.Rmd")}
+```{r, child="../SharedResources/grading/download_homework.Rmd"}
 ```
 
 
-## Helper Functions
+## Helper Functions  
 
-### Using dplyr::rename()  
-![A mouse changing data frames variable (column) names to "nemesis" and "lair" from "species" and "site", with news of a cheese heist in the background.](images/rename_sm.jpg){width=100%} 
+###  {.tabset}
 
-Explain how we rename variables here 
+--- 
+
+Explicitly listing the variables you need can work for creating a quick subset but manually writing out all those variable names can get tedious real fast. If you need to make a complex selection of variables, turn to the helper functions!
+
+#### contains()
+<p style="margin-top: 15px">The `contains()` function will check each variable name to see if *contains* a literal string. 
+This can be handy to grab a subset of variables that share a common substring.</p>  
+**You can list a single substring** 
+```{r}
+select(green_vehicles, contains("mpg")) %>% #Retrieve the miles per gallon variables
+  head(2) #limit to only 2 rows
+```
+
+**or multiple substrings.**
+```{r}
+select(green_vehicles, contains(c("mpg", "stnd"))) %>% #Retrieve the miles per gallon variables
+  head(2) #limit to only 2 rows
+```
+
+#### starts_with()
+<p style="margin-top: 15px">The `starts_with()` function works similar to `contains()`, but is a bit more focused. Instead of searching the entire variable name for a given substring, it only checks at the start of the name. In other words, its checking for a given prefix. </p>
+**You can list a single prefix** 
+```{r}
+select(green_vehicles, starts_with("stnd")) %>% #Retrieve the miles per gallon variables
+  head(2) #limit to only 2 rows
+```
+
+**or multiple prefixes.**
+```{r}
+select(green_vehicles, starts_with(c("stnd", "c"))) %>% #Retrieve the miles per gallon variables
+  head(2) #limit to only 2 rows
+```
+
+#### ends_with()
+<p style="margin-top: 15px">The `end_with()` function is the polar opposite of `starts_with()`. Instead of searching the for a given prefix, it checks the end of the name for given suffix. </p>  
+**You can list a single suffix**
+```{r}
+select(green_vehicles, ends_with("score")) %>% #Retrieve the miles per gallon variables
+  head(2) #limit to only 2 rows
+```
+
+**or multiple suffixes**
+```{r}
+select(green_vehicles, ends_with(c("ion", "_mpg"))) %>% #Retrieve the miles per gallon variables
+  head(2) #limit to only 2 rows
+```
+
+#### num_range()
+<p style="margin-top: 15px; font-size:1.5em;">num_range(<span class="color1" >"prefix"</span>, <span class="color2" >start</span>:<span class="color3" >end</span>)</p>
+The `num_range()` function expands the functionality of `starts_with()`. It appends a given prefix with a series of numbers. This is a great way to search for columns in a generated dataset!
+The [billboard dataset](https://tidyr.tidyverse.org/reference/billboard.html), packaged with tidyverse, lists the top 100 songs of year 2000 and provides each song's rank for each week after it entered the top 100. Working with `num_range()` we can easily grab a specific subset of weekly rankings.
+```{r}
+select(billboard, num_range("wk", 5:15)) %>% #Retrieve the rankings for week 5 to 15 
+  head(2) #limit to only 2 rows
+```
 
 
-### contains()
+#### everything()
+<p style="margin-top: 15px">As has been repeatedly stated, writing out the names of all the remaining variables in a data frame can be so tedious! Luckily, there the `everything()` function. It will grab all of the columns not explicitly named and place them at the end `select()`'s new data frame.</p>
 
-### starts_with()
+```{r}
+select(green_vehicles, model, year, smartway, everything()) %>% #Place all the remaining variables after smartway
+  head(2) #limit to only 2 rows
+```
 
-### ends_with()
+#### dplyr::rename()  
 
-### num_range()
+<p style="margin-top: 15px">While select can be used for renaming columns, it does come with a big drawback : you need to list all of your columns to prevent them from being dropped or reordered.
+If you just need to rename a column, without creating a subset, use dplyr's `rename()` function. Luckily, it has the same syntax as `select()` for changing names: </p>
 
-### everything()
+<p style="font-weight:bold; font-size: 1.5em; text-align: center;margin-bottom:0px;">rename(data, <span class="color1" >new_variable_name</span> = <span class="color2">old_variable_name</span>)</p> 
 
-### where()
+<img  src="images/rename_sm.jpg" alt="A mouse changing data frames variable (column) names to 'nemesis' and 'lair' from 'species' and 'site', with news of a cheese heist in the background." style="width:80%; margin:0 10%" />
 
+<p align="center">"Artwork by <a href="https://twitter.com/allison_horst?lang=en">@allison_horst</a>" </p>
 
+```{r}
+rename(mpg, drive_train = drv) %>% #rename drv as drive_train
+  head(n=2) #limit the output to two rows
+```
 
 

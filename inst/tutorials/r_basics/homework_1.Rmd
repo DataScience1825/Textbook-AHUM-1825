@@ -1,26 +1,11 @@
-
-![A banner with a centered message of Farming Dataset, on the left are a collection of vegetables, and on the right is a milk can and a hen with its chicks ](shared_images/Farm Dataset Banner_Black.png){width=100%} 
-
-This tutorial's homework exercises will use a dataset representing the foods goods stored at four fictitious farms. Each row represents a food item being stored at a given farm and each column provides additional details on that food item:\
-
-  - **p_name** : [character] a food product's name (e.g. Fuji Apples, Sweet Corn)
-  - **f_name**:  [character] the name of the farm storing the food item (Peppridge, Old Mcdonald, Bailey, Sevier)
-  - **p_per_lb** : [number] the food item's price per pound   
-  - **q_in_lbs** : [number] the quantity of food being store in pounds
-  - **season** : [factor] the typical season for harvesting the food item (Fall, Winter, Spring, Summer, Year Round)  
-  - **type** : [factor] the food item's type (FRUIT, VEGETABLE, TUBER, LEGUME, CEREAL, MEAT, or DAIRY)
-  - **avg_sl** : [integer] the average shelf life (in days) for the food item  
-
-```{r}
-head(farm_data)
-```
-
+<!--{{dataset:FarmInventory}}-->
 
 ```{r context="server-start"}
 ##When the student begins a tutorial or hits "start over" this will reset their homework information. This will clear their
 ## homework grade and any homework problems submissions currently stored.
 event_register_handler("session_start", function(session, event, data) {
-  hmw_info <<- reactiveValues(s_id = "Not Set ", 
+  hmw_info <<- reactiveValues(s_id = get_tutorial_info()$user_id,
+                           tutorial_name = "r_basics",
                            hmw_grade = 0.0, 
                            submissions = list(
                                   hmw1 = list(type="questionaire", 
@@ -45,6 +30,22 @@ event_register_handler("session_start", function(session, event, data) {
 })
 ```
 
+<!-- Each Learnr Coding Exercise is run in an isolated environment. -->
+<!-- A "prepare" chunk is needed for each question to access the -->
+<!--   homework dataset, which should be stored in the local data-->
+<!--   directory as hmw_data.csv -->
+```{r prepare-hmw-r_basics-1, echo=FALSE}
+farm_data <- read_csv("data/hmw_data.csv", col_types="ccddffi");
+```
+
+```{r, echo=FALSE}
+farm_data <- read_csv("data/hmw_data.csv", col_types="ccddffi");
+```
+
+```{r}
+head(farm_data)
+```
+
 <!--
   Each homework problem requires a unique identifier. The naming convention used here is:
     tutorialName_hmw#  where # represents the homework problem's number
@@ -62,7 +63,7 @@ event_register_handler("session_start", function(session, event, data) {
 -->
 
 #### Problem 1
-```{r starter_hmw1, echo=FALSE, exercise.startover = TRUE}
+```{r r_basics_hmw1, echo=FALSE, exercise.startover = TRUE}
   question("Multiple Choice Quesiton :",
   answer("Choice A", correct = TRUE),
   answer("Choice B"),
@@ -75,11 +76,11 @@ event_register_handler("session_start", function(session, event, data) {
 
 #### Problem 2 
 Fill in the blanks with the necessary code so that...
-```{r starter_hmw2, exercise = TRUE, exercise.blanks = "___+", exercise.completion = FALSE}
+```{r r_basics_hmw2, exercise = TRUE, exercise.blanks = "___+", exercise.completion = FALSE, exercise.setup = "prepare-hmw-r_basics-1"}
 complete code ____ by filling ____ in blanks _____ 
 ```
 
-```{r starter_hmw2-check}
+```{r r_basics_hmw2-check}
 grade_result(
   pass_if(~identical(.result, TRUE))#Replace TRUE with the solution's code
 )
@@ -88,11 +89,11 @@ grade_result(
 
 #### Problem 3
 Write the necessary code to ...
-```{r starter_hmw3, exercise = TRUE, exercise.completion = FALSE}
+```{r r_basics_hmw3, exercise = TRUE, exercise.completion = FALSE, exercise.setup = "prepare-hmw-r_basics-1"}
 
 ```  
 
-```{r starter_hmw3-check}
+```{r r_basics_hmw3-check}
 grade_result(
   pass_if(~identical(.result, TRUE))#Replace TRUE with the solution's code
 )

@@ -1,4 +1,4 @@
-Year,Model,Displ,Cyl,Trans,Drive,Fuel,CertRegion,Stnd,StndDescription,UnderhoodID,VehClass,AirPollutionScore,CityMPG,HwyMPG,CmbMPG,GreenhouseGas Score,SmartWay,CombCO2
+year,model,displ,cyl,trans,drive,fuel,cert_region,stnd,stnd_description,underhood_id,veh_class,air_pollution_score,city_mpg,hwy_mpg,cmb_mpg,greenhouse_gas_score,smartway,comb_co2
 2023,ACURA Integra,1.5,4,SCV-7,2WD,Gasoline,CA,L3SULEV30,California LEV-III SULEV30,PHNXV01.54EC,large car,7,30,37,33,6,No,269
 2023,ACURA Integra,1.5,4,SCV-7,2WD,Gasoline,FA,T3B30,Federal Tier 3 Bin 30,PHNXV01.54EC,large car,7,30,37,33,6,No,269
 2023,ACURA Integra A-Spec,1.5,4,Man-6,2WD,Gasoline,CA,L3ULEV50,California LEV-III ULEV50,PHNXV01.55DC,large car,6,26,36,30,6,No,293

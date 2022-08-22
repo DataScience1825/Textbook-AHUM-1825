@@ -40,8 +40,8 @@ library(tidyverse)
 library(shinyjs)
 library(reactable)
 
-addResourcePath("shared_images", "../SharedResources/images")#Add access to a shared set of images. Like the banner for the farm dataset
-farm_data <- read_csv("../SharedResources/datasets/Farm Dataset.csv", col_types="ccddffi"); #Homework dataset
+addResourcePath("SharedResources", "../SharedResources")#Add access to a shared set of images. Like the banner for the farm dataset
+farm_data <- read_csv("../SharedResources/datasets/FarmInventory/data.csv", col_types="ccddffi"); #Homework dataset
 
 knitr::opts_chunk$set(error = FALSE, message = FALSE)
 ```
@@ -68,6 +68,13 @@ If you review the R Documentation for the [_starter_() function](https://dplyr.t
 Add a student friendly explanation for _starter_() here. Keep in mind, this is all done **without modifying or altering the original dataset!** 
 
 ## Practice Dataset  
+<!-- All datasets should be stored in the SharedResources/dataset/ directory, 
+      inside a folder named after the dataset. The dataset folder should contain the following:
+        - data.csv - A csv containing the raw data (if available)
+        - description.md - A description of dataset and its variables (a sample is provided below)
+        - banner.png - A fun/interesting/informative image to represent the dataset. 
+                       Ideally a png file, to allow for easy updates to the tutorial's css styling (specifically background-color)
+-->
 
 <!-- To create a new dataset image: 
   1A) Use the Google Drive Link: https://docs.google.com/drawings/d/1fGYXHNHbKQbhU1VlapILNpuhWuhE-9l_UXi0rX_UbgM/copy?usp=sharing 
@@ -205,9 +212,16 @@ grade_result(
 --- 
 
 <!-- 
+  The description for the homework dataset
+-->  
+
+```{r include_hmw, child="data/hmw_data_description.Rmd"}
+```
+
+<!-- 
 
   Homework problems are stored in a separate file "homework_#.Rmd", where the # represents a specific set of homework problems.
-  In order to prevent 
+  To switch homework problems, use the uilities functions updateAllHomeworks(hmw_number) or updateOneHomework(tutorial, hmw_number)
 -->
 ```{r, child="homework_1.Rmd"}
 ```
