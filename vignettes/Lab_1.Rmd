@@ -1,0 +1,47 @@
+---
+title: "Lab_1"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 2
+vignette: >
+  %\VignetteIndexEntry{Lab_1}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ahum1825)
+```
+
+# Overview
+The first goal for this week is to get to know your students and to set expectations for the lab meetings.  The second goal for the week is to make sure students understand the RStudio environment and develop a sense of confidence in very basic tasks in R. 
+
+# Introductions 
+
+Introductions, ground rules, and icebreaker—it will be important to learn your students’ names as soon as possible.  Given the size of the class, it will be important that at least one of us know each student by name.  You might ask students to create their own name placard; in smaller classes I make a map of the class when I call roll until I know student names.
+
+# RStudio Demo
+Make sure students can access the RStudio site–walk them through the log on process and verify that every student is on. 
+
+## Tour
+Provide a tour of the RStudio interface as a powerful data science tool. 
+
+### Console
+Describe the console 
+
+### Environment
+Describe the environment pane  
+
+### Help Pane
+Describe the help pane  
+
+## Math Operations
+Demonstrate basic functionality of R–show on screen then have students undertake each step to verify that they’ve done the operation correctly

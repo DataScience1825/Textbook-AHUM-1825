@@ -1,11 +1,29 @@
 Package: ahum1825
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Interactive Tutorials for Inclusive Data Science for All (AHUM 1825) at CU Boulder
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Michael Schneider
+Maintainer: Michael Schneider <Michael.J.Schneider@colorado.edu>
+Description: The provided tutorials explain how to import, process, and visualize data using R, RStudio, and the Tidyverse package
+License: Creative Commons-Attribution
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/DataScience1825/ahum1825
+Imports:
+    emo,
+    knitr,
+    gradethis,
+    learnr,
+    reactable,
+    rmarkdown,
+    shinyjs,
+    tidyverse,
+    palmerpenguins
+Remotes:
+    hadley/emo,
+    rstudio/gradethis,
+    rstudio/learnr
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

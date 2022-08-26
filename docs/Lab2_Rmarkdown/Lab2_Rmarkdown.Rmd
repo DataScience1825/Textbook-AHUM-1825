@@ -1,0 +1,176 @@
+---
+title: "R Markdown"
+subtitle: "Lab 2"
+author: "Michael Schneider"
+institute: "University of Colorado Boulder"
+date: "Fall 2022 (updated: `r Sys.Date()`)"
+css: [default, "libs/custom.css"]
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+    seal: false
+    lib_dir: libs
+    nature:
+      highlightStyle: github 
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+<img src="images/rmarkdown_hex.png" alt="Rmarkdown HexSticker" style="width:40%; margin:0 30%">
+
+.bottom[RMarkdown Hex Sticker: <a href="https://github.com/rstudio/rmarkdown">Source</a>]
+
+---
+
+# Today's Recitation
+
+.indent75[
+
+.text2_5[What] .text1_5[&nbsp; is R Markdown?]
+
+.text2_5[Why] .text1_5[&nbsp; use R Markdown?]
+
+.text2_5[How] .text1_5[&nbsp; to create an R Markdown?]
+
+]
+
+---
+
+class: bg_contain
+background-image: url("images/rmarkdown_wizards.png")
+
+---
+
+## What is RMarkdown
+
+.pull-left[
+  .box[
+<pre style="white-space:pre-wrap; height: 429px;">
+# Header1 Text  
+A piece of text describing something important
+
+![Description](rmarkdown_wizards.png)
+```{r, tidy=TRUE, eval=FALSE}
+head(mtcars)
+```
+
+</pre>
+  ]
+]
+
+.pull-right[
+ .box[  
+  .text1_5[Header1 Text]  
+  A piece of text describing something important
+  ![Description](images/rmarkdown_wizards.png)
+
+.o_flow_hide[
+```{r, eval=TRUE, echo=FALSE}
+  head(mtcars, n=3)
+```
+  ]
+ ]
+]
+
+.pull-left[
+ .center[
+  .top5[R Markdown File]
+ ]
+]
+
+.pull-right[
+ .center[
+  .top5[HTML File (webpage)]
+ ]
+]
+
+---
+
+## Why Use R Markdown
+
+.pull-left[
+ ![ Screenshot of Ahmadou Dicko, presenting on Humanitarian Data Science with R](images/humanitarian_talk.jpg)
+ .center[
+  .text1_5[Humanitarian Data Science with R]  
+  [rstudio::global 2021 Talk](https://www.rstudio.com/resources/rstudioglobal-2021/humanitarian-data-science-with-r/)
+ ]
+]
+
+.pull-right[
+  .mono["Humanitarian actors are increasingly using data to drive their decisions. Since the Haiti 2010 earthquake, the volume of data collected and used by humanitarians has been growing exponentially and organizations are now relying on data specialists to turn all this data into life-saving data products."]
+  .right[**\- Ahmadou Dicko**]
+]
+
+---
+
+class: bg_85
+background-image: url("images/reproducible_flow.png")
+
+## Traditional Workflow
+
+.footer[ [Source](https://gitlab.com/dickoa/rstudioconf2021-talk/-/tree/master/) ]
+
+---
+
+class: bg_75
+background-image: url("images/tools_change.png")
+
+.top[ 
+## Moving to R 
+]
+
+.footer[ [Source](https://gitlab.com/dickoa/rstudioconf2021-talk/-/tree/master/) ]
+
+---
+
+class: bg_85
+background-image: url("images/r_workflow.png")
+
+## R Markdown Workflow
+
+.footer[ [Source](https://gitlab.com/dickoa/rstudioconf2021-talk/-/tree/master/) ]
+
+---
+
+## Create an R Markdown File
+
+---
+
+## Source vs Visual
+
+---
+
+## Adding Content
+
+Slowly transition to reveal the different ways to use 
+headers, images, hyperlinks, tables, code
+
+---
+
+## R Code Chunks
+
+---
+
+## Importing a CSV file
+
+---
+
+## Exploring a Data Frame
+
+---
+
+
+<!-- - Create an R Markdown file -->
+<!-- - Source vs Visual -->
+<!-- - Adding Content: -->
+<!--   - Text -->
+<!--   - Images -->
+<!--   - Hyperlinks -->
+<!--   - Tables -->
+<!-- - Using R to : -->
+<!--   - Import data files -->
+<!--   - Explore a data file -->
+<!--   - Create a quick plot -->
+
+
+
