@@ -1,0 +1,106 @@
+---
+title: "R Markdown"
+subtitle: "Lab 2"
+author: "Michael Schneider"
+institute: "University of Colorado Boulder"
+date: "Fall 2022 (updated: `r Sys.Date()`)"
+css: [default, "libs/custom.css"]
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+    seal: false
+    lib_dir: libs
+    nature:
+      highlightStyle: github 
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+background-image: url("images/rmarkdown_wizards.png")
+background-size: contain
+
+---
+
+# Today's Recitation
+
+.indent75[
+
+.text2_5[Creating] .text1_5[&nbsp; an R Markdown]
+
+.text2_5[Importing] .text1_5[&nbsp; a data set]
+
+.text2_5[Sharing] .text1_5[&nbsp; an R Project]
+
+.text2_5[Submitting] .text1_5[&nbsp; to Canvas]
+
+]
+
+---
+
+## R Markdown
+
+.pull-left[
+  .box[
+<pre style="white-space:pre-wrap; height: 429px;">
+# Header1 Text  
+A piece of text describing something important
+
+![Description](rmarkdown_wizards.png)
+```{r, tidy=TRUE, eval=FALSE}
+head(mtcars)
+```
+
+</pre>
+  ]
+]
+
+.pull-right[
+ .box[  
+  .text1_5[Header1 Text]  
+  A piece of text describing something important
+  ![Description](images/rmarkdown_wizards.png)
+
+.o_flow_hide[
+```{r, eval=TRUE, echo=FALSE}
+  head(mtcars, n=3)
+```
+  ]
+ ]
+]
+
+.pull-left[
+ .center[
+  .top5[R Markdown File]
+ ]
+]
+
+.pull-right[
+ .center[
+  .top5[HTML File (webpage)]
+ ]
+]
+
+
+---
+
+background-image: url("images/datasets.png")
+background-size: 85%
+
+## Data Sources
+
+---
+
+background-image: url("images/share_project.png")
+background-size: contain
+
+## Sharing Projects
+
+---
+
+background-image: url("images/submit.png")
+background-size: contain
+
+## Submitting to Canvas
+
+--- 
+
