@@ -33,7 +33,6 @@ update_css <- function(){
   setwd(current_wd)#Restore working directory
 }
 
-#TODO: Create starter homework file!
 # Generate a starter tutorial for a provided name
 # This method will generate:
 # - A new directory for the tutorial

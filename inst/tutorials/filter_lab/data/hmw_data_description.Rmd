@@ -1,0 +1,21 @@
+
+![A banner with a centered message of Farming Dataset, on the left are a collection of vegetables, and on the right is a milk can and a hen with its chicks ](SharedResources/datasets/FarmInventory/banner.jpg){width=100%} 
+
+This dataset represents the foods goods stored at four fictitious farms. Each row represents a food item being stored at a given farm and each column provides additional details on that food item:\
+
+  - **p_name** : [character] a food product's name (e.g. Fuji Apples, Sweet Corn)
+  - **f_name**:  [character] the name of the farm storing the food item (Peppridge, Old Mcdonald, Bailey, Sevier)
+  - **p_per_lb** : [number] the food item's price per pound   
+  - **q_in_lbs** : [number] the quantity of food being store in pounds
+  - **season** : [factor] the typical season for harvesting the food item (Fall, Winter, Spring, Summer, Year Round)  
+  - **type** : [factor] the food item's type (FRUIT, VEGETABLE, TUBER, LEGUME, CEREAL, MEAT, or DAIRY)
+  - **avg_sl** : [integer] the average shelf life (in days) for the food item  
+
+
+<!-- ```{r, include=FALSE} -->
+<!-- farm_data <- read_csv("data.csv", col_types="ccddffi"); ##Homework Dataset -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- head(farm_data) -->
+<!-- ``` -->

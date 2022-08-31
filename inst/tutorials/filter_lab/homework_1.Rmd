@@ -1,0 +1,100 @@
+<!--{{dataset:FarmInventory}}-->
+
+```{r context="server-start"}
+##When the student begins a tutorial or hits "start over" this will reset their homework information. This will clear their
+## homework grade and any homework problems submissions currently stored.
+event_register_handler("session_start", function(session, event, data) {
+  hmw_info <<- reactiveValues(s_id = get_tutorial_info()$user_id,
+                           tutorial_name = "filter_lab",
+                           hmw_grade = 0.0, 
+                           submissions = list(
+                                  hmw1 = list(type="questionaire", 
+                                               q_text="A multiple choice or true/false question",
+                                               choices=c("Choice A", "Choice B", "Choice C"), 
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw2 = list(type="code", 
+                                               q_text="This is a coding question with starter code ", 
+                                               choices="starte_code_here",
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw3 = list(type="code", 
+                                               q_text="This is a coding question without starter code ", 
+                                               choices=NULL,
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = "")
+                                   ))
+})
+```
+
+<!-- Each Learnr Coding Exercise is run in an isolated environment. -->
+<!-- A "prepare" chunk is needed for each question to access the -->
+<!--   homework dataset, which should be stored in the local data-->
+<!--   directory as hmw_data.csv -->
+```{r prepare-hmw-filter_lab-1, echo=FALSE}
+farm_data <- read_csv("data/hmw_data.csv", col_types="ccddffi");
+```
+
+```{r, echo=FALSE}
+farm_data <- read_csv("data/hmw_data.csv", col_types="ccddffi");
+```
+
+```{r}
+head(farm_data)
+```
+
+<!--
+  Each homework problem requires a unique identifier. The naming convention used here is:
+    tutorialName_hmw#  where # represents the homework problem's number
+
+  A template has been provided for three different question types:
+    Problem 1 - a multiple choice question
+    Problem 2 - a coding question that uses fill in the blanks
+    Problem 3 - a coding question that provides no code snippets for the user
+  
+  More details on multiple choice sytle questions can be found here:
+      https://pkgs.rstudio.com/learnr/articles/questions.html 
+    
+  More details on coding questions can be found here: 
+      https://pkgs.rstudio.com/learnr/articles/exercises.html 
+-->
+
+#### Problem 1
+```{r filter_lab_hmw1, echo=FALSE, exercise.startover = TRUE}
+  question("Multiple Choice Quesiton :",
+  answer("Choice A", correct = TRUE),
+  answer("Choice B"),
+  answer("Choice C"),
+  answer("None of the above"),
+  incorrect = "feedback on wrong answer",
+  allow_retry = TRUE
+)
+```
+
+#### Problem 2 
+Fill in the blanks with the necessary code so that...
+```{r filter_lab_hmw2, exercise = TRUE, exercise.blanks = "___+", exercise.completion = FALSE, exercise.setup = "prepare-hmw-filter_lab-1"}
+complete code ____ by filling ____ in blanks _____ 
+```
+
+```{r filter_lab_hmw2-check}
+grade_result(
+  pass_if(~identical(.result, TRUE))#Replace TRUE with the solution's code
+)
+```
+
+
+#### Problem 3
+Write the necessary code to ...
+```{r filter_lab_hmw3, exercise = TRUE, exercise.completion = FALSE, exercise.setup = "prepare-hmw-filter_lab-1"}
+
+```  
+
+```{r filter_lab_hmw3-check}
+grade_result(
+  pass_if(~identical(.result, TRUE))#Replace TRUE with the solution's code
+)
+```

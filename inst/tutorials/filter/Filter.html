@@ -1034,7 +1034,7 @@ session$onSessionEnded(function() {
 expression_S <- reactive(
   switch(input$compareOp_S, 
     "Equal to (==)" = paste("result <- filter(simple, var == <span style=\"color:red\">", input$slider_S, "<\u002fspan>)\nresult", sep=""),
-    "Not Equal to (!=)"=paste("result <- filter(penguins, var != <span style=\"color:red\">", input$slider_S, "<\u002fspan>)\nresult", sep=""),
+    "Not Equal to (!=)"=paste("result <- filter(simple, var != <span style=\"color:red\">", input$slider_S, "<\u002fspan>)\nresult", sep=""),
     "Less Than (<)"=paste("result <- filter(simple, var < <span style=\"color:red\">", input$slider_S, "<\u002fspan>)\nresult", sep=""),
     "Less Than or Equal to (<=)"=paste("result <- filter(simple, var <= <span style=\"color:red\">", input$slider_S, "<\u002fspan>)\nresult", sep=""),
     "Greater Than (>)"=paste("result <- filter(simple, var > <span style=\"color:red\">", input$slider_S, "<\u002fspan>)\nresult", sep=""),
@@ -1778,10 +1778,10 @@ event_register_handler("session_start", function(session, event, data) {
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "filter_hmw1", 
     question = structure("(True or False), filter() modifies the dataframe passed to it.", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_3d5fa4e", 
+    "character")), answers = list(structure(list(id = "lnr_ans_e59080f", 
         option = "True", value = "True", label = structure("True", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_357c2b4", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_96ab198", 
         option = "False", value = "False", label = structure("False", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1792,30 +1792,30 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "filter_hmw1-answer", question = "filter_hmw1"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1943488128.59499, options = list()), class = c("learnr_radio", 
+    seed = 732566818.658872, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "filter_hmw2", 
     question = structure("The &amp; operator only evaulates to true if :", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_dd0f789", 
+    "character")), answers = list(structure(list(id = "lnr_ans_61de5d7", 
         option = "both conditions are true", value = "both conditions are true", 
         label = structure("both conditions are true", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_1244751", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a74a8a7", 
         option = "neither condition is true", value = "neither condition is true", 
         label = structure("neither condition is true", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_290d7f4", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d3f8982", 
         option = "either condition is true", value = "either condition is true", 
         label = structure("either condition is true", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_f5d6a29", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_128d524", 
         option = "both conditions are false", value = "both conditions are false", 
         label = structure("both conditions are false", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9e944b2", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a21c6f3", 
         option = "None of the above", value = "None of the above", 
         label = structure("None of the above", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1827,7 +1827,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "filter_hmw2-answer", question = "filter_hmw2"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 877260044.591494, options = list()), class = c("learnr_radio", 
+    seed = 779161412.637175, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
