@@ -40,9 +40,6 @@ gradethis::gradethis_setup()
 ## WARNING: The default values are set inside the "session_start" event handler, which is inside of homework.Rmd
 hmw_info <- NULL
 
-##Extra practice problems
-farm_data <- read_csv("../SharedResources/datasets/FarmInventory/data.csv", col_types="ccddffi");
-
 #Uncomment to view all the Learnr events and their data
 #new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {
    #cat("Original: \n", tutorial_id, " (", tutorial_version, "): ", user_id, ", ", event, "\n", sep = "")
@@ -566,7 +563,7 @@ grade_result(
 ```
 
 ```{r, echo=FALSE}
-head(farm_data)
+head(farm_inventory)
 ```
 **Warning**: These additional practice problems go beyond what is covered in this tutorial. They are meant to help you strengthen your coding skills and work on more complex calls to `filter()`. This means that you may have to use new functions, new libraries, or really think "out of the box" to solve them. If you get stuck, make sure to read through the provided hints! 
 
@@ -582,7 +579,7 @@ Write the necessary code to list all of the Russian Blue Potatoes and Purple Swe
 
 ```{r filter_practice11-check}
 grade_result(
-  pass_if(~identical(.result, filter(farm_data, p_name == "Russian Blue Potato" | p_name == "Purple Sweet Potato", p_per_lb * q_in_lbs > 3000)))
+  pass_if(~identical(.result, filter(farm_inventory, p_name == "Russian Blue Potato" | p_name == "Purple Sweet Potato", p_per_lb * q_in_lbs > 3000)))
 )
 ```
 
@@ -598,7 +595,7 @@ Write the necessary code to list all of the the beef products.
 
 ```{r filter_practice12-check}
 grade_result(
-  pass_if(~identical(.result, filter(farm_data, str_detect(p_name, "Beef"), type=="MEAT")))
+  pass_if(~identical(.result, filter(farm_inventory, str_detect(p_name, "Beef"), type=="MEAT")))
 )
 ```
 
@@ -614,7 +611,7 @@ Write the necessary code to list all of the food items that are missing an avera
 
 ```{r filter_practice13-check}
 grade_result(
-  pass_if(~identical(.result, filter(farm_data, is.na(avg_sl))))
+  pass_if(~identical(.result, filter(farm_inventory, is.na(avg_sl))))
 )
 ```
 
@@ -623,7 +620,7 @@ Finish the code below, so that only the food items on the grocery list from Sevi
 ```{r filter_practice14, exercise = TRUE, exercise.completion = FALSE}
 groceries <- c("Fuji Apple", "Soy Yogurt", "Whole Duck", "Cheddar Cheese", "Seeded Watermelon")
 
-filter(farm_data, _________)
+filter(farm_inventory, _________)
 ```
 
 <div id="filter_practice14-hint">
@@ -633,6 +630,6 @@ filter(farm_data, _________)
 ```{r filter_practice14-check}
 groceries <- c("Fuji Apple", "Seeded Watermelon", "Soy Yogurt", "Whole Duck", "Cheddar Cheese")
 grade_result(
-  pass_if(~identical(.result, filter(farm_data, p_name %in% groceries, f_name == "Sevier")))
+  pass_if(~identical(.result, filter(farm_inventory, p_name %in% groceries, f_name == "Sevier")))
 )
 ```

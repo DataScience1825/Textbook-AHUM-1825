@@ -29,7 +29,7 @@ event_register_handler("session_start", function(session, event, data) {
                                            error_msg = ""),
                                hmw4 = list(type="code", 
                                            q_text="Debugging Exercise - Fix the following piece of code so that only the dairy products are listed.", 
-                                           choices="filter(farm_data, type = \"dairy\")", 
+                                           choices="filter(farm_inventory, type = \"dairy\")", 
                                            is_correct = FALSE, 
                                            submitted_answer = "",
                                            error_msg = ""),
@@ -49,19 +49,6 @@ event_register_handler("session_start", function(session, event, data) {
 })
 
 
-```
-
-```{r prepare-hmw-filter-1, echo=FALSE}
-farm_data <- read_csv("data/hmw_data.csv", col_types="ccddffi");
-```
-
-```{r, echo=FALSE}
-#Prepare local copy of data directory
-farm_data <- read_csv("data/hmw_data.csv", col_types="ccddffi");
-```
-
-```{r}
-head(farm_data)
 ```
 
 #### Problem 1 
@@ -91,49 +78,49 @@ question("(True or False), filter() modifies the dataframe passed to it.",
 #### Problem 3 
 Fill in the blanks with the necessary code so that only the vegetables from Bailey Farm are listed.
 
-```{r filter_hmw3, exercise = TRUE, exercise.blanks = "___+", exercise.completion = FALSE, exercise.setup = "prepare-hmw-filter-1"}
-filter(farm_data, ____ == "Peppridge" ____ type ____ "VEGETABLE")
+```{r filter_hmw3, exercise = TRUE, exercise.blanks = "___+", exercise.completion = FALSE}
+filter(farm_inventory, ____ == "Peppridge" ____ type ____ "VEGETABLE")
 ```
 
 ```{r filter_hmw3-check}
 grade_result(
-  pass_if(~identical(.result, filter(farm_data, f_name == "Peppridge" & type == "VEGETABLE")))
+  pass_if(~identical(.result, filter(farm_inventory, f_name == "Peppridge" & type == "VEGETABLE")))
 )
 ```
 
 #### Problem 4 
 Debugging Exercise - Fix the following piece of code so that only the dairy products are listed.
-```{r filter_hmw4, exercise = TRUE, exercise.completion = FALSE, , exercise.setup = "prepare-hmw-filter-1"}
-filter(farm_data, type = "dairy")
+```{r filter_hmw4, exercise = TRUE, exercise.completion = FALSE, }
+filter(farm_inventory, type = "dairy")
 ```
 
 ```{r filter_hmw4-check}
 grade_result(
-  pass_if(~identical(.result, filter(farm_data, type == "DAIRY")))
+  pass_if(~identical(.result, filter(farm_inventory, type == "DAIRY")))
 )
 ```
 
 #### Problem 5
 Write the necessary code to list all of the legumes that have an average shelf life of at least 30 days.
-```{r filter_hmw5, exercise = TRUE, exercise.completion = FALSE, exercise.setup = "prepare-hmw-filter-1"}
+```{r filter_hmw5, exercise = TRUE, exercise.completion = FALSE}
 
 ```  
 
 ```{r filter_hmw5-check}
 grade_result(
-  pass_if(~identical(.result, filter(farm_data, type == "LEGUME", avg_sl >= 30)))
+  pass_if(~identical(.result, filter(farm_inventory, type == "LEGUME", avg_sl >= 30)))
 )
 ```
 
 #### Problem 6
 Write the necessary code to list all of the Russian Blue Potatoes and Purple Sweet Potatoes that have over 2,000 pounds in stock.
-```{r filter_hmw6, exercise = TRUE, exercise.completion = FALSE, exercise.setup = "prepare-hmw-filter-1"}
+```{r filter_hmw6, exercise = TRUE, exercise.completion = FALSE}
 
 ```
 
 ```{r filter_hmw6-check}
 grade_result(
-  pass_if(~identical(.result, filter(farm_data, p_name == "Russian Blue Potato" | p_name == "Purple Sweet Potato",  q_in_lbs > 2000)))
+  pass_if(~identical(.result, filter(farm_inventory, p_name == "Russian Blue Potato" | p_name == "Purple Sweet Potato",  q_in_lbs > 2000)))
 )
 ```
 

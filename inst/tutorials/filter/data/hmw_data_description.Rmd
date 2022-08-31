@@ -12,10 +12,3 @@ This dataset represents the foods goods stored at four fictitious farms. Each ro
   - **avg_sl** : [integer] the average shelf life (in days) for the food item  
 
 
-<!-- ```{r, include=FALSE} -->
-<!-- farm_data <- read_csv("data.csv", col_types="ccddffi"); ##Homework Dataset -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- head(farm_data) -->
-<!-- ``` -->

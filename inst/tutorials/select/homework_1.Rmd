@@ -51,22 +51,6 @@ event_register_handler("session_start", function(session, event, data) {
 ```
 
 
-<!-- Each exercise runs in a separate environment. To have a common dataset in a homework tutorial, there needs to be a shared setup chunk. -->
-
-```{r prepare-select-hw1, include=FALSE}
-green_vehicles <- read_csv("data/hmw_data.csv", col_types="fcddffffcccfdddddcd")
-```
-
-<!-- Repeat so that the head(data) block will load when the file is knitted -->
-```{r, include=FALSE}
-green_vehicles <- read_csv("data/hmw_data.csv", col_types="fcddffffcccfdddddcd")
-```
-
-```{r}
-head(green_vehicles)
-```
-
-
 #### Problem 1
 ```{r select_hmw1, echo=FALSE, exercise.startover = TRUE}
   question("When using select(), any columns that are not listed will be :",
@@ -92,7 +76,7 @@ head(green_vehicles)
 ```
 #### Problem 3 
 Fill in the blanks with the necessary code so that only the car's model, year, and smartway status are listed.
-```{r select_hmw3, exercise = TRUE, exercise.blanks = "___+", exercise.completion = FALSE, exercise.setup="prepare-select-hw1"}
+```{r select_hmw3, exercise = TRUE, exercise.blanks = "___+", exercise.completion = FALSE}
 select(green_vehicles, _____, _____, _____)
 ```
 
@@ -105,7 +89,7 @@ grade_result(
 
 #### Problem 4
 Debugging Exercise - Fix the following piece of code so that it can run correctly.
-```{r select_hmw4, exercise = TRUE, exercise.completion = FALSE, exercise.setup="prepare-select-hw1"}
+```{r select_hmw4, exercise = TRUE, exercise.completion = FALSE}
 select(green_vehicles, 1;5, c1ty_mpg, greenhouse_gas_score = gg_score) 
 ```  
 
@@ -121,7 +105,7 @@ grade_result(
 
 #### Problem 5 
 Write the necessary code so that the car's fuel type, vehicle class, combined mpg, and air pollution score are listed. Also, rename the air pollution score variable as **ap_score**.
-```{r select_hmw5, exercise = TRUE, exercise.completion = FALSE, exercise.setup="prepare-select-hw1"}
+```{r select_hmw5, exercise = TRUE, exercise.completion = FALSE}
 
 ```
 
@@ -133,7 +117,7 @@ grade_result(
 
 #### Problem 6 
 Write the necessary code to organize each car's information as follows: the year to the transmission type, the car's 3 mpg scores, the air pollution score, and its smartway status. (Variable renaming is not required for this exercise)
-```{r select_hmw6, exercise = TRUE, exercise.completion = FALSE, exercise.setup="prepare-select-hw1"}
+```{r select_hmw6, exercise = TRUE, exercise.completion = FALSE}
 
 ```
 
