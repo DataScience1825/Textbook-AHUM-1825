@@ -41,7 +41,6 @@ library(shinyjs)
 library(reactable)
 
 addResourcePath("SharedResources", "../SharedResources")#Add access to a shared set of images. Like the banner for the farm dataset
-farm_data <- read_csv("../SharedResources/datasets/FarmInventory/data.csv", col_types="ccddffi"); #Homework dataset
 
 knitr::opts_chunk$set(error = FALSE, message = FALSE)
 ```

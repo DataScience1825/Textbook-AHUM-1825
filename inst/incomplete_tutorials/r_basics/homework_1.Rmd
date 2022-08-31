@@ -5,7 +5,7 @@
 ## homework grade and any homework problems submissions currently stored.
 event_register_handler("session_start", function(session, event, data) {
   hmw_info <<- reactiveValues(s_id = get_tutorial_info()$user_id,
-                           tutorial_name = "_starter_",
+                           tutorial_name = "r_basics",
                            hmw_grade = 0.0, 
                            submissions = list(
                                   hmw1 = list(type="questionaire", 
@@ -30,20 +30,9 @@ event_register_handler("session_start", function(session, event, data) {
 })
 ```
 
-<!-- Each Learnr Coding Exercise is run in an isolated environment. -->
-<!-- A "prepare" chunk is needed for each question to access the -->
-<!--   homework dataset, which should be stored in the local data-->
-<!--   directory as hmw_data.csv -->
-```{r prepare-hmw-_starter_-1, echo=FALSE}
-farm_data <- read_csv("data/hmw_data.csv", col_types="ccddffi");
-```
-
-```{r, echo=FALSE}
-farm_data <- read_csv("data/hmw_data.csv", col_types="ccddffi");
-```
 
 ```{r}
-head(farm_data)
+head(farm_inventory)
 ```
 
 <!--
@@ -63,7 +52,7 @@ head(farm_data)
 -->
 
 #### Problem 1
-```{r _starter__hmw1, echo=FALSE, exercise.startover = TRUE}
+```{r r_basics_hmw1, echo=FALSE, exercise.startover = TRUE}
   question("Multiple Choice Quesiton :",
   answer("Choice A", correct = TRUE),
   answer("Choice B"),
@@ -76,11 +65,11 @@ head(farm_data)
 
 #### Problem 2 
 Fill in the blanks with the necessary code so that...
-```{r _starter__hmw2, exercise = TRUE, exercise.blanks = "___+", exercise.completion = FALSE, exercise.setup = "prepare-hmw-_starter_-1"}
+```{r r_basics_hmw2, exercise = TRUE, exercise.blanks = "___+", exercise.completion = FALSE, exercise.setup = "prepare-hmw-r_basics-1"}
 complete code ____ by filling ____ in blanks _____ 
 ```
 
-```{r _starter__hmw2-check}
+```{r r_basics_hmw2-check}
 grade_result(
   pass_if(~identical(.result, TRUE))#Replace TRUE with the solution's code
 )
@@ -89,11 +78,11 @@ grade_result(
 
 #### Problem 3
 Write the necessary code to ...
-```{r _starter__hmw3, exercise = TRUE, exercise.completion = FALSE, exercise.setup = "prepare-hmw-_starter_-1"}
+```{r r_basics_hmw3, exercise = TRUE, exercise.completion = FALSE, exercise.setup = "prepare-hmw-r_basics-1"}
 
 ```  
 
-```{r _starter__hmw3-check}
+```{r r_basics_hmw3-check}
 grade_result(
   pass_if(~identical(.result, TRUE))#Replace TRUE with the solution's code
 )

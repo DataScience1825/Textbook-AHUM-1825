@@ -1,0 +1,38 @@
+
+![](SharedResources/datasets/GreenVehicles/banner.jpg){width=100% 
+
+ This dataset contains vehicle information published by the EPA in their
+ their annual [EPA Green Vehicle Guide](http://www.fueleconomy.gov/feg/download.shtml). The dataset currently holds information for the
+ 2023, 2022, and 2021 vehicles. The official documentation for the datasets variables 
+ can be found [here](https://www.fueleconomy.gov/feg/EPAGreenGuide/GreenVehicleGuideDocumentation.pdf).
+ 
+ A tibble with 19 variables(columns) and 6178 observations(row):
+ 
+ - **year** : Model year
+ - **model** : Vehicle make and model
+ - **displ** : – engine displacement in liters
+ - **cyl** : number of engine cylinders
+ - **trans** : transmission type plus number of gears
+ - **drive** : – 2-wheel Drive, 4-wheel drive/all-wheel drive
+ - **fuel** : Gasoline, Electricity, Gasolin/Electricity, Diesel, Ethanol/Gas, Hydrogen
+ - **cert_region** : Region of certification:
+   - CA - California
+   - CE - California + NLEV (Northeast trading area)
+   - CF - Clean Fuel Vehicle
+   - CL - Calif. + NLEV(All states)
+   - FA - Federal All Altitude
+   - FC - Tier 2 Federal and Aclif.
+   - NF - CFV + NLEV(ASTR) + Calif
+   - NL - NLEV(All states)
+ - **stnd** : vehicle emissions standard code. See Stnd Description.
+ - **stnd_description** : vehicle emissions standard description. See: [Link](https://www.epa.gov/greenvehicles/federal-and-california-light-duty-vehicle-emissions-standards-air-pollutants)
+ - **underhood_id** : engine family or test group ID. See: [Link](http://www.fueleconomy.gov/feg/findacarhelp.shtml#airPollutionScore)
+ - **veh_class** : EPA vehicle class. See: [Link](http://www.fueleconomy.gov/feg/findacarhelp.shtml#epaSizeClass)
+ - **air_pollution_score** : Smog Rating. See: [Link](https://www.epa.gov/greenvehicles/smog-rating)
+ - **city_mpg** : city fuel economy in miles per gallon
+ - **hwy_mpg** : highway fuel economy in miles per gallon
+ - **cmb_mpg** : combined highway/city fuel economy in miles per gallon
+ - **greenhouse_gas_score** : Greenhouse Gas Rating. See: [Link](https://www.epa.gov/greenvehicles/greenhouse-gas-rating)
+ - **smartway** : Yes, No, or Elite. See: [Link](https://www.epa.gov/greenvehicles/consider-smartway-vehicle)
+ - **comb_co2** : combined city/highway CO2 tailpipe emissions in grams per mile
+

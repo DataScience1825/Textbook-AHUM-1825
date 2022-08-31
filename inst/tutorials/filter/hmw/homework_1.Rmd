@@ -53,6 +53,10 @@ event_register_handler("session_start", function(session, event, data) {
 
 #### Problem 1 
 
+```{r displayData}
+head(farm_inventory)
+```
+
 ```{r filter_hmw1, echo=FALSE}
 
 question("(True or False), filter() modifies the dataframe passed to it.",

@@ -30,20 +30,9 @@ event_register_handler("session_start", function(session, event, data) {
 })
 ```
 
-<!-- Each Learnr Coding Exercise is run in an isolated environment. -->
-<!-- A "prepare" chunk is needed for each question to access the -->
-<!--   homework dataset, which should be stored in the local data-->
-<!--   directory as hmw_data.csv -->
-```{r prepare-hmw-r_markdown-1, echo=FALSE}
-farm_data <- read_csv("data/hmw_data.csv", col_types="ccddffi");
-```
-
-```{r, echo=FALSE}
-farm_data <- read_csv("data/hmw_data.csv", col_types="ccddffi");
-```
 
 ```{r}
-head(farm_data)
+head(farm_inventory)
 ```
 
 <!--
@@ -76,7 +65,7 @@ head(farm_data)
 
 #### Problem 2 
 Fill in the blanks with the necessary code so that...
-```{r r_markdown_hmw2, exercise = TRUE, exercise.blanks = "___+", exercise.completion = FALSE, exercise.setup = "prepare-hmw-r_markdown-1"}
+```{r r_markdown_hmw2, exercise = TRUE, exercise.blanks = "___+", exercise.completion = FALSE}
 complete code ____ by filling ____ in blanks _____ 
 ```
 
@@ -89,7 +78,7 @@ grade_result(
 
 #### Problem 3
 Write the necessary code to ...
-```{r r_markdown_hmw3, exercise = TRUE, exercise.completion = FALSE, exercise.setup = "prepare-hmw-r_markdown-1"}
+```{r r_markdown_hmw3, exercise = TRUE, exercise.completion = FALSE}
 
 ```  
 

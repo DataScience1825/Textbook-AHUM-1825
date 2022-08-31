@@ -27,6 +27,7 @@ library(shinyjs)
 library(reactable)
 library(emo) # Emojis library
 library(learnr)
+library(ahum1825)
 gradethis::gradethis_setup()
 
 ##Setup Homework Grade Tracker
@@ -384,14 +385,14 @@ grade_result(
   The description for the homework dataset
 -->  
 
-```{r include_hmw, child="data/hmw_data_description.Rmd"}
+```{r include_hmw, child="hmw/hmw1_data_description.Rmd"}
 ```
 
 <!-- 
   Homework problems are stored in a separate file "homework_#.Rmd", where the # represents a specific set of homework problems.
   In order to prevent 
 -->
-```{r include_hmw, child="homework_1.Rmd"}
+```{r include_hmw, child="hmw/homework_1.Rmd"}
 ```
 <!-- 
   The hmw_grader.Rmd child contains event listeners that evaluate a student's work each time they submit/answer a problem

@@ -34,6 +34,7 @@ library(shinyjs) #allows for the inclusion of javascript commands and handles dy
 library(emo) # Emojis library
 library(palmerpenguins)#practice dataset
 library(learnr)
+library(ahum1825)
 gradethis::gradethis_setup()
 
 ##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem
@@ -543,10 +544,10 @@ grade_result(
 
 --- 
 
-```{r include_hmw, child="data/hmw_data_description.Rmd"}
+```{r include_hmw, child="hmw/hmw1_data_description.Rmd"}
 ```
 
-```{r include_hmw, child="homework_1.Rmd"}
+```{r include_hmw, child="hmw/homework_1.Rmd"}
 ```
 
 ```{r include_hmw_grader, child="../SharedResources/grading/hmw_grader.Rmd"}

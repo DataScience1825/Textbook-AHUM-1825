@@ -657,45 +657,68 @@ data-diagnostics="1" data-startover="1" data-lines="0">
 <!-- 
   The description for the homework dataset
 -->
-<p><img src="SharedResources/datasets/GreenVehicles/banner.jpg"
-style="width:100.0%" /></p>
-<p>This dataset represents the foods goods stored at four fictitious
-farms. Each row represents a food item being stored at a given farm and
-each column provides additional details on that food item:<br />
-</p>
+<p><img
+src="SharedResources/datasets/GreenVehicles/banner.jpg" />{width=100%</p>
+<p>This dataset contains vehicle information published by the EPA in
+their their annual <a
+href="http://www.fueleconomy.gov/feg/download.shtml">EPA Green Vehicle
+Guide</a>. The dataset currently holds information for the 2023, 2022,
+and 2021 vehicles. The official documentation for the datasets variables
+can be found <a
+href="https://www.fueleconomy.gov/feg/EPAGreenGuide/GreenVehicleGuideDocumentation.pdf">here</a>.</p>
+<p>A tibble with 19 variables(columns) and 6178 observations(row):</p>
 <ul>
-<li><strong>p_name</strong> : [character] a food product’s name
-(e.g. Fuji Apples, Sweet Corn)
+<li><strong>year</strong> : Model year</li>
+<li><strong>model</strong> : Vehicle make and model</li>
+<li><strong>displ</strong> : – engine displacement in liters</li>
+<li><strong>cyl</strong> : number of engine cylinders</li>
+<li><strong>trans</strong> : transmission type plus number of gears</li>
+<li><strong>drive</strong> : – 2-wheel Drive, 4-wheel drive/all-wheel
+drive</li>
+<li><strong>fuel</strong> : Gasoline, Electricity, Gasolin/Electricity,
+Diesel, Ethanol/Gas, Hydrogen</li>
+<li><strong>cert_region</strong> : Region of certification:
 <ul>
-<li><strong>f_name</strong>: [character] the name of the farm storing
-the food item (Peppridge, Old Mcdonald, Bailey, Sevier)</li>
-<li><strong>p_per_lb</strong> : [number] the food item’s price per
-pound<br />
-</li>
-<li><strong>q_in_lbs</strong> : [number] the quantity of food being
-store in pounds</li>
-<li><strong>season</strong> : [factor] the typical season for harvesting
-the food item (Fall, Winter, Spring, Summer, Year Round)<br />
-</li>
-<li><strong>type</strong> : [factor] the food item’s type (FRUIT,
-VEGETABLE, TUBER, LEGUME, CEREAL, MEAT, or DAIRY)</li>
-<li><strong>avg_sl</strong> : [integer] the average shelf life (in days)
-for the food item</li>
+<li>CA - California</li>
+<li>CE - California + NLEV (Northeast trading area)</li>
+<li>CF - Clean Fuel Vehicle</li>
+<li>CL - Calif. + NLEV(All states)</li>
+<li>FA - Federal All Altitude</li>
+<li>FC - Tier 2 Federal and Aclif.</li>
+<li>NF - CFV + NLEV(ASTR) + Calif</li>
+<li>NL - NLEV(All states)</li>
 </ul></li>
+<li><strong>stnd</strong> : vehicle emissions standard code. See Stnd
+Description.</li>
+<li><strong>stnd_description</strong> : vehicle emissions standard
+description. See: <a
+href="https://www.epa.gov/greenvehicles/federal-and-california-light-duty-vehicle-emissions-standards-air-pollutants">Link</a></li>
+<li><strong>underhood_id</strong> : engine family or test group ID. See:
+<a
+href="http://www.fueleconomy.gov/feg/findacarhelp.shtml#airPollutionScore">Link</a></li>
+<li><strong>veh_class</strong> : EPA vehicle class. See: <a
+href="http://www.fueleconomy.gov/feg/findacarhelp.shtml#epaSizeClass">Link</a></li>
+<li><strong>air_pollution_score</strong> : Smog Rating. See: <a
+href="https://www.epa.gov/greenvehicles/smog-rating">Link</a></li>
+<li><strong>city_mpg</strong> : city fuel economy in miles per
+gallon</li>
+<li><strong>hwy_mpg</strong> : highway fuel economy in miles per
+gallon</li>
+<li><strong>cmb_mpg</strong> : combined highway/city fuel economy in
+miles per gallon</li>
+<li><strong>greenhouse_gas_score</strong> : Greenhouse Gas Rating. See:
+<a
+href="https://www.epa.gov/greenvehicles/greenhouse-gas-rating">Link</a></li>
+<li><strong>smartway</strong> : Yes, No, or Elite. See: <a
+href="https://www.epa.gov/greenvehicles/consider-smartway-vehicle">Link</a></li>
+<li><strong>comb_co2</strong> : combined city/highway CO2 tailpipe
+emissions in grams per mile</li>
 </ul>
 <!-- 
   Homework problems are stored in a separate file "homework_#.Rmd", where the # represents a specific set of homework problems.
   In order to prevent 
 -->
 <!--{{dataset:GreenVehicles}}-->
-<!-- Each exercise runs in a separate environment. To have a common dataset in a homework tutorial, there needs to be a shared setup chunk. -->
-<!-- Repeat so that the head(data) block will load when the file is knitted -->
-<pre class="r"><code>head(green_vehicles)</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["year"],"name":[1],"type":["fct"],"align":["left"]},{"label":["model"],"name":[2],"type":["chr"],"align":["left"]},{"label":["displ"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["trans"],"name":[5],"type":["fct"],"align":["left"]},{"label":["drive"],"name":[6],"type":["fct"],"align":["left"]},{"label":["fuel"],"name":[7],"type":["fct"],"align":["left"]},{"label":["cert_region"],"name":[8],"type":["fct"],"align":["left"]},{"label":["stnd"],"name":[9],"type":["chr"],"align":["left"]},{"label":["stnd_description"],"name":[10],"type":["chr"],"align":["left"]},{"label":["underhood_id"],"name":[11],"type":["chr"],"align":["left"]},{"label":["veh_class"],"name":[12],"type":["fct"],"align":["left"]},{"label":["air_pollution_score"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["city_mpg"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["hwy_mpg"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["cmb_mpg"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["greenhouse_gas_score"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["smartway"],"name":[18],"type":["chr"],"align":["left"]},{"label":["comb_co2"],"name":[19],"type":["dbl"],"align":["right"]}],"data":[{"1":"2023","2":"ACURA Integra","3":"1.5","4":"4","5":"SCV-7","6":"2WD","7":"Gasoline","8":"CA","9":"L3SULEV30","10":"California LEV-III SULEV30","11":"PHNXV01.54EC","12":"large car","13":"7","14":"30","15":"37","16":"33","17":"6","18":"No","19":"269"},{"1":"2023","2":"ACURA Integra","3":"1.5","4":"4","5":"SCV-7","6":"2WD","7":"Gasoline","8":"FA","9":"T3B30","10":"Federal Tier 3 Bin 30","11":"PHNXV01.54EC","12":"large car","13":"7","14":"30","15":"37","16":"33","17":"6","18":"No","19":"269"},{"1":"2023","2":"ACURA Integra A-Spec","3":"1.5","4":"4","5":"Man-6","6":"2WD","7":"Gasoline","8":"CA","9":"L3ULEV50","10":"California LEV-III ULEV50","11":"PHNXV01.55DC","12":"large car","13":"6","14":"26","15":"36","16":"30","17":"6","18":"No","19":"293"},{"1":"2023","2":"ACURA Integra A-Spec","3":"1.5","4":"4","5":"Man-6","6":"2WD","7":"Gasoline","8":"FA","9":"T3B50","10":"Federal Tier 3 Bin 50","11":"PHNXV01.55DC","12":"large car","13":"6","14":"26","15":"36","16":"30","17":"6","18":"No","19":"293"},{"1":"2023","2":"ACURA Integra A-Spec","3":"1.5","4":"4","5":"SCV-7","6":"2WD","7":"Gasoline","8":"CA","9":"L3SULEV30","10":"California LEV-III SULEV30","11":"PHNXV01.54EC","12":"large car","13":"7","14":"29","15":"36","16":"32","17":"6","18":"No","19":"277"},{"1":"2023","2":"ACURA Integra A-Spec","3":"1.5","4":"4","5":"SCV-7","6":"2WD","7":"Gasoline","8":"FA","9":"T3B30","10":"Federal Tier 3 Bin 30","11":"PHNXV01.54EC","12":"large car","13":"7","14":"29","15":"36","16":"32","17":"6","18":"No","19":"277"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
 <div id="section-problem-1" class="section level4">
 <h4>Problem 1</h4>
 <div class="panel panel-default tutorial-question-container">
@@ -946,6 +969,7 @@ library(shinyjs)
 library(reactable)
 library(emo) # Emojis library
 library(learnr)
+library(ahum1825)
 gradethis::gradethis_setup()
 
 ##Setup Homework Grade Tracker
@@ -994,8 +1018,8 @@ output$`tutorial-exercise-select_practice1-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "select_practice1", global_setup = structure(c("library(tidyverse)", 
 "library(shinyjs)", "library(reactable)", "library(emo) # Emojis library", 
-"library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker", 
-"## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
+"library(learnr)", "library(ahum1825)", "gradethis::gradethis_setup()", 
+"", "##Setup Homework Grade Tracker", "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
 "hmw_info <- NULL", "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
@@ -1047,8 +1071,8 @@ output$`tutorial-exercise-select_practice2-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "select_practice2", global_setup = structure(c("library(tidyverse)", 
 "library(shinyjs)", "library(reactable)", "library(emo) # Emojis library", 
-"library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker", 
-"## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
+"library(learnr)", "library(ahum1825)", "gradethis::gradethis_setup()", 
+"", "##Setup Homework Grade Tracker", "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
 "hmw_info <- NULL", "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
@@ -1097,8 +1121,8 @@ output$`tutorial-exercise-select_practice3-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "select_practice3", global_setup = structure(c("library(tidyverse)", 
 "library(shinyjs)", "library(reactable)", "library(emo) # Emojis library", 
-"library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker", 
-"## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
+"library(learnr)", "library(ahum1825)", "gradethis::gradethis_setup()", 
+"", "##Setup Homework Grade Tracker", "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
 "hmw_info <- NULL", "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
@@ -1148,8 +1172,8 @@ output$`tutorial-exercise-select_practice4-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "select_practice4", global_setup = structure(c("library(tidyverse)", 
 "library(shinyjs)", "library(reactable)", "library(emo) # Emojis library", 
-"library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker", 
-"## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
+"library(learnr)", "library(ahum1825)", "gradethis::gradethis_setup()", 
+"", "##Setup Homework Grade Tracker", "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
 "hmw_info <- NULL", "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
@@ -1199,8 +1223,8 @@ output$`tutorial-exercise-select_practice5-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "select_practice5", global_setup = structure(c("library(tidyverse)", 
 "library(shinyjs)", "library(reactable)", "library(emo) # Emojis library", 
-"library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker", 
-"## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
+"library(learnr)", "library(ahum1825)", "gradethis::gradethis_setup()", 
+"", "##Setup Homework Grade Tracker", "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
 "hmw_info <- NULL", "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
@@ -1252,8 +1276,8 @@ output$`tutorial-exercise-select_practice6-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "select_practice6", global_setup = structure(c("library(tidyverse)", 
 "library(shinyjs)", "library(reactable)", "library(emo) # Emojis library", 
-"library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker", 
-"## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
+"library(learnr)", "library(ahum1825)", "gradethis::gradethis_setup()", 
+"", "##Setup Homework Grade Tracker", "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
 "hmw_info <- NULL", "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
@@ -1305,8 +1329,8 @@ output$`tutorial-exercise-select_practice7-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "select_practice7", global_setup = structure(c("library(tidyverse)", 
 "library(shinyjs)", "library(reactable)", "library(emo) # Emojis library", 
-"library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker", 
-"## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
+"library(learnr)", "library(ahum1825)", "gradethis::gradethis_setup()", 
+"", "##Setup Homework Grade Tracker", "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
 "hmw_info <- NULL", "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
@@ -1399,22 +1423,22 @@ event_register_handler("session_start", function(session, event, data) {
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "select_hmw1", 
     question = structure("When using select(), any columns that are not listed will be :", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_3f17dad", 
+    "character")), answers = list(structure(list(id = "lnr_ans_54e9777", 
         option = "left out of the returned data frame", value = "left out of the returned data frame", 
         label = structure("left out of the returned data frame", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_7770b55", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_188cc23", 
         option = "deleted from the provided data frame", value = "deleted from the provided data frame", 
         label = structure("deleted from the provided data frame", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = structure("Incorrect: select(), like all of the dplyr functions, never modifies the provided data frame.", html = TRUE, class = c("html", 
         "character")), type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4e77d03", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e1c7e4e", 
         option = "placed at the end of the returned data frame", 
         value = "placed at the end of the returned data frame", 
         label = structure("placed at the end of the returned data frame", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = structure("Incorrect: select() will not return any columns you did not explicitly ask for.", html = TRUE, class = c("html", 
         "character")), type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_2febb67", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d42966", 
         option = "None of the above", value = "None of the above", 
         label = structure("None of the above", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1426,7 +1450,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "select_hmw1-answer", question = "select_hmw1"), 
     loading = NULL, random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 210895574.401794, options = list()), class = c("learnr_radio", 
+    seed = 301566819.859572, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
@@ -1434,24 +1458,24 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "select_hmw2", 
     question = structure("After importing an online baseball dataset, you notice one of the variables is named &quot;# of Home Runs&quot;. How could you rename this variable so it follows proper naming conventions?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_b8abbd4", 
+    "character")), answers = list(structure(list(id = "lnr_ans_33ffc16", 
         option = "select(bball, n_home_runs = \"# of Home Runs\")", 
         value = "select(bball, n_home_runs = \"# of Home Runs\")", 
         label = structure("select(bball, n_home_runs = &quot;# of Home Runs&quot;)", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_3c8d61a", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_35e7e40", 
         option = "select(bbal, #_home_runs = \"# of Home Runs\")", 
         value = "select(bbal, #_home_runs = \"# of Home Runs\")", 
         label = structure("select(bbal, #_home_runs = &quot;# of Home Runs&quot;)", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = structure("Incorrect: Variable names must start with a letter. Also, the pound sign (#) in R represents a comment, so this will actually <em>comment out<\u002fem> the rest of the select statement.", html = TRUE, class = c("html", 
         "character")), type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_7b42624", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a74ef44", 
         option = "select(bbal, HomeRunsCount = \"# of Home Runs\")", 
         value = "select(bbal, HomeRunsCount = \"# of Home Runs\")", 
         label = structure("select(bbal, HomeRunsCount = &quot;# of Home Runs&quot;)", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = structure("Incorrect: While this is valid syntax, our naming convention requires variables to be lowercase, noun phrases, and use under_scores.", html = TRUE, class = c("html", 
         "character")), type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_3d7907f", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_2b46761", 
         option = "None of the above", value = "None of the above", 
         label = structure("None of the above", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1463,7 +1487,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "select_hmw2-answer", question = "select_hmw2"), 
     loading = NULL, random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1883300360.12302, options = list()), class = c("learnr_radio", 
+    seed = 1827951925.64879, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
@@ -1478,23 +1502,20 @@ output$`tutorial-exercise-select_hmw3-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "select_hmw3", global_setup = structure(c("library(tidyverse)", 
 "library(shinyjs)", "library(reactable)", "library(emo) # Emojis library", 
-"library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker", 
-"## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
+"library(learnr)", "library(ahum1825)", "gradethis::gradethis_setup()", 
+"", "##Setup Homework Grade Tracker", "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
 "hmw_info <- NULL", "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
 "", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
-    label = "setup", include = FALSE)), setup = "green_vehicles <- read_csv(\"data/hmw_data.csv\", col_types=\"fcddffffcccfdddddcd\")", 
-    chunks = list(list(label = "prepare-select-hw1", code = "green_vehicles <- read_csv(\"data/hmw_data.csv\", col_types=\"fcddffffcccfdddddcd\")", 
-        opts = list(label = "\"prepare-select-hw1\"", include = "FALSE"), 
-        engine = "r"), list(label = "select_hmw3", code = "select(green_vehicles, _____, _____, _____)", 
+    label = "setup", include = FALSE)), setup = NULL, chunks = list(
+    list(label = "select_hmw3", code = "select(green_vehicles, _____, _____, _____)", 
         opts = list(label = "\"select_hmw3\"", exercise = "TRUE", 
-            exercise.blanks = "\"___+\"", exercise.completion = "FALSE", 
-            exercise.setup = "\"prepare-select-hw1\""), engine = "r")), 
-    code_check = NULL, error_check = NULL, check = structure(c("grade_result(", 
-    "  pass_if(~identical(.result, select(green_vehicles, model, year, smartway)))#Replace TRUE with the solution's code", 
+            exercise.blanks = "\"___+\"", exercise.completion = "FALSE"), 
+        engine = "r")), code_check = NULL, error_check = NULL, 
+    check = structure(c("grade_result(", "  pass_if(~identical(.result, select(green_vehicles, model, year, smartway)))#Replace TRUE with the solution's code", 
     ")"), chunk_opts = list(label = "select_hmw3-check")), solution = NULL, 
     tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
@@ -1515,9 +1536,8 @@ learnr:::store_exercise_cache(structure(list(label = "select_hmw3", global_setup
         max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
         label = "select_hmw3", exercise = TRUE, exercise.blanks = "___+", 
-        exercise.completion = FALSE, exercise.setup = "prepare-select-hw1", 
-        code = "select(green_vehicles, _____, _____, _____)", 
-        out.width.px = 624, out.height.px = 384, params.src = "select_hmw3, exercise = TRUE, exercise.blanks = \"___+\", exercise.completion = FALSE, exercise.setup=\"prepare-select-hw1\"", 
+        exercise.completion = FALSE, code = "select(green_vehicles, _____, _____, _____)", 
+        out.width.px = 624, out.height.px = 384, params.src = "select_hmw3, exercise = TRUE, exercise.blanks = \"___+\", exercise.completion = FALSE", 
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "3"), class = "tutorial_exercise"))
 </script>
@@ -1533,22 +1553,20 @@ output$`tutorial-exercise-select_hmw4-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "select_hmw4", global_setup = structure(c("library(tidyverse)", 
 "library(shinyjs)", "library(reactable)", "library(emo) # Emojis library", 
-"library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker", 
-"## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
+"library(learnr)", "library(ahum1825)", "gradethis::gradethis_setup()", 
+"", "##Setup Homework Grade Tracker", "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
 "hmw_info <- NULL", "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
 "", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
-    label = "setup", include = FALSE)), setup = "green_vehicles <- read_csv(\"data/hmw_data.csv\", col_types=\"fcddffffcccfdddddcd\")", 
-    chunks = list(list(label = "prepare-select-hw1", code = "green_vehicles <- read_csv(\"data/hmw_data.csv\", col_types=\"fcddffffcccfdddddcd\")", 
-        opts = list(label = "\"prepare-select-hw1\"", include = "FALSE"), 
-        engine = "r"), list(label = "select_hmw4", code = "select(green_vehicles, 1;5, c1ty_mpg, greenhouse_gas_score = gg_score) ", 
+    label = "setup", include = FALSE)), setup = NULL, chunks = list(
+    list(label = "select_hmw4", code = "select(green_vehicles, 1;5, c1ty_mpg, greenhouse_gas_score = gg_score) ", 
         opts = list(label = "\"select_hmw4\"", exercise = "TRUE", 
-            exercise.completion = "FALSE", exercise.setup = "\"prepare-select-hw1\""), 
-        engine = "r")), code_check = NULL, error_check = NULL, 
-    check = structure(c("grade_result(", "  pass_if(~identical(.result, select(green_vehicles, 1:5, city_mpg, gg_score = greenhouse_gas_score)))#Replace TRUE with the solution's code", 
+            exercise.completion = "FALSE"), engine = "r")), code_check = NULL, 
+    error_check = NULL, check = structure(c("grade_result(", 
+    "  pass_if(~identical(.result, select(green_vehicles, 1:5, city_mpg, gg_score = greenhouse_gas_score)))#Replace TRUE with the solution's code", 
     ")"), chunk_opts = list(label = "select_hmw4-check")), solution = NULL, 
     tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
@@ -1569,8 +1587,8 @@ learnr:::store_exercise_cache(structure(list(label = "select_hmw4", global_setup
         max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
         label = "select_hmw4", exercise = TRUE, exercise.completion = FALSE, 
-        exercise.setup = "prepare-select-hw1", code = "select(green_vehicles, 1;5, c1ty_mpg, greenhouse_gas_score = gg_score) ", 
-        out.width.px = 624, out.height.px = 384, params.src = "select_hmw4, exercise = TRUE, exercise.completion = FALSE, exercise.setup=\"prepare-select-hw1\"", 
+        code = "select(green_vehicles, 1;5, c1ty_mpg, greenhouse_gas_score = gg_score) ", 
+        out.width.px = 624, out.height.px = 384, params.src = "select_hmw4, exercise = TRUE, exercise.completion = FALSE", 
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "3"), class = "tutorial_exercise"))
 </script>
@@ -1586,22 +1604,19 @@ output$`tutorial-exercise-select_hmw5-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "select_hmw5", global_setup = structure(c("library(tidyverse)", 
 "library(shinyjs)", "library(reactable)", "library(emo) # Emojis library", 
-"library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker", 
-"## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
+"library(learnr)", "library(ahum1825)", "gradethis::gradethis_setup()", 
+"", "##Setup Homework Grade Tracker", "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
 "hmw_info <- NULL", "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
 "", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
-    label = "setup", include = FALSE)), setup = "green_vehicles <- read_csv(\"data/hmw_data.csv\", col_types=\"fcddffffcccfdddddcd\")", 
-    chunks = list(list(label = "prepare-select-hw1", code = "green_vehicles <- read_csv(\"data/hmw_data.csv\", col_types=\"fcddffffcccfdddddcd\")", 
-        opts = list(label = "\"prepare-select-hw1\"", include = "FALSE"), 
-        engine = "r"), list(label = "select_hmw5", code = "", 
-        opts = list(label = "\"select_hmw5\"", exercise = "TRUE", 
-            exercise.completion = "FALSE", exercise.setup = "\"prepare-select-hw1\""), 
-        engine = "r")), code_check = NULL, error_check = NULL, 
-    check = structure(c("grade_result(", "  pass_if(~identical(.result, select(green_vehicles, fuel, veh_class, cmb_mpg, ap_score = air_pollution_score)))#Replace TRUE with the solution's code", 
+    label = "setup", include = FALSE)), setup = NULL, chunks = list(
+    list(label = "select_hmw5", code = "", opts = list(label = "\"select_hmw5\"", 
+        exercise = "TRUE", exercise.completion = "FALSE"), engine = "r")), 
+    code_check = NULL, error_check = NULL, check = structure(c("grade_result(", 
+    "  pass_if(~identical(.result, select(green_vehicles, fuel, veh_class, cmb_mpg, ap_score = air_pollution_score)))#Replace TRUE with the solution's code", 
     ")"), chunk_opts = list(label = "select_hmw5-check")), solution = NULL, 
     tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
@@ -1622,8 +1637,7 @@ learnr:::store_exercise_cache(structure(list(label = "select_hmw5", global_setup
         max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
         label = "select_hmw5", exercise = TRUE, exercise.completion = FALSE, 
-        exercise.setup = "prepare-select-hw1", code = "", out.width.px = 624, 
-        out.height.px = 384, params.src = "select_hmw5, exercise = TRUE, exercise.completion = FALSE, exercise.setup=\"prepare-select-hw1\"", 
+        code = "", out.width.px = 624, out.height.px = 384, params.src = "select_hmw5, exercise = TRUE, exercise.completion = FALSE", 
         fig.num = 0L, exercise.df_print = "paged"), engine = "r", 
     version = "3"), class = "tutorial_exercise"))
 </script>
@@ -1639,22 +1653,19 @@ output$`tutorial-exercise-select_hmw6-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "select_hmw6", global_setup = structure(c("library(tidyverse)", 
 "library(shinyjs)", "library(reactable)", "library(emo) # Emojis library", 
-"library(learnr)", "gradethis::gradethis_setup()", "", "##Setup Homework Grade Tracker", 
-"## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
+"library(learnr)", "library(ahum1825)", "gradethis::gradethis_setup()", 
+"", "##Setup Homework Grade Tracker", "## WARNING: The default values are set inside the \"session_start\" event handler, which is inside of homework.Rmd", 
 "hmw_info <- NULL", "", "#Uncomment to view all the Learnr events and their data", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
 "", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
-    label = "setup", include = FALSE)), setup = "green_vehicles <- read_csv(\"data/hmw_data.csv\", col_types=\"fcddffffcccfdddddcd\")", 
-    chunks = list(list(label = "prepare-select-hw1", code = "green_vehicles <- read_csv(\"data/hmw_data.csv\", col_types=\"fcddffffcccfdddddcd\")", 
-        opts = list(label = "\"prepare-select-hw1\"", include = "FALSE"), 
-        engine = "r"), list(label = "select_hmw6", code = "", 
-        opts = list(label = "\"select_hmw6\"", exercise = "TRUE", 
-            exercise.completion = "FALSE", exercise.setup = "\"prepare-select-hw1\""), 
-        engine = "r")), code_check = NULL, error_check = NULL, 
-    check = structure(c("grade_result(", "  pass_if(~identical(.result, select(green_vehicles, 1:6, city_mpg:cmb_mpg, air_pollution_score, smartway)))#Replace TRUE with the solution's code", 
+    label = "setup", include = FALSE)), setup = NULL, chunks = list(
+    list(label = "select_hmw6", code = "", opts = list(label = "\"select_hmw6\"", 
+        exercise = "TRUE", exercise.completion = "FALSE"), engine = "r")), 
+    code_check = NULL, error_check = NULL, check = structure(c("grade_result(", 
+    "  pass_if(~identical(.result, select(green_vehicles, 1:6, city_mpg:cmb_mpg, air_pollution_score, smartway)))#Replace TRUE with the solution's code", 
     ")"), chunk_opts = list(label = "select_hmw6-check")), solution = NULL, 
     tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
@@ -1675,8 +1686,7 @@ learnr:::store_exercise_cache(structure(list(label = "select_hmw6", global_setup
         max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
         label = "select_hmw6", exercise = TRUE, exercise.completion = FALSE, 
-        exercise.setup = "prepare-select-hw1", code = "", out.width.px = 624, 
-        out.height.px = 384, params.src = "select_hmw6, exercise = TRUE, exercise.completion = FALSE, exercise.setup=\"prepare-select-hw1\"", 
+        code = "", out.width.px = 624, out.height.px = 384, params.src = "select_hmw6, exercise = TRUE, exercise.completion = FALSE", 
         fig.num = 0L, exercise.df_print = "paged"), engine = "r", 
     version = "3"), class = "tutorial_exercise"))
 </script>
@@ -1771,7 +1781,7 @@ event_register_handler("question_submission", function(session, event, data) {
 <!--/html_preserve-->
 <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="execution_dependencies">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93]}},"value":[{"type":"character","attributes":{},"value":["assertthat","backports","base","bit","bit64","broom","bslib","cachem","cellranger","checkmate","cli","colorspace","compiler","crayon","curl","datasets","DBI","dbplyr","digest","dplyr","ellipsis","emo","evaluate","fansi","fastmap","fontawesome","forcats","fs","generics","ggplot2","glue","gradethis","graphics","grDevices","grid","gtable","haven","hms","htmltools","htmlwidgets","httpuv","httr","jquerylib","jsonlite","knitr","later","learnr","lifecycle","lubridate","magrittr","markdown","methods","mime","modelr","munsell","parallel","pillar","pkgconfig","promises","purrr","R6","Rcpp","reactable","readr","readxl","reprex","rlang","rmarkdown","rprojroot","rstudioapi","rvest","sass","scales","shiny","shinyjs","stats","stringi","stringr","tibble","tidyr","tidyselect","tidyverse","tools","tzdb","utf8","utils","vctrs","vroom","withr","xfun","xml2","xtable","yaml"]},{"type":"character","attributes":{},"value":["0.2.1","1.4.1","4.1.3","4.0.4","4.0.5","0.7.12","0.4.0","1.0.6","1.1.0","2.1.0","3.3.0","2.0-3","4.1.3","1.5.1","4.3.2","4.1.3","1.1.2","2.1.1","0.6.29","1.0.8","0.3.2","0.0.0.9000","0.16","1.0.3","1.1.0","0.3.0","0.5.1","1.5.2","0.1.3","3.3.5","1.6.2","0.2.7.9000","4.1.3","4.1.3","4.1.3","0.3.0","2.4.3","1.1.1","0.5.3","1.5.4","1.6.5","1.4.2","0.1.4","1.8.0","1.39","1.3.0","0.10.5.9000","1.0.1","1.8.0","2.0.3","1.1","4.1.3","0.12","0.1.8","0.5.0","4.1.3","1.7.0","2.0.3","1.2.0.1","0.3.4","2.5.1","1.0.9","0.2.3","2.1.2","1.4.0","2.0.1","1.0.4","2.14","2.0.3","0.13","1.0.2","0.4.2","1.1.1","1.7.2","2.1.0","4.1.3","1.7.8","1.4.0","3.1.6","1.2.0","1.1.2","1.3.1","4.1.3","0.3.0","1.2.2","4.1.3","0.4.0","1.5.7","2.5.0","0.32","1.3.3","1.8-4","2.3.5"]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90]}},"value":[{"type":"character","attributes":{},"value":["ahum1825","assertthat","backports","base","broom","bslib","cachem","cellranger","checkmate","cli","colorspace","compiler","crayon","curl","datasets","DBI","dbplyr","digest","dplyr","ellipsis","emo","evaluate","fansi","fastmap","fontawesome","forcats","fs","generics","ggplot2","glue","gradethis","graphics","grDevices","grid","gtable","haven","hms","htmltools","htmlwidgets","httpuv","httr","jquerylib","jsonlite","knitr","later","learnr","lifecycle","lubridate","magrittr","markdown","methods","mime","modelr","munsell","pillar","pkgconfig","promises","purrr","R6","Rcpp","reactable","readr","readxl","reprex","rlang","rmarkdown","rprojroot","rstudioapi","rvest","sass","scales","shiny","shinyjs","stats","stringi","stringr","tibble","tidyr","tidyselect","tidyverse","tools","tzdb","utf8","utils","vctrs","withr","xfun","xml2","xtable","yaml"]},{"type":"character","attributes":{},"value":["0.1.0","0.2.1","1.4.1","4.1.3","0.7.12","0.4.0","1.0.6","1.1.0","2.1.0","3.3.0","2.0-3","4.1.3","1.5.1","4.3.2","4.1.3","1.1.2","2.1.1","0.6.29","1.0.8","0.3.2","0.0.0.9000","0.16","1.0.3","1.1.0","0.3.0","0.5.1","1.5.2","0.1.3","3.3.5","1.6.2","0.2.7.9000","4.1.3","4.1.3","4.1.3","0.3.0","2.4.3","1.1.1","0.5.3","1.5.4","1.6.5","1.4.2","0.1.4","1.8.0","1.39","1.3.0","0.10.5.9000","1.0.1","1.8.0","2.0.3","1.1","4.1.3","0.12","0.1.8","0.5.0","1.7.0","2.0.3","1.2.0.1","0.3.4","2.5.1","1.0.9","0.2.3","2.1.2","1.4.0","2.0.1","1.0.4","2.14","2.0.3","0.13","1.0.2","0.4.2","1.1.1","1.7.2","2.1.0","4.1.3","1.7.8","1.4.0","3.1.6","1.2.0","1.1.2","1.3.1","4.1.3","0.3.0","1.2.2","4.1.3","0.4.0","2.5.0","0.32","1.3.3","1.8-4","2.3.5"]}]}]}
 </script>
 <!--/html_preserve-->
 </div>

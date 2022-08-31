@@ -1,9 +1,11 @@
+## Update paths (moved into shared resources) and move into the R functions available for the library
+
 #Create R code to update all css folders.
 library(sass)
 
 shared_resources_dir <- "~/ahum1825/inst/tutorials/SharedResources" # Replace with the location of your Shared Resources directory
 
-#Recompile the shared SASS file and update all of tutorials' css files
+#Recompile thedata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAWElEQVR42mNgGPTAxsZmJsVqQApgmGw1yApwKcQiT7phRBuCzzCSDSHGMKINIeDNmWQlA2IigKJwIssQkHdINgxfmBBtGDEBS3KCxBc7pMQgMYE5c/AXPwAwSX4lV3pTWwAAAABJRU5ErkJggg== shared SASS file and update all of tutorials' css files
 update_css <- function(){
   current_wd <- getwd() #Preserve working directory
   setwd(shared_resources_dir)
@@ -48,7 +50,7 @@ generate_starters <- function(name){
     dir.create(paste("../", name, sep=""))
 
   #Copy the contents of the starter tutorial
-  file.copy(list.files("../starter/", full.names = TRUE), paste("../", name, sep=""), recursive=TRUE)
+  file.copy(list.files("starter/", full.names = TRUE), paste("../", name, sep=""), recursive=TRUE)
 
   #Rename starter.Rmd to match the new tutorial, tutorial.Rmd
   file.rename(paste("../", name, "/starter.Rmd", sep="") , paste("../", name, "/", name, ".Rmd", sep="") )
