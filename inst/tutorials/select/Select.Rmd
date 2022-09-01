@@ -5,7 +5,7 @@ output:
     progressive: true
     allow_skip: true
     fig_caption: false
-    css: css/textbook.min.css
+    css: www/css/textbook.min.css
 runtime: shiny_prerendered
 description: >
   Learn how to pick a subset of columns in a tibble with `select()`.
@@ -49,7 +49,7 @@ knitr::opts_chunk$set(error = FALSE, message = FALSE)
 
 ### <span style="opacity:0;">select()</span>
 
-![Cartoon showing a round monster holding up a sign that says dplyr::select”](images/tutorial_banner.png){width=100%} 
+![Cartoon showing a round monster holding up a sign that says dplyr::select”](www/images/tutorial_banner.png){width=100%} 
 <p align="center">"Artwork created with sample graphics provided by <a href="https://twitter.com/allison_horst?lang=en">@allison_horst</a>" </p>
   
 If you review the R Documentation for the [select() function](https://dplyr.tidyverse.org/reference/select.html) you'll find the following explanation:  
@@ -483,7 +483,7 @@ If you just need to rename a column, without creating a subset, use dplyr's `ren
 
 <p style="font-weight:bold; font-size: 1.5em; text-align: center;margin-bottom:0px;">rename(data, <span class="color1" >new_variable_name</span> = <span class="color2">old_variable_name</span>)</p> 
 
-<img  src="images/rename_sm.jpg" alt="A mouse changing data frames variable (column) names to 'nemesis' and 'lair' from 'species' and 'site', with news of a cheese heist in the background." style="width:80%; margin:0 10%" />
+<img  src="www/images/rename_sm.jpg" alt="A mouse changing data frames variable (column) names to 'nemesis' and 'lair' from 'species' and 'site', with news of a cheese heist in the background." style="width:80%; margin:0 10%" />
 
 <p align="center">"Artwork by <a href="https://twitter.com/allison_horst?lang=en">@allison_horst</a>" </p>
 

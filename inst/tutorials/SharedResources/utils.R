@@ -60,9 +60,9 @@ generate_starters <- function(name){
   f_version  <- gsub(pattern = "_starter_", replace = name, x = starter)
   writeLines(f_version, con=paste("../", name, "/", name, ".Rmd", sep=""))
 
-  starter  <- readLines(paste("../", name, "/homework_1.Rmd", sep=""))
+  starter  <- readLines(paste("../", name, "/hmw/homework_1.Rmd", sep=""))
   f_version  <- gsub(pattern = "_starter_", replace = name, x = starter)
-  writeLines(f_version, con=paste("../", name, "/homework_1.Rmd", sep=""))
+  writeLines(f_version, con=paste("../", name, "/hmw/homework_1.Rmd", sep=""))
 
   setwd(current_wd)#Restore working directory
 

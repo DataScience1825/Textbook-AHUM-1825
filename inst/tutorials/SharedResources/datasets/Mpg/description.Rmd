@@ -1,4 +1,4 @@
-![](SharedResources/datasets/Mpg/banner.jpg){width=100%} 
+![](SharedResources/datasets/Mpg/banner.png){width=100%} 
 <p align="center">"Artwork pieces generated with <a href="https://www.craiyon.com/">Craiyon</a>" </p>
 
 This tutorial's practice exercises will use the mpg dataset which is provided by the tidyverse library. According to the help guide (?mpg): 

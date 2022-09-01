@@ -23,6 +23,7 @@ shinyjs::useShinyjs(html = TRUE)
 <!-- End Code for shinyJs -->
 ```{r setup, include=FALSE}
 library(learnr)
+library(ahum1825)
 gradethis::gradethis_setup()
 
 ##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem
