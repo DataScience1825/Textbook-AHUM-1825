@@ -5,7 +5,7 @@ output:
     progressive: true
     allow_skip: true
     fig_caption: false
-    css: css/textbook.min.css
+    css: www/css/textbook.min.css
 runtime: shiny_prerendered
 description: >
   This interactive tutorial covers practice exercises for Week 3 of AHUM 1825. This includes filter(), select(), count(), and qplot().
@@ -22,14 +22,14 @@ shinyjs::useShinyjs(html = TRUE)
 
 <!-- End Code for shinyJs -->
 ```{r setup, include=FALSE}
+
 library(learnr)
 library(palmerpenguins)
 library(ahum1825)
 gradethis::gradethis_setup()
 
-##Setup Homework Grade Tracker - keeps track of a student's name, grade, and answers to each homework problem
-## WARNING: The default values are set inside the "session_start" event handler, which is inside of homework.Rmd
-hmw_info <- NULL
+#Set grading information
+hmw_info <- NULL 
 
 #Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything
 #new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {
@@ -41,13 +41,11 @@ hmw_info <- NULL
 library(tidyverse)
 library(shinyjs)
 library(reactable)
-
+library(palmerpenguins)
 addResourcePath("SharedResources", "../SharedResources")#Add access to a shared set of images. Like the banner for the farm dataset
 
 knitr::opts_chunk$set(error = FALSE, message = FALSE)
 ```
-
-<!--{{dataset:FarmInventory}}-->
 
 ```{r context="server-start"}
 ##When the student begins a tutorial or hits "start over" this will reset their homework information. This will clear their
@@ -57,20 +55,74 @@ event_register_handler("session_start", function(session, event, data) {
                            tutorial_name = "Week 3 Lab",
                            hmw_grade = 0.0, 
                            submissions = list(
-                                  hmw1 = list(type="questionaire", 
-                                               q_text="A multiple choice or true/false question",
-                                               choices=c("Choice A", "Choice B", "Choice C"), 
+                                  hmw1 = list(type="code", 
+                                               q_text="Fill in the blanks so that only the penguins from the Biscoe island are listed.", 
+                                               choices="filter(penguins, ______)",
                                                is_correct = FALSE, 
                                                submitted_answer = "",
                                                error_msg = ""),
                                   hmw2 = list(type="code", 
-                                               q_text="This is a coding question with starter code ", 
-                                               choices="starte_code_here",
+                                               q_text="", 
+                                               choices=NULL,
+                                               is_correct = FALSE, 
+                                               submitted_answer = "List all of the Chinstrap penguins with a bill that is 15 or more millimeters long.",
+                                               error_msg = ""),
+                                  hmw3 = list(type="code", 
+                                               q_text="Debugging Exercise: Fix the code chunk so that only the small penguins, who weigh less than 3 kg, from 2007 and 2008 are listed.", 
+                                               choices="filter(penguins, bodyMassG < 3000, year = 2007 | 2008)",
                                                is_correct = FALSE, 
                                                submitted_answer = "",
                                                error_msg = ""),
-                                  hmw3 = list(type="code", 
-                                               q_text="This is a coding question without starter code ", 
+                                  hmw4 = list(type="code", 
+                                               q_text="Fill in the blanks so that only the penguin's island, species, and flipper length are listed.", 
+                                               choices="select(penguins, ____, _____, ____)",
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw5 = list(type="code", 
+                                               q_text="Write a select statement so that only the last 4 columns are listed.", 
+                                               choices=NULL,
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw6 = list(type="code", 
+                                               q_text="Debugging Exercise: Fix the code chunk so the first four variables are listed.", 
+                                               choices="select(penguins, species;4)",
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw7 = list(type="code", 
+                                               q_text="How many penguins were observed each year?", 
+                                               choices=NULL,
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw8 = list(type="code", 
+                                               q_text="Expand Problem 7, how many penguins of each species were observed each year?", 
+                                               choices=NULL,
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw9 = list(type="code", 
+                                               q_text="Debugging exercise: Fix the code so that you have an accurate count of the penguins from each island.", 
+                                               choices="count(penguins, island == \"Dream\")",
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw10 = list(type="code", 
+                                               q_text="How many penguins on each island have a flipper length over 200mm (exclusive)?", 
+                                               choices=NULL,
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw11 = list(type="code", 
+                                               q_text="How many female penguins have a bill depth between 15.5mm and 17.5mm (inclusive)?", 
+                                               choices=NULL,
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw12 = list(type="code", 
+                                               q_text="How many Chinstrap and Gentoo penguins on each island have a body mass over 4.25 kg?", 
                                                choices=NULL,
                                                is_correct = FALSE, 
                                                submitted_answer = "",
@@ -79,19 +131,13 @@ event_register_handler("session_start", function(session, event, data) {
 })
 ```
 
-<!-- 
-Todo: 
-  Create practice problems for each section
-  Add banner images
-  Update hmw_info to track each of the homework problems
-  
--->
+
 
 ## Week 3 Lab
 
-### <span style="opacity:0;">week_3_lab()</span>
+### <span style="opacity:0;">week-3_lab()</span>
 
-![Cartoon showing a round monster holding up a sign that says Week 3 Lab”](images/Blank Banner.png){width=100%} 
+![Cartoon showing a round monster holding up a sign that says Week 3 Lab”](www/images/tutorial_banner.png){width=100%} 
 <p align="center">"Artwork created with sample graphics provided by <a href="https://twitter.com/allison_horst?lang=en">@allison_horst</a>" </p>
   
 For this week's recitation, we will be working through exercises that cover:
@@ -103,44 +149,89 @@ For this week's recitation, we will be working through exercises that cover:
   <dd>This tidyverse function also provides a subset, but of variables (columns). This can make it easier to view your results, by only including the variables you are interested in.</dd>
   <dt>`count()`</dt>
   <dd>This tidyverse function counts the number of unique values that exist in a variable or a set of variables. This is a great way to see how much variety is in your dataset's variables</dd>
-  <dt>`qplot()`</dt>
-  <dd>qplot stands for *quick* plot and as its name suggests allows you to quickly create a plot from a given dataset. This will serve as our entry-point into creating visualizations in R, later on we'll look into how we can create more complex visualizations with `ggplot()`</dd>
 </dl>
 
 ## Dataset  
- 
+
+### <span style="opacity:0;">filter practice</span>
+
 ```{r load_practice_set, child="../SharedResources/datasets/PalmerPenguins/description.Rmd" }
 
 ```  
 
+### <span style="opacity:0;">filter practice</span>
 
-<!-- ### <span style="opacity:0;">Quick Tip </span> -->
-
-<!-- <div class="quick_note_box"> -->
-<!--   <p class="quick_note_header">`r emo::ji("bookmark_tabs")` Quick Note</p> -->
-<!--   <p> A helpful message for the reader:</p> -->
-<!-- ```{r quick_note, R.options=list(width=25)} -->
-<!-- #code example -->
-<!-- simple -->
-<!-- ``` -->
-<!-- </div> -->
-
-<!-- Tips to list: Edge cases, check for NA, incremental coding, debugging -->
+<div class="quick_note_box">
+  <p class="quick_note_header">`r emo::ji("bookmark_tabs")` Quick Note</p>
+  <p> If you ever forget the names of the variables in your dataset, you can use `colnames()` to quickly list them. Or you can use `?dataset_name` to view the dataset's help page.</p>
+```{r use_colnames, R.options=list(width=25)}
+colnames(penguins)
+```
+</div>
 
 ## Filter  
 
-![Cartoon showing three fuzzy monsters either selecting or crossing out rows of a data table. If the type of animal in the table is “otter” and the site is “bay”, a monster is drawing a purple rectangle around the row. If those conditions are not met, another monster is putting a line through the column indicating it will be excluded. Stylized text reads “dplyr::filter() - keep rows that satisfy your conditions.”](images/filter.jpg){width=100%} 
-<p align="center">"Artwork by <a href="https://twitter.com/allison_horst?lang=en">@allison_horst</a>" </p>
+---
 
+### Filter down to a subset of observations (rows)
+
+```{css, echo=FALSE}
+.example{
+  border-collapse: collapse;
+}
+.example td{
+  width: 150px;
+  height:50px;
+  border: 5px solid black;
+}
+
+.hightlight{
+  background-color: #30B4B4;
+}
+```
+
+<table class="example">
+  <tr class="hightlight">
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="hightlight">
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="hightlight">
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+```{r week-3_practice1, exercise = TRUE, exercise.blanks = "___+"}
+filter(penguins, ___Your_Condition_Here____)
+```
+
+### Practice Problems
 
 #### Problem 1 
 
 Fill in the blanks so that only the penguins from the Biscoe island are listed.
-```{r week_3_hmw1, exercise = TRUE, exercise.blanks = "___+", }
+```{r week-3_hmw1, exercise = TRUE, exercise.blanks = "___+"}
 filter(penguins, _______)
 ```
 
-```{r week_3_hmw1-check}
+```{r week-3_hmw1-check}
 grade_result(
   pass_if(~identical(.result, filter(penguins, island == "Biscoe")))#Replace TRUE with the solution's code
 )
@@ -148,25 +239,25 @@ grade_result(
 
 #### Problem 2 
 
-Reverse your answer to problem 1, only list the penguins that are *not* on Biscoe island.
-```{r week_3_hmw2, exercise = TRUE, exercise.blanks = "___+", }
+List all of the Chinstrap penguins with a bill that is 15 or more millimeters long.
+```{r week-3_hmw2, exercise = TRUE, exercise.blanks = "___+"}
 
 ```
 
-```{r week_3_hmw2-check}
+```{r week-3_hmw2-check}
 grade_result(
-  pass_if(~identical(.result, filter(penguins, island != "Biscoe")))#Replace TRUE with the solution's code
+  pass_if(~identical(.result, filter(penguins, species=="Chinstrap", bill_length_mm >= 15)))#Replace TRUE with the solution's code
 )
 ```
 
 #### Problem 3 
 
 Debugging Exercise: Fix the code chunk so that only the small penguins, who weigh less than 3 kg, from 2007 and 2008 are listed.
-```{r week_3_hmw3, exercise = TRUE}
+```{r week-3_hmw3, exercise = TRUE}
 filter(penguins, bodyMassG < 3000, year = 2007 | 2008)
 ```
 
-```{r week_3_hmw3-check}
+```{r week-3_hmw3-check}
 grade_result(
   pass_if(~identical(.result, filter(penguins, body_mass_g < 3000, (year == 2007 | year == 2008))))#Replace TRUE with the solution's code
 )
@@ -174,135 +265,276 @@ grade_result(
 
 ## Select
 
+---
+
+### Select a subset of variables (columns)
+
+<table class="example">
+  <tr>
+    <td class="hightlight"></td>
+    <td></td>
+    <td class="hightlight"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="hightlight"></td>
+    <td></td>
+    <td class="hightlight"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="hightlight"></td>
+    <td></td>
+    <td class="hightlight"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="hightlight"></td>
+    <td></td>
+    <td class="hightlight"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="hightlight"></td>
+    <td></td>
+    <td class="hightlight"></td>
+    <td></td>
+  </tr>
+</table>
+
+```{r week-3_practice2, exercise = TRUE, exercise.blanks = "___+"}
+select(penguins, ____Your_Variables_Here____)
+```
+
+### Practice Problems
+
 #### Problem 4 
 
 Fill in the blanks so that only the penguin's island, species, and flipper length are listed.
-```{r week_3_hmw4, exercise = TRUE, exercise.blanks = "___+", }
+```{r week-3_hmw4, exercise = TRUE, exercise.blanks = "___+"}
 select(penguins, ____, _____, ____)
 ```
 
-```{r week_3_hmw4-check}
+```{r week-3_hmw4-check}
 grade_result(
-  pass_if(~identical(.result, select(penguins, island, species, bill_length_mm)))#Replace TRUE with the solution's code
+  pass_if(~identical(.result, select(penguins, island, species, flipp_length_mm)))#Replace TRUE with the solution's code
 )
 ```
 
 #### Problem 5 
 
-Write a select statement so that only the 4 columns are listed.
-```{r week_3_hmw5, exercise = TRUE, exercise.blanks = "___+", }
+Write a select statement so that only the last 4 columns are listed.
+```{r week-3_hmw5, exercise = TRUE, exercise.blanks = "___+"}
 
 ```
 
-```{r week_3_hmw5-check}
+```{r week-3_hmw5-check}
 grade_result(
   pass_if(~identical(.result, select(penguins, 5:8)))#Replace TRUE with the solution's code
 )
 ```
 
-## Count
-
-#### Problem 6 
-
-```{r week_3_hmw6, exercise = TRUE, exercise.blanks = "___+", }
-
+#### Problem 6
+Debugging Exercise: Fix the code chunk so the first four variables are listed.
+```{r week-3_hmw6, exercise = TRUE}
+select(penguins, species;4)
 ```
 
-```{r week_3_hmw6-check}
+```{r week-3_hmw6-check}
 grade_result(
-  pass_if(~identical(.result, ))
+  pass_if(~identical(.result, select(penguins, species:4)))#Replace TRUE with the solution's code
 )
 ```
 
-#### Problem 7 
+## Count
 
-```{r week_3_hmw7, exercise = TRUE, exercise.blanks = "___+", }
+```{css, echo=FALSE}
+
+.valA{
+  border-color: #30B4B4;
+}
+
+.valB{
+  border-color: #09E85E;
+}
+
+.valC{
+  border-color: #FFA69E;
+}
+
+.middle{
+  text-align: center;
+  border-top: 0px solid;
+  border-bottom: 0px solid;
+}
+
+.top{
+  border-top: 0px solid;
+  border-left: 0px solid;
+  border-right: 0px solid;
+}
+
+.bottom{
+  border-top: 0px solid;
+  border-left: 0px solid;
+  border-right: 0px solid;
+}
 
 ```
 
-```{r week_3_hmw7-check}
+---
+
+### Count the number of unique values for a variable or a combination of variables.
+
+<table class="example">
+  <tr>
+    <td class="valA">Value A</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="middle"></td>
+    <td class="top"></td>
+    <td class="top"></td>
+  </tr>
+  <tr>
+    <td class="valB">Value B</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="middle"></td>
+    <td>Value A</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td class="valA">Value A</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="middle" style="font-size:2em;font-weight:bold">→</td>
+    <td>Value B</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td class="valC">Value C</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="middle"></td>
+    <td>Value C</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td class="valB">Value B</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="middle"></td>
+    <td class="bottom"></td>
+    <td class="bottom"></td>
+  </tr>
+</table>
+
+
+```{r week-3_practice3, exercise = TRUE, exercise.blanks = "___+"}
+count(penguins, ____Your_Variables_Here____)
+```
+
+### Practice Problems
+
+#### Problem 7 
+
+How many penguins were observed each year?
+```{r week-3_hmw7, exercise = TRUE, exercise.blanks = "___+"}
+count(penguins, _____)
+```
+
+```{r week-3_hmw7-check}
 grade_result(
-  pass_if(~identical(.result, ))
+  pass_if(~identical(.result, count(penguins, year)))
 )
 ```
 
 #### Problem 8 
 
-```{r week_3_hmw8, exercise = TRUE, exercise.blanks = "___+", }
+Expand Problem 7, how many penguins of each species were observed each year?
+```{r week-3_hmw8, exercise = TRUE, exercise.blanks = "___+"}
 
 ```
 
-```{r week_3_hmw8-check}
+```{r week-3_hmw8-check}
 grade_result(
-  pass_if(~identical(.result, ))
+  pass_if(~identical(.result, count(penguins, year, species)))
 )
 ```
-
-## Quick Plot
 
 #### Problem 9 
 
-```{r week_3_hmw9, exercise = TRUE, exercise.blanks = "___+", exercise.reveal_solution = FALSE }
-
+Debugging exercise: Fix the code so that you have an accurate count of the penguins from each island.
+```{r week-3_hmw9, exercise = TRUE}
+count(penguins, island == "Dream")
 ```
 
-```{r week_3_hmw9-solution}
-qplot(data=penguins, bill_length_mm, body_mass_g)
-```
-
-```{r week_3_hmw9-code-check}
-grade_code()
-```
-
-
-#### Problem 10 
-
-```{r week_3_hmw10, exercise = TRUE, exercise.blanks = "___+", exercise.reveal_solution = FALSE}
-
-```
-
-```{r week_3_hmw10-solution}
-
-qplot(data=penguins, bill_length_mm, body_mass_g, color=islands)
-```
-
-```{r week_3_hmw10-code-check}
-grade_code()
-```
-
-## Building Connections
-
-#### Problem 11 
-
-```{r week_3_hmw11, exercise = TRUE, exercise.blanks = "___+", }
-
-```
-
-```{r week_3_hmw11-check}
+```{r week-3_hmw9-check}
 grade_result(
-  pass_if(~identical(.result, ))
+  pass_if(~identical(.result, count(penguins, island)))
 )
 ```
 
-#### Problem 12 
 
-```{r week_3_hmw12, exercise = TRUE, exercise.blanks = "___+", }
+
+## Building A Pipeline
+
+--- 
+
+### %>% Pip Operator
+
+The pipe operator helps to chain multiple operations in a row. A *pipe*line of operations!
+
+
+```{r week-3_practice4, exercise = TRUE}
+dataset %>% 
+  operation1(param1, param2) %>%
+  operation2(param1, param2) %>%
+  operation3(param1, param2)
+```
+
+
+### Practice Problems
+
+#### Problem 10 
+
+How many penguins on each island have a flipper length over 200mm (exclusive)?
+```{r week-3_hmw10, exercise = TRUE}
 
 ```
 
-```{r week_3_hmw12-check}
+```{r week-3_hmw10-check}
 grade_result(
-  pass_if(~identical(.result, ))
+  pass_if(~identical(.result, penguins %>% filter(flipper_length_mm > 200) %>% count(island)))
+)
+```
+
+#### Problem 11 
+
+How many female penguins have a bill depth between 15.5mm and 17.5mm (inclusive)?
+```{r week-3_hmw11, exercise = TRUE}
+
+```
+
+```{r week-3_hmw11-check}
+grade_result(
+  pass_if(~identical(.result, penguins %>% filter(sex=="female", bill_depth_mm >= 15.5, bill_depth_mm <= 17.5) %>% count()))
 )
 ```
 
 #### Problem 13 
 
-```{r week_3_hmw13, exercise = TRUE, exercise.blanks = "___+", }
+How many Chinstrap and Gentoo penguins on each island have a body mass over 4.25 kg?
+```{r week-3_hmw13, exercise = TRUE}
 
 ```
 
-```{r week_3_hmw13-check}
+```{r week-3_hmw13-check}
 grade_result(
   pass_if(~identical(.result, ))
 )

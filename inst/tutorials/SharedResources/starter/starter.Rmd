@@ -5,7 +5,7 @@ output:
     progressive: true
     allow_skip: true
     fig_caption: false
-    css: css/textbook.min.css
+    css: www/css/textbook.min.css
 runtime: shiny_prerendered
 description: >
   _starter_ Description.
@@ -58,7 +58,7 @@ knitr::opts_chunk$set(error = FALSE, message = FALSE)
   2) Edit the text to list the name of the tutorial's datset
 -->
 
-![Cartoon showing a round monster holding up a sign that says dplyr::_starter_”](images/Blank Banner.png){width=100%} 
+![Cartoon showing a round monster holding up a sign that says dplyr::_starter_”](www/images/Blank Banner.png){width=100%} 
 <p align="center">"Artwork created with sample graphics provided by <a href="https://twitter.com/allison_horst?lang=en">@allison_horst</a>" </p>
   
 If you review the R Documentation for the [_starter_() function](https://dplyr.tidyverse.org/reference/_starter_.html) you'll find the following explanation:  
@@ -83,7 +83,7 @@ Add a student friendly explanation for _starter_() here. Keep in mind, this is a
   2) Edit the text to list the name of the tutorial's datset
 -->
   
-![Cartoon showing two round monsters holding up a sign between them that reads Blank Dataset](images/Blank Dataset.png){width=100%} 
+![Cartoon showing two round monsters holding up a sign between them that reads Blank Dataset](www/images/Blank Dataset.png){width=100%} 
 <p align="center">"Artwork created with sample graphics provided by <a href="https://twitter.com/allison_horst?lang=en">@allison_horst</a>" </p>
 
 This tutorial's practice exercises will use the [Dataset Name](Dataset URL), which is a (insert description of dataset):\
