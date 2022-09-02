@@ -983,7 +983,7 @@ hmw_info <- NULL
 #options(tutorial.event_recorder = new_recorder)
 
 shiny::addResourcePath("SharedResources", "../SharedResources")#Needed for accessing images/other files
-
+shiny::addResourcePath("www", "www")#Needed for accessing local images & css
 knitr::opts_chunk$set(error = FALSE, message = FALSE)
 </script>
 
@@ -1025,7 +1025,8 @@ learnr:::store_exercise_cache(structure(list(label = "select_practice1", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "select_practice1", code = "select(mpg, _____, _____, ____)", 
         opts = list(label = "\"select_practice1\"", exercise = "TRUE", 
@@ -1078,7 +1079,8 @@ learnr:::store_exercise_cache(structure(list(label = "select_practice2", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "select_practice2", code = "", opts = list(label = "\"select_practice2\"", 
         exercise = "TRUE"), engine = "r")), code_check = NULL, 
@@ -1128,7 +1130,8 @@ learnr:::store_exercise_cache(structure(list(label = "select_practice3", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "select_practice3", code = "", opts = list(label = "\"select_practice3\"", 
         exercise = "TRUE"), engine = "r")), code_check = NULL, 
@@ -1179,7 +1182,8 @@ learnr:::store_exercise_cache(structure(list(label = "select_practice4", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "select_practice4", code = "", opts = list(label = "\"select_practice4\"", 
         exercise = "TRUE"), engine = "r")), code_check = NULL, 
@@ -1230,7 +1234,8 @@ learnr:::store_exercise_cache(structure(list(label = "select_practice5", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "select_practice5", code = "select(mpg, _____= hwy)", 
         opts = list(label = "\"select_practice5\"", exercise = "TRUE", 
@@ -1283,7 +1288,8 @@ learnr:::store_exercise_cache(structure(list(label = "select_practice6", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "select_practice6", code = "select(mpg, _____= class)", 
         opts = list(label = "\"select_practice6\"", exercise = "TRUE", 
@@ -1336,7 +1342,8 @@ learnr:::store_exercise_cache(structure(list(label = "select_practice7", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "select_practice7", code = "", opts = list(label = "\"select_practice7\"", 
         exercise = "TRUE"), engine = "r")), code_check = NULL, 
@@ -1423,22 +1430,22 @@ event_register_handler("session_start", function(session, event, data) {
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "select_hmw1", 
     question = structure("When using select(), any columns that are not listed will be :", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_bcb4940", 
+    "character")), answers = list(structure(list(id = "lnr_ans_63f192a", 
         option = "left out of the returned data frame", value = "left out of the returned data frame", 
         label = structure("left out of the returned data frame", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_bc1357c", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_45449ce", 
         option = "deleted from the provided data frame", value = "deleted from the provided data frame", 
         label = structure("deleted from the provided data frame", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = structure("Incorrect: select(), like all of the dplyr functions, never modifies the provided data frame.", html = TRUE, class = c("html", 
         "character")), type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e8117b0", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_261fae7", 
         option = "placed at the end of the returned data frame", 
         value = "placed at the end of the returned data frame", 
         label = structure("placed at the end of the returned data frame", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = structure("Incorrect: select() will not return any columns you did not explicitly ask for.", html = TRUE, class = c("html", 
         "character")), type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a9edb03", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_6234659", 
         option = "None of the above", value = "None of the above", 
         label = structure("None of the above", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1450,7 +1457,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "select_hmw1-answer", question = "select_hmw1"), 
     loading = NULL, random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1765353355.67794, options = list()), class = c("learnr_radio", 
+    seed = 1314389914.38794, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
@@ -1458,24 +1465,24 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "select_hmw2", 
     question = structure("After importing an online baseball dataset, you notice one of the variables is named &quot;# of Home Runs&quot;. How could you rename this variable so it follows proper naming conventions?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_4ca0115", 
+    "character")), answers = list(structure(list(id = "lnr_ans_1c528d5", 
         option = "select(bball, n_home_runs = \"# of Home Runs\")", 
         value = "select(bball, n_home_runs = \"# of Home Runs\")", 
         label = structure("select(bball, n_home_runs = &quot;# of Home Runs&quot;)", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4d707d5", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_1ff2146", 
         option = "select(bbal, #_home_runs = \"# of Home Runs\")", 
         value = "select(bbal, #_home_runs = \"# of Home Runs\")", 
         label = structure("select(bbal, #_home_runs = &quot;# of Home Runs&quot;)", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = structure("Incorrect: Variable names must start with a letter. Also, the pound sign (#) in R represents a comment, so this will actually <em>comment out<\u002fem> the rest of the select statement.", html = TRUE, class = c("html", 
         "character")), type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_b5ff95d", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4f23b72", 
         option = "select(bbal, HomeRunsCount = \"# of Home Runs\")", 
         value = "select(bbal, HomeRunsCount = \"# of Home Runs\")", 
         label = structure("select(bbal, HomeRunsCount = &quot;# of Home Runs&quot;)", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = structure("Incorrect: While this is valid syntax, our naming convention requires variables to be lowercase, noun phrases, and use under_scores.", html = TRUE, class = c("html", 
         "character")), type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_c60839", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_5640641", 
         option = "None of the above", value = "None of the above", 
         label = structure("None of the above", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1487,7 +1494,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "select_hmw2-answer", question = "select_hmw2"), 
     loading = NULL, random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1392192239.85171, options = list()), class = c("learnr_radio", 
+    seed = 84386961.4607043, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
@@ -1509,7 +1516,8 @@ learnr:::store_exercise_cache(structure(list(label = "select_hmw3", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "select_hmw3", code = "select(green_vehicles, _____, _____, _____)", 
         opts = list(label = "\"select_hmw3\"", exercise = "TRUE", 
@@ -1560,7 +1568,8 @@ learnr:::store_exercise_cache(structure(list(label = "select_hmw4", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "select_hmw4", code = "select(green_vehicles, 1;5, c1ty_mpg, greenhouse_gas_score = gg_score) ", 
         opts = list(label = "\"select_hmw4\"", exercise = "TRUE", 
@@ -1611,7 +1620,8 @@ learnr:::store_exercise_cache(structure(list(label = "select_hmw5", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "select_hmw5", code = "", opts = list(label = "\"select_hmw5\"", 
         exercise = "TRUE", exercise.completion = "FALSE"), engine = "r")), 
@@ -1660,7 +1670,8 @@ learnr:::store_exercise_cache(structure(list(label = "select_hmw6", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "select_hmw6", code = "", opts = list(label = "\"select_hmw6\"", 
         exercise = "TRUE", exercise.completion = "FALSE"), engine = "r")), 

@@ -700,8 +700,8 @@ library(tidyverse)
 library(shinyjs)
 library(reactable)
 library(palmerpenguins)
-addResourcePath("SharedResources", "../SharedResources")#Add access to a shared set of images. Like the banner for the farm dataset
-
+shiny::addResourcePath("SharedResources", "../SharedResources")#Add access to a shared set of images. Like the banner for the farm dataset
+shiny::addResourcePath("www", "www")#Needed for accessing local images & css
 knitr::opts_chunk$set(error = FALSE, message = FALSE)
 </script>
 
@@ -827,8 +827,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_practice1", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
 "   #print(data)", "#}", "#options(tutorial.event_recorder = new_recorder)", 
 "", "library(tidyverse)", "library(shinyjs)", "library(reactable)", 
-"library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"library(palmerpenguins)", "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "week-3_practice1", code = "select(penguins, ____Your_Variables_Here____)", 
         opts = list(label = "\"week-3_practice1\"", exercise = "TRUE", 
@@ -876,8 +877,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw1", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
 "   #print(data)", "#}", "#options(tutorial.event_recorder = new_recorder)", 
 "", "library(tidyverse)", "library(shinyjs)", "library(reactable)", 
-"library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"library(palmerpenguins)", "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "week-3_hmw1", code = "select(penguins, ____, _____, ____)", 
         opts = list(label = "\"week-3_hmw1\"", exercise = "TRUE", 
@@ -927,8 +929,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw2", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
 "   #print(data)", "#}", "#options(tutorial.event_recorder = new_recorder)", 
 "", "library(tidyverse)", "library(shinyjs)", "library(reactable)", 
-"library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"library(palmerpenguins)", "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "week-3_hmw2", code = "", opts = list(label = "\"week-3_hmw2\"", 
         exercise = "TRUE", exercise.blanks = "\"___+\""), engine = "r")), 
@@ -976,8 +979,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw3", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
 "   #print(data)", "#}", "#options(tutorial.event_recorder = new_recorder)", 
 "", "library(tidyverse)", "library(shinyjs)", "library(reactable)", 
-"library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"library(palmerpenguins)", "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "week-3_hmw3", code = "select(penguins, species;4)", 
         opts = list(label = "\"week-3_hmw3\"", exercise = "TRUE"), 
@@ -1025,8 +1029,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_practice2", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
 "   #print(data)", "#}", "#options(tutorial.event_recorder = new_recorder)", 
 "", "library(tidyverse)", "library(shinyjs)", "library(reactable)", 
-"library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"library(palmerpenguins)", "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "week-3_practice2", code = "filter(penguins, ___Your_Condition_Here____)", 
         opts = list(label = "\"week-3_practice2\"", exercise = "TRUE", 
@@ -1074,8 +1079,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw4", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
 "   #print(data)", "#}", "#options(tutorial.event_recorder = new_recorder)", 
 "", "library(tidyverse)", "library(shinyjs)", "library(reactable)", 
-"library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"library(palmerpenguins)", "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "week-3_hmw4", code = "filter(penguins, _______)", 
         opts = list(label = "\"week-3_hmw4\"", exercise = "TRUE", 
@@ -1125,8 +1131,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw5", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
 "   #print(data)", "#}", "#options(tutorial.event_recorder = new_recorder)", 
 "", "library(tidyverse)", "library(shinyjs)", "library(reactable)", 
-"library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"library(palmerpenguins)", "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "week-3_hmw5", code = "", opts = list(label = "\"week-3_hmw5\"", 
         exercise = "TRUE", exercise.blanks = "\"___+\""), engine = "r")), 
@@ -1174,8 +1181,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw6", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
 "   #print(data)", "#}", "#options(tutorial.event_recorder = new_recorder)", 
 "", "library(tidyverse)", "library(shinyjs)", "library(reactable)", 
-"library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"library(palmerpenguins)", "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "week-3_hmw6", code = "filter(penguins, bodyMassG < 3000, year = 2007 | 2008)", 
         opts = list(label = "\"week-3_hmw6\"", exercise = "TRUE"), 
@@ -1223,8 +1231,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_practice3", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
 "   #print(data)", "#}", "#options(tutorial.event_recorder = new_recorder)", 
 "", "library(tidyverse)", "library(shinyjs)", "library(reactable)", 
-"library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"library(palmerpenguins)", "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "week-3_practice3", code = "count(penguins, ____Your_Variables_Here____)", 
         opts = list(label = "\"week-3_practice3\"", exercise = "TRUE", 
@@ -1272,8 +1281,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw7", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
 "   #print(data)", "#}", "#options(tutorial.event_recorder = new_recorder)", 
 "", "library(tidyverse)", "library(shinyjs)", "library(reactable)", 
-"library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"library(palmerpenguins)", "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "week-3_hmw7", code = "count(penguins, _____)", 
         opts = list(label = "\"week-3_hmw7\"", exercise = "TRUE", 
@@ -1323,8 +1333,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw8", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
 "   #print(data)", "#}", "#options(tutorial.event_recorder = new_recorder)", 
 "", "library(tidyverse)", "library(shinyjs)", "library(reactable)", 
-"library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"library(palmerpenguins)", "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "week-3_hmw8", code = "", opts = list(label = "\"week-3_hmw8\"", 
         exercise = "TRUE", exercise.blanks = "\"___+\""), engine = "r")), 
@@ -1372,8 +1383,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw9", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
 "   #print(data)", "#}", "#options(tutorial.event_recorder = new_recorder)", 
 "", "library(tidyverse)", "library(shinyjs)", "library(reactable)", 
-"library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"library(palmerpenguins)", "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "week-3_hmw9", code = "count(penguins, island == \"Dream\")", 
         opts = list(label = "\"week-3_hmw9\"", exercise = "TRUE"), 
@@ -1421,8 +1433,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_practice4", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
 "   #print(data)", "#}", "#options(tutorial.event_recorder = new_recorder)", 
 "", "library(tidyverse)", "library(shinyjs)", "library(reactable)", 
-"library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"library(palmerpenguins)", "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "week-3_practice4", code = "dataset %>% \n  operation1(param1, param2) %>%\n  operation2(param1, param2) %>%\n  operation3(param1, param2)", 
         opts = list(label = "\"week-3_practice4\"", exercise = "TRUE"), 
@@ -1470,8 +1483,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw10", global_setu
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
 "   #print(data)", "#}", "#options(tutorial.event_recorder = new_recorder)", 
 "", "library(tidyverse)", "library(shinyjs)", "library(reactable)", 
-"library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"library(palmerpenguins)", "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "week-3_hmw10", code = "", opts = list(label = "\"week-3_hmw10\"", 
         exercise = "TRUE"), engine = "r")), code_check = NULL, 
@@ -1519,8 +1533,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw11", global_setu
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
 "   #print(data)", "#}", "#options(tutorial.event_recorder = new_recorder)", 
 "", "library(tidyverse)", "library(shinyjs)", "library(reactable)", 
-"library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"library(palmerpenguins)", "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "week-3_hmw11", code = "", opts = list(label = "\"week-3_hmw11\"", 
         exercise = "TRUE"), engine = "r")), code_check = NULL, 
@@ -1568,8 +1583,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw13", global_setu
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
 "   #print(data)", "#}", "#options(tutorial.event_recorder = new_recorder)", 
 "", "library(tidyverse)", "library(shinyjs)", "library(reactable)", 
-"library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
-"", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
+"library(palmerpenguins)", "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
+"knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "week-3_hmw13", code = "", opts = list(label = "\"week-3_hmw13\"", 
         exercise = "TRUE"), engine = "r")), code_check = NULL, 

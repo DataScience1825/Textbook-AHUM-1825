@@ -42,8 +42,8 @@ library(tidyverse)
 library(shinyjs)
 library(reactable)
 library(palmerpenguins)
-addResourcePath("SharedResources", "../SharedResources")#Add access to a shared set of images. Like the banner for the farm dataset
-
+shiny::addResourcePath("SharedResources", "../SharedResources")#Add access to a shared set of images. Like the banner for the farm dataset
+shiny::addResourcePath("www", "www")#Needed for accessing local images & css
 knitr::opts_chunk$set(error = FALSE, message = FALSE)
 ```
 

@@ -41,7 +41,7 @@ hmw_info <- NULL
 #options(tutorial.event_recorder = new_recorder)
 
 shiny::addResourcePath("SharedResources", "../SharedResources")#Needed for accessing images/other files
-
+shiny::addResourcePath("www", "www")#Needed for accessing local images & css
 knitr::opts_chunk$set(error = FALSE, message = FALSE)
 ```
 

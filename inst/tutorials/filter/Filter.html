@@ -984,6 +984,7 @@ hmw_info <- NULL
 #options(tutorial.event_recorder = new_recorder)
 
 shiny::addResourcePath("SharedResources", "../SharedResources")#Needed for accessing images/other files
+shiny::addResourcePath("www", "www")#Needed for accessing local images & css
 knitr::opts_chunk$set(error = FALSE, message = FALSE)
 </script>
 
@@ -1127,6 +1128,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_practice1", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice1", code = "filter(penguins, sex == _____)", 
@@ -1182,6 +1184,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_practice2", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice2", code = "filter(penguins, ____ bill_length_mm ____)", 
@@ -1237,6 +1240,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_practice3", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice3", code = "", opts = list(label = "\"filter_practice3\"", 
@@ -1290,6 +1294,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_practice4", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice4", code = "", opts = list(label = "\"filter_practice4\"", 
@@ -1343,6 +1348,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_practice5", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice5", code = "filter(penguins, species == \"adelie\")", 
@@ -1454,6 +1460,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_practice6", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice6", code = "filter(penguins, island ____ ____ flipper_length_mm ____)", 
@@ -1509,6 +1516,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_practice7", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice7", code = "filter(penguins, body_mass_g ____ 3000 ____ body_mass_g ____ 3500 )", 
@@ -1564,6 +1572,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_practice8", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice8", code = "", opts = list(label = "\"filter_practice8\"", 
@@ -1617,6 +1626,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_practice9", global_
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice9", code = "", opts = list(label = "\"filter_practice9\"", 
@@ -1670,6 +1680,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_practice10", global
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice10", code = "filter(penguins, body_mass_g < 3500 | body_mass_g > 2000)", 
@@ -1756,10 +1767,10 @@ event_register_handler("session_start", function(session, event, data) {
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "filter_hmw1", 
     question = structure("(True or False), filter() modifies the dataframe passed to it.", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_d39d71f", 
+    "character")), answers = list(structure(list(id = "lnr_ans_1f3645a", 
         option = "True", value = "True", label = structure("True", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_5a9642f", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_8c5c6f9", 
         option = "False", value = "False", label = structure("False", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1770,30 +1781,30 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "filter_hmw1-answer", question = "filter_hmw1"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1559238910.77392, options = list()), class = c("learnr_radio", 
+    seed = 1578213785.26509, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "filter_hmw2", 
     question = structure("The &amp; operator only evaulates to true if :", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_4fd950d", 
+    "character")), answers = list(structure(list(id = "lnr_ans_b313d3f", 
         option = "both conditions are true", value = "both conditions are true", 
         label = structure("both conditions are true", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_7841c65", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_893891f", 
         option = "neither condition is true", value = "neither condition is true", 
         label = structure("neither condition is true", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4cec6d", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_95019ad", 
         option = "either condition is true", value = "either condition is true", 
         label = structure("either condition is true", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_114077d", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_53d0a7a", 
         option = "both conditions are false", value = "both conditions are false", 
         label = structure("both conditions are false", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_6fa375e", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_16dd342", 
         option = "None of the above", value = "None of the above", 
         label = structure("None of the above", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1805,7 +1816,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "filter_hmw2-answer", question = "filter_hmw2"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1442544582.32826, options = list()), class = c("learnr_radio", 
+    seed = 539539920.748757, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
@@ -1829,6 +1840,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_hmw3", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_hmw3", code = "filter(farm_inventory, ____ == \"Peppridge\" ____ type ____ \"VEGETABLE\")", 
@@ -1882,6 +1894,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_hmw4", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_hmw4", code = "filter(farm_inventory, type = \"dairy\")", 
@@ -1935,6 +1948,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_hmw5", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_hmw5", code = "", opts = list(label = "\"filter_hmw5\"", 
@@ -1986,6 +2000,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_hmw6", global_setup
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_hmw6", code = "", opts = list(label = "\"filter_hmw6\"", 
@@ -2120,6 +2135,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_practice11", global
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice11", code = "", opts = list(
@@ -2171,6 +2187,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_practice12", global
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice12", code = "", opts = list(
@@ -2222,6 +2239,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_practice13", global
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice13", code = "", opts = list(
@@ -2273,6 +2291,7 @@ learnr:::store_exercise_cache(structure(list(label = "filter_practice14", global
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\n\", sep = \"\")", 
 "#}", "#options(tutorial.event_recorder = new_recorder)", "", 
 "shiny::addResourcePath(\"SharedResources\", \"../SharedResources\")#Needed for accessing images/other files", 
+"shiny::addResourcePath(\"www\", \"www\")#Needed for accessing local images & css", 
 "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
     list(label = "filter_practice14", code = "groceries <- c(\"Fuji Apple\", \"Soy Yogurt\", \"Whole Duck\", \"Cheddar Cheese\", \"Seeded Watermelon\")\n\nfilter(farm_inventory, _________)", 
