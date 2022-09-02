@@ -527,14 +527,14 @@ grade_result(
 
 #### Problem 13 
 
-How many Chinstrap and Gentoo penguins on each island have a body mass over 4.25 kg?
+How many Chinstrap and Gentoo penguins on each island have a body mass over 4.25 kg (exclusive)?
 ```{r week-3_hmw13, exercise = TRUE}
 
 ```
 
 ```{r week-3_hmw13-check}
 grade_result(
-  pass_if(~identical(.result, ))
+  pass_if(~identical(.result, penguins %>% filter(species == "Chinstrap" | species == "Gentoo", body_mass_g > 4250) %>% count(island)))
 )
 ```
 

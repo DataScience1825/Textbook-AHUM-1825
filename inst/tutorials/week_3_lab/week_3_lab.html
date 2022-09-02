@@ -128,6 +128,14 @@ class="citation">@allison_horst</span></a>”
 cover:</p>
 <dl>
 <dt>
+<code>select()</code>
+</dt>
+<dd>
+This tidyverse function also provides a subset, but of variables
+(columns). This can make it easier to view your results, by only
+including the variables you are interested in.
+</dd>
+<dt>
 <code>filter()</code>
 </dt>
 <dd>
@@ -136,14 +144,6 @@ from a datset. This is handy both for exploring your dataset (e.g. how
 many observations (if any) fit your condition?) or feeding your dataset
 into a visualization (e.g. create a line graph, but only use the
 observations that meet your condition)
-</dd>
-<dt>
-<code>select()</code>
-</dt>
-<dd>
-This tidyverse function also provides a subset, but of variables
-(columns). This can make it easier to view your results, by only
-including the variables you are interested in.
 </dd>
 <dt>
 <code>count()</code>
@@ -649,7 +649,7 @@ data-lines="0">
 <div id="section-problem-13" class="section level4">
 <h4>Problem 13</h4>
 How many Chinstrap and Gentoo penguins on each island have a body mass
-over 4.25 kg?
+over 4.25 kg (exclusive)?
 <div class="tutorial-exercise" data-label="week-3_hmw13"
 data-completion="1" data-diagnostics="1" data-startover="1"
 data-lines="0">
@@ -1574,9 +1574,9 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw13", global_setu
     list(label = "week-3_hmw13", code = "", opts = list(label = "\"week-3_hmw13\"", 
         exercise = "TRUE"), engine = "r")), code_check = NULL, 
     error_check = NULL, check = structure(c("grade_result(", 
-    "  pass_if(~identical(.result, ))", ")"), chunk_opts = list(
-        label = "week-3_hmw13-check")), solution = NULL, tests = NULL, 
-    options = list(eval = FALSE, echo = TRUE, results = "markup", 
+    "  pass_if(~identical(.result, penguins %>% filter(species == \"Chinstrap\" | species == \"Gentoo\", body_mass_g > 4250) %>% count(island)))", 
+    ")"), chunk_opts = list(label = "week-3_hmw13-check")), solution = NULL, 
+    tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
