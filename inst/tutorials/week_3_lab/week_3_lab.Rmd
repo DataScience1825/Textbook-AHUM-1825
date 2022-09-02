@@ -143,10 +143,10 @@ event_register_handler("session_start", function(session, event, data) {
 For this week's recitation, we will be working through exercises that cover:
 
 <dl>
-  <dt>`filter()`</dt>
-  <dd>This tidyverse function helps to select a subset of observations (rows) from a datset. This is handy both for exploring your dataset (e.g. how many observations (if any) fit your condition?) or feeding your dataset into a visualization (e.g. create a line graph, but only use the observations that meet your condition)</dd>
   <dt>`select()`</dt>
   <dd>This tidyverse function also provides a subset, but of variables (columns). This can make it easier to view your results, by only including the variables you are interested in.</dd>
+  <dt>`filter()`</dt>
+  <dd>This tidyverse function helps to select a subset of observations (rows) from a datset. This is handy both for exploring your dataset (e.g. how many observations (if any) fit your condition?) or feeding your dataset into a visualization (e.g. create a line graph, but only use the observations that meet your condition)</dd>
   <dt>`count()`</dt>
   <dd>This tidyverse function counts the number of unique values that exist in a variable or a set of variables. This is a great way to see how much variety is in your dataset's variables</dd>
 </dl>
