@@ -56,38 +56,38 @@ event_register_handler("session_start", function(session, event, data) {
                            hmw_grade = 0.0, 
                            submissions = list(
                                   hmw1 = list(type="code", 
-                                               q_text="Fill in the blanks so that only the penguins from the Biscoe island are listed.", 
-                                               choices="filter(penguins, ______)",
-                                               is_correct = FALSE, 
-                                               submitted_answer = "",
-                                               error_msg = ""),
-                                  hmw2 = list(type="code", 
-                                               q_text="", 
-                                               choices=NULL,
-                                               is_correct = FALSE, 
-                                               submitted_answer = "List all of the Chinstrap penguins with a bill that is 15 or more millimeters long.",
-                                               error_msg = ""),
-                                  hmw3 = list(type="code", 
-                                               q_text="Debugging Exercise: Fix the code chunk so that only the small penguins, who weigh less than 3 kg, from 2007 and 2008 are listed.", 
-                                               choices="filter(penguins, bodyMassG < 3000, year = 2007 | 2008)",
-                                               is_correct = FALSE, 
-                                               submitted_answer = "",
-                                               error_msg = ""),
-                                  hmw4 = list(type="code", 
                                                q_text="Fill in the blanks so that only the penguin's island, species, and flipper length are listed.", 
                                                choices="select(penguins, ____, _____, ____)",
                                                is_correct = FALSE, 
                                                submitted_answer = "",
                                                error_msg = ""),
-                                  hmw5 = list(type="code", 
+                                  hmw2 = list(type="code", 
                                                q_text="Write a select statement so that only the last 4 columns are listed.", 
                                                choices=NULL,
                                                is_correct = FALSE, 
                                                submitted_answer = "",
                                                error_msg = ""),
-                                  hmw6 = list(type="code", 
+                                  hmw3 = list(type="code", 
                                                q_text="Debugging Exercise: Fix the code chunk so the first four variables are listed.", 
                                                choices="select(penguins, species;4)",
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw4 = list(type="code", 
+                                               q_text="Fill in the blanks so that only the penguins from the Biscoe island are listed.", 
+                                               choices="filter(penguins, ______)",
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw5 = list(type="code", 
+                                               q_text="", 
+                                               choices=NULL,
+                                               is_correct = FALSE, 
+                                               submitted_answer = "List all of the Chinstrap penguins with a bill that is 15 or more millimeters long.",
+                                               error_msg = ""),
+                                  hmw6 = list(type="code", 
+                                               q_text="Debugging Exercise: Fix the code chunk so that only the small penguins, who weigh less than 3 kg, from 2007 and 2008 are listed.", 
+                                               choices="filter(penguins, bodyMassG < 3000, year = 2007 | 2008)",
                                                is_correct = FALSE, 
                                                submitted_answer = "",
                                                error_msg = ""),
@@ -169,12 +169,6 @@ colnames(penguins)
 ```
 </div>
 
-## Filter  
-
----
-
-### Filter down to a subset of observations (rows)
-
 ```{css, echo=FALSE}
 .example{
   border-collapse: collapse;
@@ -183,85 +177,45 @@ colnames(penguins)
   width: 150px;
   height:50px;
   border: 5px solid black;
+  padding: 10px;
+  font-size:2em;
 }
 
 .hightlight{
   background-color: #30B4B4;
 }
-```
 
-<table class="example">
-  <tr class="hightlight">
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr class="hightlight">
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr class="hightlight">
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
+.valA{
+ border-color: #30B4B4 !important;
+}
 
-```{r week-3_practice1, exercise = TRUE, exercise.blanks = "___+"}
-filter(penguins, ___Your_Condition_Here____)
-```
+.valAFont{
+ color: #30B4B4;
+}
 
-### Practice Problems
+.valB{
+ border-color: #09E85E !important;
+}
 
-#### Problem 1 
+.valBFont{
+ color: #09E85E;
+}
 
-Fill in the blanks so that only the penguins from the Biscoe island are listed.
-```{r week-3_hmw1, exercise = TRUE, exercise.blanks = "___+"}
-filter(penguins, _______)
-```
+.valC{
+  border-color: #FFA69E !important;
+}
 
-```{r week-3_hmw1-check}
-grade_result(
-  pass_if(~identical(.result, filter(penguins, island == "Biscoe")))#Replace TRUE with the solution's code
-)
-```
+.valCFont{
+ color: #FFA69E;
+}
 
-#### Problem 2 
-
-List all of the Chinstrap penguins with a bill that is 15 or more millimeters long.
-```{r week-3_hmw2, exercise = TRUE, exercise.blanks = "___+"}
+.edge{
+  text-align: center;
+  border-width: 0px !important;
+}
 
 ```
 
-```{r week-3_hmw2-check}
-grade_result(
-  pass_if(~identical(.result, filter(penguins, species=="Chinstrap", bill_length_mm >= 15)))#Replace TRUE with the solution's code
-)
-```
-
-#### Problem 3 
-
-Debugging Exercise: Fix the code chunk so that only the small penguins, who weigh less than 3 kg, from 2007 and 2008 are listed.
-```{r week-3_hmw3, exercise = TRUE}
-filter(penguins, bodyMassG < 3000, year = 2007 | 2008)
-```
-
-```{r week-3_hmw3-check}
-grade_result(
-  pass_if(~identical(.result, filter(penguins, body_mass_g < 3000, (year == 2007 | year == 2008))))#Replace TRUE with the solution's code
-)
-```
 
 ## Select
 
@@ -302,85 +256,132 @@ grade_result(
   </tr>
 </table>
 
-```{r week-3_practice2, exercise = TRUE, exercise.blanks = "___+"}
+```{r week-3_practice1, exercise = TRUE, exercise.blanks = "___+"}
 select(penguins, ____Your_Variables_Here____)
+```
+
+### Practice Problems
+
+#### Problem 1 
+
+Fill in the blanks so that only the penguin's island, species, and flipper length are listed.
+```{r week-3_hmw1, exercise = TRUE, exercise.blanks = "___+"}
+select(penguins, ____, _____, ____)
+```
+
+```{r week-3_hmw1-check}
+grade_result(
+  pass_if(~identical(.result, select(penguins, island, species, flipp_length_mm)))#Replace TRUE with the solution's code
+)
+```
+
+#### Problem 2 
+
+Write a select statement so that only the last 4 columns are listed.
+```{r week-3_hmw2, exercise = TRUE, exercise.blanks = "___+"}
+
+```
+
+```{r week-3_hmw2-check}
+grade_result(
+  pass_if(~identical(.result, select(penguins, 5:8)))#Replace TRUE with the solution's code
+)
+```
+
+#### Problem 3
+Debugging Exercise: Fix the code chunk so the first four variables are listed.
+```{r week-3_hmw3, exercise = TRUE}
+select(penguins, species;4)
+```
+
+```{r week-3_hmw3-check}
+grade_result(
+  pass_if(~identical(.result, select(penguins, species:4)))#Replace TRUE with the solution's code
+)
+```
+
+
+## Filter  
+
+---
+
+### Filter down to a subset of observations (rows)
+
+<table class="example">
+  <tr class="hightlight">
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="hightlight">
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="hightlight">
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+```{r week-3_practice2, exercise = TRUE, exercise.blanks = "___+"}
+filter(penguins, ___Your_Condition_Here____)
 ```
 
 ### Practice Problems
 
 #### Problem 4 
 
-Fill in the blanks so that only the penguin's island, species, and flipper length are listed.
+Fill in the blanks so that only the penguins from the Biscoe island are listed.
 ```{r week-3_hmw4, exercise = TRUE, exercise.blanks = "___+"}
-select(penguins, ____, _____, ____)
+filter(penguins, _______)
 ```
 
 ```{r week-3_hmw4-check}
 grade_result(
-  pass_if(~identical(.result, select(penguins, island, species, flipp_length_mm)))#Replace TRUE with the solution's code
+  pass_if(~identical(.result, filter(penguins, island == "Biscoe")))#Replace TRUE with the solution's code
 )
 ```
 
 #### Problem 5 
 
-Write a select statement so that only the last 4 columns are listed.
+List all of the Chinstrap penguins with a bill that is 15 or more millimeters long.
 ```{r week-3_hmw5, exercise = TRUE, exercise.blanks = "___+"}
 
 ```
 
 ```{r week-3_hmw5-check}
 grade_result(
-  pass_if(~identical(.result, select(penguins, 5:8)))#Replace TRUE with the solution's code
+  pass_if(~identical(.result, filter(penguins, species=="Chinstrap", bill_length_mm >= 15)))#Replace TRUE with the solution's code
 )
 ```
 
-#### Problem 6
-Debugging Exercise: Fix the code chunk so the first four variables are listed.
+#### Problem 6 
+
+Debugging Exercise: Fix the code chunk so that only the small penguins, who weigh less than 3 kg, from 2007 and 2008 are listed.
 ```{r week-3_hmw6, exercise = TRUE}
-select(penguins, species;4)
+filter(penguins, bodyMassG < 3000, year = 2007 | 2008)
 ```
 
 ```{r week-3_hmw6-check}
 grade_result(
-  pass_if(~identical(.result, select(penguins, species:4)))#Replace TRUE with the solution's code
+  pass_if(~identical(.result, filter(penguins, body_mass_g < 3000, (year == 2007 | year == 2008))))#Replace TRUE with the solution's code
 )
 ```
 
+
 ## Count
-
-```{css, echo=FALSE}
-
-.valA{
-  border-color: #30B4B4;
-}
-
-.valB{
-  border-color: #09E85E;
-}
-
-.valC{
-  border-color: #FFA69E;
-}
-
-.middle{
-  text-align: center;
-  border-top: 0px solid;
-  border-bottom: 0px solid;
-}
-
-.top{
-  border-top: 0px solid;
-  border-left: 0px solid;
-  border-right: 0px solid;
-}
-
-.bottom{
-  border-top: 0px solid;
-  border-left: 0px solid;
-  border-right: 0px solid;
-}
-
-```
 
 ---
 
@@ -390,47 +391,44 @@ grade_result(
   <tr>
     <td class="valA">Value A</td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td class="middle"></td>
-    <td class="top"></td>
-    <td class="top"></td>
+    <td class="edge"></td>
+    <td class="edge"></td>
+    <td class="edge"></td>
   </tr>
   <tr>
     <td class="valB">Value B</td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td class="middle"></td>
-    <td>Value A</td>
+    <td class="edge"></td>
+    <td class="valAFont">Value A</td>
     <td>2</td>
   </tr>
   <tr>
     <td class="valA">Value A</td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td class="middle" style="font-size:2em;font-weight:bold">→</td>
-    <td>Value B</td>
-    <td>1</td>
+    <td class="edge" style="font-size:4em;font-weight:bold;padding:0px;">→</td>
+    <td class="valBFont">Value B</td>
+    <td>3</td>
   </tr>
   <tr>
     <td class="valC">Value C</td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td class="middle"></td>
-    <td>Value C</td>
+    <td class="edge"></td>
+    <td class="valCFont">Value C</td>
     <td>1</td>
   </tr>
   <tr>
     <td class="valB">Value B</td>
     <td></td>
+    <td class="edge"></td>
+    <td class="edge"></td>
+    <td class="edge"></td>
+  </tr>
+  <tr>
+    <td class="valB">Value B</td>
     <td></td>
-    <td></td>
-    <td class="middle"></td>
-    <td class="bottom"></td>
-    <td class="bottom"></td>
+    <td class="edge"></td>
+    <td class="edge"></td>
+    <td class="edge"></td>
   </tr>
 </table>
 

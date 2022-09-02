@@ -231,14 +231,6 @@ use <code>colnames()</code> to quickly list them. Or you can use
 ## [7] &quot;sex&quot;              
 ## [8] &quot;year&quot;</code></pre>
 </div>
-</div>
-</div>
-<div id="section-filter" class="section level2">
-<h2>Filter</h2>
-<hr />
-<div id="section-filter-down-to-a-subset-of-observations-rows"
-class="section level3">
-<h3>Filter down to a subset of observations (rows)</h3>
 <style type="text/css">
 .example{
   border-collapse: collapse;
@@ -247,95 +239,44 @@ class="section level3">
   width: 150px;
   height:50px;
   border: 5px solid black;
+  padding: 10px;
+  font-size:2em;
 }
 
 .hightlight{
   background-color: #30B4B4;
 }
+
+.valA{
+ border-color: #30B4B4 !important;
+}
+
+.valAFont{
+ color: #30B4B4;
+}
+
+.valB{
+ border-color: #09E85E !important;
+}
+
+.valBFont{
+ color: #09E85E;
+}
+
+.valC{
+  border-color: #FFA69E !important;
+}
+
+.valCFont{
+ color: #FFA69E;
+}
+
+.edge{
+  text-align: center;
+  border-width: 0px !important;
+}
+
 </style>
-<table class="example">
-<tr class="hightlight">
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-</tr>
-<tr class="hightlight">
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-</tr>
-<tr class="hightlight">
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-</tr>
-</table>
-<div class="tutorial-exercise" data-label="week-3_practice1"
-data-completion="1" data-diagnostics="1" data-startover="1"
-data-lines="0">
-<pre class="text"><code>filter(penguins, ___Your_Condition_Here____)</code></pre>
-<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
-</div>
-</div>
-<div id="section-practice-problems" class="section level3">
-<h3>Practice Problems</h3>
-<div id="section-problem-1" class="section level4">
-<h4>Problem 1</h4>
-Fill in the blanks so that only the penguins from the Biscoe island are
-listed.
-<div class="tutorial-exercise" data-label="week-3_hmw1"
-data-completion="1" data-diagnostics="1" data-startover="1"
-data-lines="0">
-<pre class="text"><code>filter(penguins, _______)</code></pre>
-<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
-</div>
-</div>
-<div id="section-problem-2" class="section level4">
-<h4>Problem 2</h4>
-List all of the Chinstrap penguins with a bill that is 15 or more
-millimeters long.
-<div class="tutorial-exercise" data-label="week-3_hmw2"
-data-completion="1" data-diagnostics="1" data-startover="1"
-data-lines="0">
-<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
-</div>
-</div>
-<div id="section-problem-3" class="section level4">
-<h4>Problem 3</h4>
-Debugging Exercise: Fix the code chunk so that only the small penguins,
-who weigh less than 3 kg, from 2007 and 2008 are listed.
-<div class="tutorial-exercise" data-label="week-3_hmw3"
-data-completion="1" data-diagnostics="1" data-startover="1"
-data-lines="0">
-<pre class="text"><code>filter(penguins, bodyMassG &lt; 3000, year = 2007 | 2008)</code></pre>
-<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
-</div>
-</div>
 </div>
 </div>
 <div id="section-select" class="section level2">
@@ -396,40 +337,40 @@ class="section level3">
 </td>
 </tr>
 </table>
-<div class="tutorial-exercise" data-label="week-3_practice2"
+<div class="tutorial-exercise" data-label="week-3_practice1"
 data-completion="1" data-diagnostics="1" data-startover="1"
 data-lines="0">
 <pre class="text"><code>select(penguins, ____Your_Variables_Here____)</code></pre>
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
 </div>
-<div id="section-practice-problems-1" class="section level3">
+<div id="section-practice-problems" class="section level3">
 <h3>Practice Problems</h3>
-<div id="section-problem-4" class="section level4">
-<h4>Problem 4</h4>
+<div id="section-problem-1" class="section level4">
+<h4>Problem 1</h4>
 Fill in the blanks so that only the penguin’s island, species, and
 flipper length are listed.
-<div class="tutorial-exercise" data-label="week-3_hmw4"
+<div class="tutorial-exercise" data-label="week-3_hmw1"
 data-completion="1" data-diagnostics="1" data-startover="1"
 data-lines="0">
 <pre class="text"><code>select(penguins, ____, _____, ____)</code></pre>
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
 </div>
-<div id="section-problem-5" class="section level4">
-<h4>Problem 5</h4>
+<div id="section-problem-2" class="section level4">
+<h4>Problem 2</h4>
 Write a select statement so that only the last 4 columns are listed.
-<div class="tutorial-exercise" data-label="week-3_hmw5"
+<div class="tutorial-exercise" data-label="week-3_hmw2"
 data-completion="1" data-diagnostics="1" data-startover="1"
 data-lines="0">
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
 </div>
-<div id="section-problem-6" class="section level4">
-<h4>Problem 6</h4>
+<div id="section-problem-3" class="section level4">
+<h4>Problem 3</h4>
 Debugging Exercise: Fix the code chunk so the first four variables are
 listed.
-<div class="tutorial-exercise" data-label="week-3_hmw6"
+<div class="tutorial-exercise" data-label="week-3_hmw3"
 data-completion="1" data-diagnostics="1" data-startover="1"
 data-lines="0">
 <pre class="text"><code>select(penguins, species;4)</code></pre>
@@ -438,41 +379,99 @@ data-lines="0">
 </div>
 </div>
 </div>
+<div id="section-filter" class="section level2">
+<h2>Filter</h2>
+<hr />
+<div id="section-filter-down-to-a-subset-of-observations-rows"
+class="section level3">
+<h3>Filter down to a subset of observations (rows)</h3>
+<table class="example">
+<tr class="hightlight">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr class="hightlight">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr class="hightlight">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+</table>
+<div class="tutorial-exercise" data-label="week-3_practice2"
+data-completion="1" data-diagnostics="1" data-startover="1"
+data-lines="0">
+<pre class="text"><code>filter(penguins, ___Your_Condition_Here____)</code></pre>
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
+</div>
+</div>
+<div id="section-practice-problems-1" class="section level3">
+<h3>Practice Problems</h3>
+<div id="section-problem-4" class="section level4">
+<h4>Problem 4</h4>
+Fill in the blanks so that only the penguins from the Biscoe island are
+listed.
+<div class="tutorial-exercise" data-label="week-3_hmw4"
+data-completion="1" data-diagnostics="1" data-startover="1"
+data-lines="0">
+<pre class="text"><code>filter(penguins, _______)</code></pre>
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
+</div>
+</div>
+<div id="section-problem-5" class="section level4">
+<h4>Problem 5</h4>
+List all of the Chinstrap penguins with a bill that is 15 or more
+millimeters long.
+<div class="tutorial-exercise" data-label="week-3_hmw5"
+data-completion="1" data-diagnostics="1" data-startover="1"
+data-lines="0">
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
+</div>
+</div>
+<div id="section-problem-6" class="section level4">
+<h4>Problem 6</h4>
+Debugging Exercise: Fix the code chunk so that only the small penguins,
+who weigh less than 3 kg, from 2007 and 2008 are listed.
+<div class="tutorial-exercise" data-label="week-3_hmw6"
+data-completion="1" data-diagnostics="1" data-startover="1"
+data-lines="0">
+<pre class="text"><code>filter(penguins, bodyMassG &lt; 3000, year = 2007 | 2008)</code></pre>
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
+</div>
+</div>
+</div>
+</div>
 <div id="section-count" class="section level2">
 <h2>Count</h2>
-<style type="text/css">
-
-.valA{
-  border-color: #30B4B4;
-}
-
-.valB{
-  border-color: #09E85E;
-}
-
-.valC{
-  border-color: #FFA69E;
-}
-
-.middle{
-  text-align: center;
-  border-top: 0px solid;
-  border-bottom: 0px solid;
-}
-
-.top{
-  border-top: 0px solid;
-  border-left: 0px solid;
-  border-right: 0px solid;
-}
-
-.bottom{
-  border-top: 0px solid;
-  border-left: 0px solid;
-  border-right: 0px solid;
-}
-
-</style>
 <hr />
 <div
 id="section-count-the-number-of-unique-values-for-a-variable-or-a-combination-of-variables."
@@ -486,15 +485,11 @@ Value A
 </td>
 <td>
 </td>
-<td>
+<td class="edge">
 </td>
-<td>
+<td class="edge">
 </td>
-<td class="middle">
-</td>
-<td class="top">
-</td>
-<td class="top">
+<td class="edge">
 </td>
 </tr>
 <tr>
@@ -503,13 +498,9 @@ Value B
 </td>
 <td>
 </td>
-<td>
+<td class="edge">
 </td>
-<td>
-</td>
-<td class="middle">
-</td>
-<td>
+<td class="valAFont">
 Value A
 </td>
 <td>
@@ -522,18 +513,14 @@ Value A
 </td>
 <td>
 </td>
-<td>
-</td>
-<td>
-</td>
-<td class="middle" style="font-size:2em;font-weight:bold">
+<td class="edge" style="font-size:4em;font-weight:bold;padding:0px;">
 →
 </td>
-<td>
+<td class="valBFont">
 Value B
 </td>
 <td>
-1
+3
 </td>
 </tr>
 <tr>
@@ -542,13 +529,9 @@ Value C
 </td>
 <td>
 </td>
-<td>
+<td class="edge">
 </td>
-<td>
-</td>
-<td class="middle">
-</td>
-<td>
+<td class="valCFont">
 Value C
 </td>
 <td>
@@ -561,15 +544,24 @@ Value B
 </td>
 <td>
 </td>
-<td>
+<td class="edge">
+</td>
+<td class="edge">
+</td>
+<td class="edge">
+</td>
+</tr>
+<tr>
+<td class="valB">
+Value B
 </td>
 <td>
 </td>
-<td class="middle">
+<td class="edge">
 </td>
-<td class="bottom">
+<td class="edge">
 </td>
-<td class="bottom">
+<td class="edge">
 </td>
 </tr>
 </table>
@@ -743,38 +735,38 @@ event_register_handler("session_start", function(session, event, data) {
                            hmw_grade = 0.0, 
                            submissions = list(
                                   hmw1 = list(type="code", 
-                                               q_text="Fill in the blanks so that only the penguins from the Biscoe island are listed.", 
-                                               choices="filter(penguins, ______)",
-                                               is_correct = FALSE, 
-                                               submitted_answer = "",
-                                               error_msg = ""),
-                                  hmw2 = list(type="code", 
-                                               q_text="", 
-                                               choices=NULL,
-                                               is_correct = FALSE, 
-                                               submitted_answer = "List all of the Chinstrap penguins with a bill that is 15 or more millimeters long.",
-                                               error_msg = ""),
-                                  hmw3 = list(type="code", 
-                                               q_text="Debugging Exercise: Fix the code chunk so that only the small penguins, who weigh less than 3 kg, from 2007 and 2008 are listed.", 
-                                               choices="filter(penguins, bodyMassG < 3000, year = 2007 | 2008)",
-                                               is_correct = FALSE, 
-                                               submitted_answer = "",
-                                               error_msg = ""),
-                                  hmw4 = list(type="code", 
                                                q_text="Fill in the blanks so that only the penguin's island, species, and flipper length are listed.", 
                                                choices="select(penguins, ____, _____, ____)",
                                                is_correct = FALSE, 
                                                submitted_answer = "",
                                                error_msg = ""),
-                                  hmw5 = list(type="code", 
+                                  hmw2 = list(type="code", 
                                                q_text="Write a select statement so that only the last 4 columns are listed.", 
                                                choices=NULL,
                                                is_correct = FALSE, 
                                                submitted_answer = "",
                                                error_msg = ""),
-                                  hmw6 = list(type="code", 
+                                  hmw3 = list(type="code", 
                                                q_text="Debugging Exercise: Fix the code chunk so the first four variables are listed.", 
                                                choices="select(penguins, species;4)",
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw4 = list(type="code", 
+                                               q_text="Fill in the blanks so that only the penguins from the Biscoe island are listed.", 
+                                               choices="filter(penguins, ______)",
+                                               is_correct = FALSE, 
+                                               submitted_answer = "",
+                                               error_msg = ""),
+                                  hmw5 = list(type="code", 
+                                               q_text="", 
+                                               choices=NULL,
+                                               is_correct = FALSE, 
+                                               submitted_answer = "List all of the Chinstrap penguins with a bill that is 15 or more millimeters long.",
+                                               error_msg = ""),
+                                  hmw6 = list(type="code", 
+                                               q_text="Debugging Exercise: Fix the code chunk so that only the small penguins, who weigh less than 3 kg, from 2007 and 2008 are listed.", 
+                                               choices="filter(penguins, bodyMassG < 3000, year = 2007 | 2008)",
                                                is_correct = FALSE, 
                                                submitted_answer = "",
                                                error_msg = ""),
@@ -838,7 +830,7 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_practice1", global_
 "library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
 "", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
-    list(label = "week-3_practice1", code = "filter(penguins, ___Your_Condition_Here____)", 
+    list(label = "week-3_practice1", code = "select(penguins, ____Your_Variables_Here____)", 
         opts = list(label = "\"week-3_practice1\"", exercise = "TRUE", 
             exercise.blanks = "\"___+\""), engine = "r")), code_check = NULL, 
     error_check = NULL, check = NULL, solution = NULL, tests = NULL, 
@@ -861,7 +853,7 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_practice1", global_
         max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
         label = "week-3_practice1", exercise = TRUE, exercise.blanks = "___+", 
-        code = "filter(penguins, ___Your_Condition_Here____)", 
+        code = "select(penguins, ____Your_Variables_Here____)", 
         out.width.px = 624, out.height.px = 384, params.src = "week-3_practice1, exercise = TRUE, exercise.blanks = \"___+\"", 
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "3"), class = "tutorial_exercise"))
@@ -887,11 +879,11 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw1", global_setup
 "library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
 "", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
-    list(label = "week-3_hmw1", code = "filter(penguins, _______)", 
+    list(label = "week-3_hmw1", code = "select(penguins, ____, _____, ____)", 
         opts = list(label = "\"week-3_hmw1\"", exercise = "TRUE", 
             exercise.blanks = "\"___+\""), engine = "r")), code_check = NULL, 
     error_check = NULL, check = structure(c("grade_result(", 
-    "  pass_if(~identical(.result, filter(penguins, island == \"Biscoe\")))#Replace TRUE with the solution's code", 
+    "  pass_if(~identical(.result, select(penguins, island, species, flipp_length_mm)))#Replace TRUE with the solution's code", 
     ")"), chunk_opts = list(label = "week-3_hmw1-check")), solution = NULL, 
     tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
@@ -912,7 +904,7 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw1", global_setup
         max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
         label = "week-3_hmw1", exercise = TRUE, exercise.blanks = "___+", 
-        code = "filter(penguins, _______)", out.width.px = 624, 
+        code = "select(penguins, ____, _____, ____)", out.width.px = 624, 
         out.height.px = 384, params.src = "week-3_hmw1, exercise = TRUE, exercise.blanks = \"___+\"", 
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "3"), class = "tutorial_exercise"))
@@ -941,7 +933,7 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw2", global_setup
     list(label = "week-3_hmw2", code = "", opts = list(label = "\"week-3_hmw2\"", 
         exercise = "TRUE", exercise.blanks = "\"___+\""), engine = "r")), 
     code_check = NULL, error_check = NULL, check = structure(c("grade_result(", 
-    "  pass_if(~identical(.result, filter(penguins, species==\"Chinstrap\", bill_length_mm >= 15)))#Replace TRUE with the solution's code", 
+    "  pass_if(~identical(.result, select(penguins, 5:8)))#Replace TRUE with the solution's code", 
     ")"), chunk_opts = list(label = "week-3_hmw2-check")), solution = NULL, 
     tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
@@ -987,10 +979,10 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw3", global_setup
 "library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
 "", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
-    list(label = "week-3_hmw3", code = "filter(penguins, bodyMassG < 3000, year = 2007 | 2008)", 
+    list(label = "week-3_hmw3", code = "select(penguins, species;4)", 
         opts = list(label = "\"week-3_hmw3\"", exercise = "TRUE"), 
         engine = "r")), code_check = NULL, error_check = NULL, 
-    check = structure(c("grade_result(", "  pass_if(~identical(.result, filter(penguins, body_mass_g < 3000, (year == 2007 | year == 2008))))#Replace TRUE with the solution's code", 
+    check = structure(c("grade_result(", "  pass_if(~identical(.result, select(penguins, species:4)))#Replace TRUE with the solution's code", 
     ")"), chunk_opts = list(label = "week-3_hmw3-check")), solution = NULL, 
     tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
@@ -1010,7 +1002,7 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw3", global_setup
         engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
         max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
-        label = "week-3_hmw3", exercise = TRUE, code = "filter(penguins, bodyMassG < 3000, year = 2007 | 2008)", 
+        label = "week-3_hmw3", exercise = TRUE, code = "select(penguins, species;4)", 
         out.width.px = 624, out.height.px = 384, params.src = "week-3_hmw3, exercise = TRUE", 
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "3"), class = "tutorial_exercise"))
@@ -1036,7 +1028,7 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_practice2", global_
 "library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
 "", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
-    list(label = "week-3_practice2", code = "select(penguins, ____Your_Variables_Here____)", 
+    list(label = "week-3_practice2", code = "filter(penguins, ___Your_Condition_Here____)", 
         opts = list(label = "\"week-3_practice2\"", exercise = "TRUE", 
             exercise.blanks = "\"___+\""), engine = "r")), code_check = NULL, 
     error_check = NULL, check = NULL, solution = NULL, tests = NULL, 
@@ -1059,7 +1051,7 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_practice2", global_
         max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
         label = "week-3_practice2", exercise = TRUE, exercise.blanks = "___+", 
-        code = "select(penguins, ____Your_Variables_Here____)", 
+        code = "filter(penguins, ___Your_Condition_Here____)", 
         out.width.px = 624, out.height.px = 384, params.src = "week-3_practice2, exercise = TRUE, exercise.blanks = \"___+\"", 
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "3"), class = "tutorial_exercise"))
@@ -1085,11 +1077,11 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw4", global_setup
 "library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
 "", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
-    list(label = "week-3_hmw4", code = "select(penguins, ____, _____, ____)", 
+    list(label = "week-3_hmw4", code = "filter(penguins, _______)", 
         opts = list(label = "\"week-3_hmw4\"", exercise = "TRUE", 
             exercise.blanks = "\"___+\""), engine = "r")), code_check = NULL, 
     error_check = NULL, check = structure(c("grade_result(", 
-    "  pass_if(~identical(.result, select(penguins, island, species, flipp_length_mm)))#Replace TRUE with the solution's code", 
+    "  pass_if(~identical(.result, filter(penguins, island == \"Biscoe\")))#Replace TRUE with the solution's code", 
     ")"), chunk_opts = list(label = "week-3_hmw4-check")), solution = NULL, 
     tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
@@ -1110,7 +1102,7 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw4", global_setup
         max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
         label = "week-3_hmw4", exercise = TRUE, exercise.blanks = "___+", 
-        code = "select(penguins, ____, _____, ____)", out.width.px = 624, 
+        code = "filter(penguins, _______)", out.width.px = 624, 
         out.height.px = 384, params.src = "week-3_hmw4, exercise = TRUE, exercise.blanks = \"___+\"", 
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "3"), class = "tutorial_exercise"))
@@ -1139,7 +1131,7 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw5", global_setup
     list(label = "week-3_hmw5", code = "", opts = list(label = "\"week-3_hmw5\"", 
         exercise = "TRUE", exercise.blanks = "\"___+\""), engine = "r")), 
     code_check = NULL, error_check = NULL, check = structure(c("grade_result(", 
-    "  pass_if(~identical(.result, select(penguins, 5:8)))#Replace TRUE with the solution's code", 
+    "  pass_if(~identical(.result, filter(penguins, species==\"Chinstrap\", bill_length_mm >= 15)))#Replace TRUE with the solution's code", 
     ")"), chunk_opts = list(label = "week-3_hmw5-check")), solution = NULL, 
     tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
@@ -1185,10 +1177,10 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw6", global_setup
 "library(palmerpenguins)", "addResourcePath(\"SharedResources\", \"../SharedResources\")#Add access to a shared set of images. Like the banner for the farm dataset", 
 "", "knitr::opts_chunk$set(error = FALSE, message = FALSE)"), chunk_opts = list(
     label = "setup", include = FALSE)), setup = NULL, chunks = list(
-    list(label = "week-3_hmw6", code = "select(penguins, species;4)", 
+    list(label = "week-3_hmw6", code = "filter(penguins, bodyMassG < 3000, year = 2007 | 2008)", 
         opts = list(label = "\"week-3_hmw6\"", exercise = "TRUE"), 
         engine = "r")), code_check = NULL, error_check = NULL, 
-    check = structure(c("grade_result(", "  pass_if(~identical(.result, select(penguins, species:4)))#Replace TRUE with the solution's code", 
+    check = structure(c("grade_result(", "  pass_if(~identical(.result, filter(penguins, body_mass_g < 3000, (year == 2007 | year == 2008))))#Replace TRUE with the solution's code", 
     ")"), chunk_opts = list(label = "week-3_hmw6-check")), solution = NULL, 
     tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
@@ -1208,7 +1200,7 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw6", global_setup
         engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
         max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
-        label = "week-3_hmw6", exercise = TRUE, code = "select(penguins, species;4)", 
+        label = "week-3_hmw6", exercise = TRUE, code = "filter(penguins, bodyMassG < 3000, year = 2007 | 2008)", 
         out.width.px = 624, out.height.px = 384, params.src = "week-3_hmw6, exercise = TRUE", 
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "3"), class = "tutorial_exercise"))
