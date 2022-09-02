@@ -5,6 +5,8 @@ library(sass)
 
 shared_resources_dir <- "~/ahum1825/inst/tutorials/SharedResources" # Replace with the location of your Shared Resources directory
 
+
+##Update All css will be on folder
 #Recompile thedata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAWElEQVR42mNgGPTAxsZmJsVqQApgmGw1yApwKcQiT7phRBuCzzCSDSHGMKINIeDNmWQlA2IigKJwIssQkHdINgxfmBBtGDEBS3KCxBc7pMQgMYE5c/AXPwAwSX4lV3pTWwAAAABJRU5ErkJggg== shared SASS file and update all of tutorials' css files
 update_css <- function(){
   current_wd <- getwd() #Preserve working directory

@@ -5,7 +5,7 @@ output:
     progressive: true
     allow_skip: true
     fig_caption: false
-    css: www/css/textbook.min.css
+    css: SharedResources/css/textbook.min.css
 runtime: shiny_prerendered
 description: >
   This interactive tutorial covers practice exercises for Week 3 of AHUM 1825. This includes filter(), select(), count(), and qplot().
@@ -43,7 +43,6 @@ library(shinyjs)
 library(reactable)
 library(palmerpenguins)
 shiny::addResourcePath("SharedResources", "../SharedResources")#Add access to a shared set of images. Like the banner for the farm dataset
-shiny::addResourcePath("www", "www")#Needed for accessing local images & css
 knitr::opts_chunk$set(error = FALSE, message = FALSE)
 ```
 
@@ -137,7 +136,7 @@ event_register_handler("session_start", function(session, event, data) {
 
 ### <span style="opacity:0;">week-3_lab()</span>
 
-![Cartoon showing a round monster holding up a sign that says Week 3 Lab”](www/images/tutorial_banner.png){width=100%} 
+![Cartoon showing a round monster holding up a sign that says Week 3 Lab”](SharedResources/images/week_3_banner.png){width=100%} 
 <p align="center">"Artwork created with sample graphics provided by <a href="https://twitter.com/allison_horst?lang=en">@allison_horst</a>" </p>
   
 For this week's recitation, we will be working through exercises that cover:

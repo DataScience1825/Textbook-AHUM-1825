@@ -5,7 +5,7 @@ output:
     progressive: true
     allow_skip: true
     fig_caption: false
-    css: www/css/textbook.min.css
+    css: SharedResources/css/textbook.min.css
 runtime: shiny_prerendered
 description: >
   Learn how to filter the rows in a tibble with `filter()`.
@@ -48,7 +48,6 @@ hmw_info <- NULL
 #options(tutorial.event_recorder = new_recorder)
 
 shiny::addResourcePath("SharedResources", "../SharedResources")#Needed for accessing images/other files
-shiny::addResourcePath("www", "www")#Needed for accessing local images & css
 knitr::opts_chunk$set(error = FALSE, message = FALSE)
 ```
 
@@ -57,7 +56,7 @@ knitr::opts_chunk$set(error = FALSE, message = FALSE)
 
 ### <span style="opacity:0;">filter()</span>
 
-![Cartoon showing three fuzzy monsters either selecting or crossing out rows of a data table. If the type of animal in the table is “otter” and the site is “bay”, a monster is drawing a purple rectangle around the row. If those conditions are not met, another monster is putting a line through the column indicating it will be excluded. Stylized text reads “dplyr::filter() - keep rows that satisfy your conditions.”](www/images/tutorial_banner.jpg){width=100%} 
+![Cartoon showing three fuzzy monsters either selecting or crossing out rows of a data table. If the type of animal in the table is “otter” and the site is “bay”, a monster is drawing a purple rectangle around the row. If those conditions are not met, another monster is putting a line through the column indicating it will be excluded. Stylized text reads “dplyr::filter() - keep rows that satisfy your conditions.”](SharedResources/images/filter_banner.jpg){width=100%} 
 <p align="center">"Artwork by <a href="https://twitter.com/allison_horst?lang=en">@allison_horst</a>" </p>
  
 If you review the R Documentation for the [filter function](https://dplyr.tidyverse.org/reference/filter.html) you'll find the following explanation:  
