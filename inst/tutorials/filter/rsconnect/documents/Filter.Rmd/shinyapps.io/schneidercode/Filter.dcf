@@ -1,0 +1,13 @@
+name: Filter
+title: Filter
+username:
+account: schneidercode
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6919877
+bundleId: 6268596
+url: https://schneidercode.shinyapps.io/Filter/
+when: 1662348740.32572
+lastSyncTime: 1662348740.32574
+asMultiple: FALSE
+asStatic: FALSE

@@ -8,7 +8,7 @@ output:
     css: SharedResources/css/textbook.min.css
 runtime: shiny_prerendered
 description: >
-  This interactive tutorial covers practice exercises for Week 3 of AHUM 1825. This includes filter(), select(), count(), and qplot().
+  This interactive tutorial covers practice exercises for Week 3 of AHUM 1825. This includes filter(), select(), and count().
 ---
 
 <!-- Code for including shinyJS, currently used for toggling css classes toggleClass() | https://deanattali.com/shinyjs/advanced#usage-prerendered -->
@@ -26,6 +26,7 @@ shinyjs::useShinyjs(html = TRUE)
 library(learnr)
 library(palmerpenguins)
 library(ahum1825)
+library(scales)
 gradethis::gradethis_setup()
 
 #Set grading information
@@ -536,6 +537,138 @@ grade_result(
   pass_if(~identical(.result, penguins %>% filter(species == "Chinstrap" | species == "Gentoo", body_mass_g > 4250) %>% count(island)))
 )
 ```
+
+## Probability
+
+--- 
+
+### P(A) 
+
+For this first example, we will be calculating probabilities for a single event A. 
+Since we are only looking at one event, we will use the function nrow(), which determines how many rows are in a tibble().
+Also, to help focus our examples, we will only be working with data from 2009.
+
+```{r penguins-2009}
+penguins_2009 <- filter(penguins, year == 2009)
+```
+
+What is the probability a penguin, chosen at random, lived on Dream Island?
+
+$$P(penguin\: is\: from\: Dream\: Island) = \frac{number\: of\: penguins\: on\: Dream\: Island}{total\: number\: of\: penguins} $$
+
+Step 1: Count the number of Dream Island penguins
+
+```{r dream-count}
+dream_count <- penguins_2009 %>% 
+                  filter(island == "Dream") %>% 
+                  nrow()
+dream_count
+```
+
+Step 2: Count the total number of penguins in 2009
+```{r total-2009}
+penguin_count <- nrow(penguins_2009)
+penguin_count
+```
+
+Step 3: Divide 
+```{r prob-of-dream}
+prob_of_dream <- dream_count / penguin_count
+prob_of_dream
+```
+$$P(penguin\: is\: from\: Dream\: Island) = \frac{`r dream_count`}{`r penguin_count`} = `r round(prob_of_dream, 2)`\%$$
+
+### P(A) - Multiple probabilities
+Now it's possible to calculate a single probability at a time, but since we are working with a powerful programming language, why not have it handle multiple probability calculations at once? 
+In this section we'll expand our P(A) example to calculate the probability of a penguin being randomly chosen from each island. :
+
+$$P(penguin\: is\: from\: Biscoe\: Island)$$
+$$P(penguin\: is\: from\: Dream\: Island)$$
+$$P(penguin\: is\: from\: Torgersen\: Island)$$
+
+Step 1: Count the number of penguins on each island
+```{r penguin-counts-all-islands}
+island_counts <- penguins_2009 %>%
+                    count(island)
+island_counts
+```
+
+Step 2: Count the total number of penguins in 2009 (*same as first example*)
+```{r total-2009-repeat}
+penguin_count <- nrow(penguins_2009)
+penguin_count
+```
+
+Step 3: Divide
+```{r probability-all-islands}
+#retrieve just the vector of counts for each island using ($variable)
+prob_all_islands <- island_counts$n / penguin_count 
+prob_all_islands
+```
+
+$$P(penguin\: is\: from\: Biscoe\: Island) = `r round(prob_all_islands[1], 2)`\%$$
+$$P(penguin\: is\: from\: Dream\: Island) = `r round(prob_all_islands[2], 2)`\%$$
+$$P(penguin\: is\: from\: Torgersen\: Island) = `r round(prob_all_islands[3], 2)`\%$$
+
+### P(B|A)
+
+Given that a randomly chosen penguin has a body mass over 3.5 kg, what is probability it is a Chinstrap?
+
+$$P((penguin\: is\: Chinstrap) | (mass\: over\: 3.5kg)) = \frac{P((mass\: over\: 3.5kg) AND (penguin\: is\: Chinstrap))}{P(mass\: over\: 3.5kg)} $$
+
+#### Calculate P(A AND B)  
+
+Step 1: Count the number of Chinstrap penguins over 3.5kg (3,500 g)
+```{r}
+chinstrap_over_3500_g <- penguins_2009 %>%
+                            filter(species == "Chinstrap", body_mass_g >= 3500) %>%
+                            nrow() 
+chinstrap_over_3500_g
+```
+
+Step 2: Count total number of penguins
+```{r}
+penguin_count <- nrow(penguins_2009)
+penguin_count
+```
+
+Step 3: Divide
+```{r}
+prob_chinstrap_over_3500_g <- chinstrap_over_3500_g / penguin_count
+prob_chinstrap_over_3500_g
+```
+
+#### Calculate P(A)  
+
+Step 1: Count the number of penguins over 3.5 kg
+```{r}
+penguins_over_3500_g <- penguins_2009 %>%
+                          filter(body_mass_g >= 3500) %>%
+                          nrow()
+penguins_over_3500_g
+```
+
+Step 2: Count total number of penguins
+```{r}
+penguin_count <- nrow(penguins_2009)
+penguin_count
+```
+
+Step 3: Divide
+```{r}
+prob_penguins_over_3500_g <- penguins_over_3500_g / penguin_count
+prob_penguins_over_3500_g
+```
+
+#### Calculate P(B|A)  
+
+Divide P(A AND B) / P(A)
+```{r}
+prob_chinstrap_given_over_3500_g <- prob_chinstrap_over_3500_g / prob_penguins_over_3500_g
+prob_chinstrap_given_over_3500_g
+```
+
+$$P((penguin\: is\: Chinstrap) | (mass\: over\: 3.5kg)) = \frac{P((mass\: over\: 3.5kg) AND (penguin\: is\: Chinstrap))}{P(mass\: over\: 3.5kg)} = `r round(prob_chinstrap_given_over_3500_g, 2)`\%$$
 
 ---
 

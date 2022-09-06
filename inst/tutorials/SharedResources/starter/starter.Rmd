@@ -41,8 +41,13 @@ library(tidyverse)
 library(shinyjs)
 library(reactable)
 
-shiny::addResourcePath("SharedResources", "../SharedResources")#Add access to a shared set of images. Like the banner for the farm dataset
-shiny::addResourcePath("www", "www")#Needed for accessing local images & css
+# All web resources (images, css) need to be placed within their respective directories inside of SharedResources 
+# This goes against Learnr's documentation, which has you place a tutorial's files within a local www/ directory. 
+# That works for a local installation, but when we install the ahum1825 package to the RStudio Workbench's Server 
+# so that it is available to all users/students, the tutorial was unable to access the files in the www/ directory. 
+# Besides the server issue, placing all resources in the SharedResources directory reduces repeated files
+# and the size of our R package.
+shiny::addResourcePath("SharedResources", "../SharedResources")
 knitr::opts_chunk$set(error = FALSE, message = FALSE)
 ```
 

@@ -655,6 +655,129 @@ data-completion="1" data-diagnostics="1" data-startover="1"
 data-lines="0">
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
+</div>
+</div>
+</div>
+<div id="section-probability" class="section level2">
+<h2>Probability</h2>
+<hr />
+<div id="section-pa" class="section level3">
+<h3>P(A)</h3>
+<p>For this first example, we will be calculating probabilities for a
+single event A. Since we are only looking at one event, we will use the
+function nrow(), which determines how many rows are in a tibble(). Also,
+to help focus our examples, we will only be working with data from
+2009.</p>
+<pre class="r"><code>penguins_2009 &lt;- filter(penguins, year == 2009)</code></pre>
+<p>What is the probability a penguin, chosen at random, lived on Dream
+Island?</p>
+<p><span class="math display">\[P(penguin\: is\: from\: Dream\: Island)
+= \frac{number\: of\: penguins\: on\: Dream\: Island}{total\: number\:
+of\: penguins} \]</span></p>
+<p>Step 1: Count the number of Dream Island penguins</p>
+<pre class="r"><code>dream_count &lt;- penguins_2009 %&gt;% 
+                  filter(island == &quot;Dream&quot;) %&gt;% 
+                  nrow()
+dream_count</code></pre>
+<pre><code>## [1] 44</code></pre>
+<p>Step 2: Count the total number of penguins in 2009</p>
+<pre class="r"><code>penguin_count &lt;- nrow(penguins_2009)
+penguin_count</code></pre>
+<pre><code>## [1] 120</code></pre>
+<p>Step 3: Divide</p>
+<pre class="r"><code>prob_of_dream &lt;- dream_count / penguin_count
+prob_of_dream</code></pre>
+<pre><code>## [1] 0.3666667</code></pre>
+<p><span class="math display">\[P(penguin\: is\: from\: Dream\: Island)
+= \frac{44}{120} = 0.37\%\]</span></p>
+</div>
+<div id="section-pa---multiple-probabilities" class="section level3">
+<h3>P(A) - Multiple probabilities</h3>
+<p>Now it’s possible to calculate a single probability at a time, but
+since we are working with a powerful programming language, why not have
+it handle multiple probability calculations at once? In this section
+we’ll expand our P(A) example to calculate the probability of a penguin
+being randomly chosen from each island. :</p>
+<p><span class="math display">\[P(penguin\: is\: from\: Biscoe\:
+Island)\]</span> <span class="math display">\[P(penguin\: is\: from\:
+Dream\: Island)\]</span> <span class="math display">\[P(penguin\: is\:
+from\: Torgersen\: Island)\]</span></p>
+<p>Step 1: Count the number of penguins on each island</p>
+<pre class="r"><code>island_counts &lt;- penguins_2009 %&gt;%
+                    count(island)
+island_counts</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["island"],"name":[1],"type":["fct"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"Biscoe","2":"60"},{"1":"Dream","2":"44"},{"1":"Torgersen","2":"16"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Step 2: Count the total number of penguins in 2009 (<em>same as first
+example</em>)</p>
+<pre class="r"><code>penguin_count &lt;- nrow(penguins_2009)
+penguin_count</code></pre>
+<pre><code>## [1] 120</code></pre>
+<p>Step 3: Divide</p>
+<pre class="r"><code>#retrieve just the vector of counts for each island using ($variable)
+prob_all_islands &lt;- island_counts$n / penguin_count 
+prob_all_islands</code></pre>
+<pre><code>## [1] 0.5000000 0.3666667 0.1333333</code></pre>
+<p><span class="math display">\[P(penguin\: is\: from\: Biscoe\: Island)
+= 0.5\%\]</span> <span class="math display">\[P(penguin\: is\: from\:
+Dream\: Island) = 0.37\%\]</span> <span
+class="math display">\[P(penguin\: is\: from\: Torgersen\: Island) =
+0.13\%\]</span></p>
+</div>
+<div id="section-pba" class="section level3">
+<h3>P(B|A)</h3>
+<p>Given that a randomly chosen penguin has a body mass over 3.5 kg,
+what is probability it is a Chinstrap?</p>
+<p><span class="math display">\[P((penguin\: is\: Chinstrap) | (mass\:
+over\: 3.5kg)) = \frac{P((mass\: over\: 3.5kg) AND (penguin\: is\:
+Chinstrap))}{P(mass\: over\: 3.5kg)} \]</span></p>
+<div id="section-calculate-pa-and-b" class="section level4">
+<h4>Calculate P(A AND B)</h4>
+<p>Step 1: Count the number of Chinstrap penguins over 3.5kg (3,500
+g)</p>
+<pre class="r"><code>chinstrap_over_3500_g &lt;- penguins_2009 %&gt;%
+                            filter(species == &quot;Chinstrap&quot;, body_mass_g &gt;= 3500) %&gt;%
+                            nrow() 
+chinstrap_over_3500_g</code></pre>
+<pre><code>## [1] 17</code></pre>
+<p>Step 2: Count total number of penguins</p>
+<pre class="r"><code>penguin_count &lt;- nrow(penguins_2009)
+penguin_count</code></pre>
+<pre><code>## [1] 120</code></pre>
+<p>Step 3: Divide</p>
+<pre class="r"><code>prob_chinstrap_over_3500_g &lt;- chinstrap_over_3500_g / penguin_count
+prob_chinstrap_over_3500_g</code></pre>
+<pre><code>## [1] 0.1416667</code></pre>
+</div>
+<div id="section-calculate-pa" class="section level4">
+<h4>Calculate P(A)</h4>
+<p>Step 1: Count the number of penguins over 3.5 kg</p>
+<pre class="r"><code>penguins_over_3500_g &lt;- penguins_2009 %&gt;%
+                          filter(body_mass_g &gt;= 3500) %&gt;%
+                          nrow()
+penguins_over_3500_g</code></pre>
+<pre><code>## [1] 90</code></pre>
+<p>Step 2: Count total number of penguins</p>
+<pre class="r"><code>penguin_count &lt;- nrow(penguins_2009)
+penguin_count</code></pre>
+<pre><code>## [1] 120</code></pre>
+<p>Step 3: Divide</p>
+<pre class="r"><code>prob_penguins_over_3500_g &lt;- penguins_over_3500_g / penguin_count
+prob_penguins_over_3500_g</code></pre>
+<pre><code>## [1] 0.75</code></pre>
+</div>
+<div id="section-calculate-pba" class="section level4">
+<h4>Calculate P(B|A)</h4>
+<p>Divide P(A AND B) / P(A)</p>
+<pre class="r"><code>prob_chinstrap_given_over_3500_g &lt;- prob_chinstrap_over_3500_g / prob_penguins_over_3500_g
+prob_chinstrap_given_over_3500_g</code></pre>
+<pre><code>## [1] 0.1888889</code></pre>
+<p><span class="math display">\[P((penguin\: is\: Chinstrap) | (mass\:
+over\: 3.5kg)) = \frac{P((mass\: over\: 3.5kg) AND (penguin\: is\:
+Chinstrap))}{P(mass\: over\: 3.5kg)} = 0.19\%\]</span></p>
 <hr />
 </div>
 </div>
@@ -684,6 +807,7 @@ shinyjs::useShinyjs(html = TRUE)
 library(learnr)
 library(palmerpenguins)
 library(ahum1825)
+library(scales)
 gradethis::gradethis_setup()
 
 #Set grading information
@@ -820,7 +944,7 @@ output$`tutorial-exercise-week-3_practice1-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "week-3_practice1", global_setup = structure(c("", 
 "library(learnr)", "library(palmerpenguins)", "library(ahum1825)", 
-"gradethis::gradethis_setup()", "", "#Set grading information", 
+"library(scales)", "gradethis::gradethis_setup()", "", "#Set grading information", 
 "hmw_info <- NULL ", "", "#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
@@ -869,7 +993,7 @@ output$`tutorial-exercise-week-3_hmw1-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "week-3_hmw1", global_setup = structure(c("", 
 "library(learnr)", "library(palmerpenguins)", "library(ahum1825)", 
-"gradethis::gradethis_setup()", "", "#Set grading information", 
+"library(scales)", "gradethis::gradethis_setup()", "", "#Set grading information", 
 "hmw_info <- NULL ", "", "#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
@@ -920,7 +1044,7 @@ output$`tutorial-exercise-week-3_hmw2-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "week-3_hmw2", global_setup = structure(c("", 
 "library(learnr)", "library(palmerpenguins)", "library(ahum1825)", 
-"gradethis::gradethis_setup()", "", "#Set grading information", 
+"library(scales)", "gradethis::gradethis_setup()", "", "#Set grading information", 
 "hmw_info <- NULL ", "", "#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
@@ -969,7 +1093,7 @@ output$`tutorial-exercise-week-3_hmw3-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "week-3_hmw3", global_setup = structure(c("", 
 "library(learnr)", "library(palmerpenguins)", "library(ahum1825)", 
-"gradethis::gradethis_setup()", "", "#Set grading information", 
+"library(scales)", "gradethis::gradethis_setup()", "", "#Set grading information", 
 "hmw_info <- NULL ", "", "#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
@@ -1018,7 +1142,7 @@ output$`tutorial-exercise-week-3_practice2-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "week-3_practice2", global_setup = structure(c("", 
 "library(learnr)", "library(palmerpenguins)", "library(ahum1825)", 
-"gradethis::gradethis_setup()", "", "#Set grading information", 
+"library(scales)", "gradethis::gradethis_setup()", "", "#Set grading information", 
 "hmw_info <- NULL ", "", "#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
@@ -1067,7 +1191,7 @@ output$`tutorial-exercise-week-3_hmw4-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "week-3_hmw4", global_setup = structure(c("", 
 "library(learnr)", "library(palmerpenguins)", "library(ahum1825)", 
-"gradethis::gradethis_setup()", "", "#Set grading information", 
+"library(scales)", "gradethis::gradethis_setup()", "", "#Set grading information", 
 "hmw_info <- NULL ", "", "#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
@@ -1118,7 +1242,7 @@ output$`tutorial-exercise-week-3_hmw5-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "week-3_hmw5", global_setup = structure(c("", 
 "library(learnr)", "library(palmerpenguins)", "library(ahum1825)", 
-"gradethis::gradethis_setup()", "", "#Set grading information", 
+"library(scales)", "gradethis::gradethis_setup()", "", "#Set grading information", 
 "hmw_info <- NULL ", "", "#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
@@ -1167,7 +1291,7 @@ output$`tutorial-exercise-week-3_hmw6-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "week-3_hmw6", global_setup = structure(c("", 
 "library(learnr)", "library(palmerpenguins)", "library(ahum1825)", 
-"gradethis::gradethis_setup()", "", "#Set grading information", 
+"library(scales)", "gradethis::gradethis_setup()", "", "#Set grading information", 
 "hmw_info <- NULL ", "", "#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
@@ -1216,7 +1340,7 @@ output$`tutorial-exercise-week-3_practice3-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "week-3_practice3", global_setup = structure(c("", 
 "library(learnr)", "library(palmerpenguins)", "library(ahum1825)", 
-"gradethis::gradethis_setup()", "", "#Set grading information", 
+"library(scales)", "gradethis::gradethis_setup()", "", "#Set grading information", 
 "hmw_info <- NULL ", "", "#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
@@ -1265,7 +1389,7 @@ output$`tutorial-exercise-week-3_hmw7-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "week-3_hmw7", global_setup = structure(c("", 
 "library(learnr)", "library(palmerpenguins)", "library(ahum1825)", 
-"gradethis::gradethis_setup()", "", "#Set grading information", 
+"library(scales)", "gradethis::gradethis_setup()", "", "#Set grading information", 
 "hmw_info <- NULL ", "", "#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
@@ -1316,7 +1440,7 @@ output$`tutorial-exercise-week-3_hmw8-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "week-3_hmw8", global_setup = structure(c("", 
 "library(learnr)", "library(palmerpenguins)", "library(ahum1825)", 
-"gradethis::gradethis_setup()", "", "#Set grading information", 
+"library(scales)", "gradethis::gradethis_setup()", "", "#Set grading information", 
 "hmw_info <- NULL ", "", "#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
@@ -1365,7 +1489,7 @@ output$`tutorial-exercise-week-3_hmw9-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "week-3_hmw9", global_setup = structure(c("", 
 "library(learnr)", "library(palmerpenguins)", "library(ahum1825)", 
-"gradethis::gradethis_setup()", "", "#Set grading information", 
+"library(scales)", "gradethis::gradethis_setup()", "", "#Set grading information", 
 "hmw_info <- NULL ", "", "#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
@@ -1414,7 +1538,7 @@ output$`tutorial-exercise-week-3_practice4-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "week-3_practice4", global_setup = structure(c("", 
 "library(learnr)", "library(palmerpenguins)", "library(ahum1825)", 
-"gradethis::gradethis_setup()", "", "#Set grading information", 
+"library(scales)", "gradethis::gradethis_setup()", "", "#Set grading information", 
 "hmw_info <- NULL ", "", "#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
@@ -1463,7 +1587,7 @@ output$`tutorial-exercise-week-3_hmw10-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "week-3_hmw10", global_setup = structure(c("", 
 "library(learnr)", "library(palmerpenguins)", "library(ahum1825)", 
-"gradethis::gradethis_setup()", "", "#Set grading information", 
+"library(scales)", "gradethis::gradethis_setup()", "", "#Set grading information", 
 "hmw_info <- NULL ", "", "#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
@@ -1512,7 +1636,7 @@ output$`tutorial-exercise-week-3_hmw11-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "week-3_hmw11", global_setup = structure(c("", 
 "library(learnr)", "library(palmerpenguins)", "library(ahum1825)", 
-"gradethis::gradethis_setup()", "", "#Set grading information", 
+"library(scales)", "gradethis::gradethis_setup()", "", "#Set grading information", 
 "hmw_info <- NULL ", "", "#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
@@ -1561,7 +1685,7 @@ output$`tutorial-exercise-week-3_hmw13-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "week-3_hmw13", global_setup = structure(c("", 
 "library(learnr)", "library(palmerpenguins)", "library(ahum1825)", 
-"gradethis::gradethis_setup()", "", "#Set grading information", 
+"library(scales)", "gradethis::gradethis_setup()", "", "#Set grading information", 
 "hmw_info <- NULL ", "", "#Uncomment to view all the Learnr events and their data. The data field is not well documented, so this a handy way to view everything", 
 "#new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
 "   #cat(\"Original: \\n\", tutorial_id, \" (\", tutorial_version, \"): \", user_id, \", \", event, \"\\nData:\\n\", sep = \"\")", 
