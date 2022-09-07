@@ -160,7 +160,6 @@ colnames(mpg)
 
 <!-- Add widget here --> 
 
-### <span style="opacity:0;">Blank</span>
 ### Practice Problems
 
 #### Practice Problem 1

@@ -560,7 +560,7 @@ grade_result(
 --- 
 
  
-```{r  child="../SharedResources/datasets/FarmInventory/description.Rmd"}
+```{r  child="descriptions/farminventory.Rmd"}
 ```
 
 ```{r, echo=FALSE}
