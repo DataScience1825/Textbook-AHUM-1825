@@ -1,0 +1,24 @@
+![Palmer Penguins, showing drawings of the Chinstrap (left), Gentoo (center), and Adélie (right) penguins](www/images/palmerpenguins_banner.png){width=100%} 
+<p align="center">"Artwork by <a href="https://twitter.com/allison_horst?lang=en">@allison_horst</a>" </p>
+
+The [Palmer Penguins Dataset](https://allisonhorst.github.io/palmerpenguins/) provides the recorded attributes of 344 penguins. Each row represents a single penguin and each column is a variable representing a specific characteristic of that penguin. If you review the help page (?penguins), you'll find the following information on each variable:\
+
+  - **species** : a factor denoting penguin species (Adélie, Chinstrap and Gentoo)  
+  - **island**: a factor denoting island in Palmer Archipelago, Antarctica (Biscoe, Dream or Torgersen)  
+  - **bill_length_mm** : a number denoting bill length (millimeters)  
+  - **bill_depth_mm** : a number denoting bill depth (millimeters) 
+  - **flipper_length_mm** : an integer denoting flipper length (millimeters)  
+  - **body_mass_g** : an integer denoting body mass (grams)  
+  - **sex** : a factor denoting penguin sex (female, male)  
+  - **year** : an integer denoting the study year (2007, 2008, or 2009) 
+
+```{r, include=FALSE}
+library(palmerpenguins)
+```
+
+```{r view_penguins}
+head(penguins)
+```
+
+Reference: 
+Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. R package version 0.1.0. https://allisonhorst.github.io/palmerpenguins/. doi: 10.5281/zenodo.3960218. 

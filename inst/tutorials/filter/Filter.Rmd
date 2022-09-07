@@ -68,7 +68,7 @@ This means that `filter()` will search through the data you provide it, evaluate
 
 ## Practice Dataset\  
  
-```{r load_practice_set, child="../SharedResources/datasets/PalmerPenguins/description.Rmd" }
+```{r load_practice_set, child="descriptions/palmerpenguins.Rmd" }
 
 ```  
 
@@ -550,9 +550,9 @@ grade_result(
 ```{r include_hmw, child="hmw/homework_1.Rmd"}
 ```
 
-```{r include_hmw_grader, child="../SharedResources/grading/hmw_grader.Rmd"}
+```{r include_hmw_grader, child="grading/hmw_grader.Rmd"}
 ```
-```{r include_hmw_dwnld, child="../SharedResources/grading/download_homework.Rmd"}
+```{r include_hmw_dwnld, child="grading/download_homework.Rmd"}
 ```
 
 ## Additional Practice Problems

@@ -59,7 +59,7 @@ In practice, we will use `select()` to help make large datasets more manageable,
 
 ## Practice Dataset  
 
-```{r list-practice-dataset, child="../SharedResources/datasets/Mpg/description.Rmd"}
+```{r list-practice-dataset, child="descriptions/mpg.Rmd"}
 ```
 
 ```{r, echo=FALSE}
@@ -396,13 +396,13 @@ grade_result(
 <!-- 
   The hmw_grader.Rmd child contains event listeners that evaluate a student's work each time they submit/answer a problem
 -->
-```{r, child="../SharedResources/grading/hmw_grader.Rmd"}
+```{r, child="grading/hmw_grader.Rmd"}
 ```
 <!-- 
   The download_homework.Rmd child adds a button for students to download their homework submission.
   This report only includes the homework problems and none of the practice problems.
 -->
-```{r, child="../SharedResources/grading/download_homework.Rmd"}
+```{r, child="grading/download_homework.Rmd"}
 ```
 
 
