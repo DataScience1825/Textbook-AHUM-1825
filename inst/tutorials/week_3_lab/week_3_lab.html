@@ -160,14 +160,54 @@ variety is in your dataset’s variables
 <h2>Dataset</h2>
 <div id="section-next-section-placeholder" class="section level3">
 <h3><span style="opacity:0;">Next Section Placeholder</span></h3>
-<pre class="r"><code>insert_description(&quot;palmerpenguins&quot;)</code></pre>
-<div>
-<img src="../man/figures/palmerpenguins_banner.png" alt="Palmer Penguins, showing drawings of the Chinstrap (left), Gentoo (center), and Adélie (right) penguins" style="width:100%;"/>
-<p>
-Artwork by 
-<a href="https://twitter.com/allison_horst?lang=en">@allison_horst</a>
+<img src="www/images/palmerpenguins_banner.png" style="width:100.0%"
+alt="Palmer Penguins, showing drawings of the Chinstrap (left), Gentoo (center), and Adélie (right) penguins" />
+<p align="center">
+“Artwork by <a href="https://twitter.com/allison_horst?lang=en"><span
+class="citation">@allison_horst</span></a>”
 </p>
+<p>The <a href="https://allisonhorst.github.io/palmerpenguins/">Palmer
+Penguins Dataset</a> provides the recorded attributes of 344 penguins.
+Each row represents a single penguin and each column is a variable
+representing a specific characteristic of that penguin. If you review
+the help page (?penguins), you’ll find the following information on each
+variable:<br />
+</p>
+<ul>
+<li><strong>species</strong> : a factor denoting penguin species
+(Adélie, Chinstrap and Gentoo)<br />
+</li>
+<li><strong>island</strong>: a factor denoting island in Palmer
+Archipelago, Antarctica (Biscoe, Dream or Torgersen)<br />
+</li>
+<li><strong>bill_length_mm</strong> : a number denoting bill length
+(millimeters)<br />
+</li>
+<li><strong>bill_depth_mm</strong> : a number denoting bill depth
+(millimeters)</li>
+<li><strong>flipper_length_mm</strong> : an integer denoting flipper
+length (millimeters)<br />
+</li>
+<li><strong>body_mass_g</strong> : an integer denoting body mass
+(grams)<br />
+</li>
+<li><strong>sex</strong> : a factor denoting penguin sex (female,
+male)<br />
+</li>
+<li><strong>year</strong> : an integer denoting the study year (2007,
+2008, or 2009)</li>
+</ul>
+<pre class="r"><code>head(penguins)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["species"],"name":[1],"type":["fct"],"align":["left"]},{"label":["island"],"name":[2],"type":["fct"],"align":["left"]},{"label":["bill_length_mm"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["bill_depth_mm"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["flipper_length_mm"],"name":[5],"type":["int"],"align":["right"]},{"label":["body_mass_g"],"name":[6],"type":["int"],"align":["right"]},{"label":["sex"],"name":[7],"type":["fct"],"align":["left"]},{"label":["year"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"Adelie","2":"Torgersen","3":"39.1","4":"18.7","5":"181","6":"3750","7":"male","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"39.5","4":"17.4","5":"186","6":"3800","7":"female","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"40.3","4":"18.0","5":"195","6":"3250","7":"female","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"NA","4":"NA","5":"NA","6":"NA","7":"NA","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"36.7","4":"19.3","5":"193","6":"3450","7":"female","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"39.3","4":"20.6","5":"190","6":"3650","7":"male","8":"2007"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
+<p>Reference: Horst AM, Hill AP, Gorman KB (2020). palmerpenguins:
+Palmer Archipelago (Antarctica) penguin data. R package version 0.1.0.
+<a href="https://allisonhorst.github.io/palmerpenguins/"
+class="uri">https://allisonhorst.github.io/palmerpenguins/</a>. doi:
+10.5281/zenodo.3960218.</p>
 </div>
 <div id="section-next-section-placeholder-1" class="section level3">
 <h3><span style="opacity:0;">Next Section Placeholder</span></h3>
