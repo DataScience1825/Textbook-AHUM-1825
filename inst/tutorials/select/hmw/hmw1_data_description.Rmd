@@ -1,5 +1,5 @@
 
-![](www/images/greenvehicles_banner.jpg){width=100% 
+![](SharedResources/dataset_descriptions/GreenVehicles/banner.jpg){width=100%}
 
  This dataset contains vehicle information published by the EPA in their
  their annual [EPA Green Vehicle Guide](http://www.fueleconomy.gov/feg/download.shtml). The dataset currently holds information for the

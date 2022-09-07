@@ -1,5 +1,5 @@
 
-![A banner with a centered message of Farming Dataset, on the left are a collection of vegetables, and on the right is a milk can and a hen with its chicks ](www/images/farminventory_banner.jpg){width=100%} 
+![A banner with a centered message of Farming Dataset, on the left are a collection of vegetables, and on the right is a milk can and a hen with its chicks ](SharedResources/dataset_descriptions/FarmInventory/banner.jpg){width=100%} 
 
 This dataset represents the foods goods stored at four fictitious farms. Each row represents a food item being stored at a given farm and each column provides additional details on that food item:\
 
