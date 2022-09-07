@@ -741,8 +741,8 @@ $$P((penguin\: is\: Gentoo) | (mass\: over\: 3.5kg)) = `r round(prob_species_giv
 
 ## Download Results
 
-```{r, child="../SharedResources/grading/hmw_grader.Rmd"}
-```
+<!-- ```{r, child="../SharedResources/grading/hmw_grader.Rmd"} -->
+<!-- ``` -->
 
-```{r, child="../SharedResources/grading/download_homework.Rmd"}
-```
+<!-- ```{r, child="../SharedResources/grading/download_homework.Rmd"} -->
+<!-- ``` -->
