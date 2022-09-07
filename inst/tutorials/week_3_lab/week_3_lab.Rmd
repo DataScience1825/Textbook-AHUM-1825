@@ -153,13 +153,13 @@ For this week's recitation, we will be working through exercises that cover:
 
 ## Dataset  
 
-### <span style="opacity:0;">filter practice</span>
+### <span style="opacity:0;">Next Section Placeholder</span>
 
-```{r load_practice_set, child="../SharedResources/datasets/PalmerPenguins/description.Rmd" }
-
+```{r load_practice_set }
+insert_description("palmerpenguins")
 ```  
 
-### <span style="opacity:0;">filter practice</span>
+### <span style="opacity:0;">Next Section Placeholder</span>
 
 <div class="quick_note_box">
   <p class="quick_note_header">`r emo::ji("bookmark_tabs")` Quick Note</p>
@@ -271,7 +271,7 @@ select(penguins, ____, _____, ____)
 
 ```{r week-3_hmw1-check}
 grade_result(
-  pass_if(~identical(.result, select(penguins, island, species, flipp_length_mm)))#Replace TRUE with the solution's code
+  pass_if(~identical(.result, select(penguins, island, species, flipper_length_mm)))#Replace TRUE with the solution's code
 )
 ```
 
@@ -610,13 +610,13 @@ $$P(penguin\: is\: from\: Biscoe\: Island) = `r round(prob_all_islands[1], 2)`\%
 $$P(penguin\: is\: from\: Dream\: Island) = `r round(prob_all_islands[2], 2)`\%$$
 $$P(penguin\: is\: from\: Torgersen\: Island) = `r round(prob_all_islands[3], 2)`\%$$
 
-### P(B|A)
+### P(B|A) - Single Event
 
 Given that a randomly chosen penguin has a body mass over 3.5 kg, what is probability it is a Chinstrap?
 
-$$P((penguin\: is\: Chinstrap) | (mass\: over\: 3.5kg)) = \frac{P((mass\: over\: 3.5kg) AND (penguin\: is\: Chinstrap))}{P(mass\: over\: 3.5kg)} $$
+$$P((penguin\: is\: Chinstrap)\: |\: (mass\: over\: 3.5kg)) = \frac{P((mass\: over\: 3.5kg) and (penguin\: is\: Chinstrap))}{P(mass\: over\: 3.5kg)} $$
 
-#### Calculate P(A AND B)  
+#### Calculate P(A and B)  
 
 Step 1: Count the number of Chinstrap penguins over 3.5kg (3,500 g)
 ```{r}
@@ -662,13 +662,80 @@ prob_penguins_over_3500_g
 
 #### Calculate P(B|A)  
 
-Divide P(A AND B) / P(A)
+Divide P(A and B) / P(A)
 ```{r}
 prob_chinstrap_given_over_3500_g <- prob_chinstrap_over_3500_g / prob_penguins_over_3500_g
 prob_chinstrap_given_over_3500_g
 ```
 
-$$P((penguin\: is\: Chinstrap) | (mass\: over\: 3.5kg)) = \frac{P((mass\: over\: 3.5kg) AND (penguin\: is\: Chinstrap))}{P(mass\: over\: 3.5kg)} = `r round(prob_chinstrap_given_over_3500_g, 2)`\%$$
+$$P((penguin\: is\: Chinstrap) | (mass\: over\: 3.5kg)) = \frac{P((mass\: over\: 3.5kg) and (penguin\: is\: Chinstrap))}{P(mass\: over\: 3.5kg)} = `r round(prob_chinstrap_given_over_3500_g, 2)`\%$$
+
+### P(B|A) - Multiple Event
+
+Given that a randomly chosen penguin has a body mass over 3.5 kg, what is probability for it to belong to each species?
+
+$$P((penguin\: is\: Adelie)\: |\: (mass\: over\: 3.5kg)) $$
+
+$$P((penguin\: is\: Chinstrap)\: |\: (mass\: over\: 3.5kg)) $$
+
+$$P((penguin\: is\: Gentoo)\: |\: (mass\: over\: 3.5kg)) $$
+#### Calculate P(A and B)  
+
+Step 1: Count the number of penguins over 3.5kg (3,500 g) for each species
+```{r}
+species_over_3500_g <- penguins_2009 %>%
+                            filter(body_mass_g >= 3500) %>%
+                            count(species)
+species_over_3500_g
+```
+
+Step 2: Count total number of penguins
+```{r}
+penguin_count <- nrow(penguins_2009)
+penguin_count
+```
+
+Step 3: Divide
+```{r}
+prob_species_over_3500_g <- species_over_3500_g$n / penguin_count
+prob_species_over_3500_g
+```
+
+#### Calculate P(A)
+
+Step 1: Count the number of penguins over 3.5 kg
+```{r}
+penguins_over_3500_g <- penguins_2009 %>%
+                          filter(body_mass_g >= 3500) %>%
+                          nrow()
+penguins_over_3500_g
+```
+
+Step 2: Count total number of penguins
+```{r}
+penguin_count <- nrow(penguins_2009)
+penguin_count
+```
+
+Step 3: Divide
+```{r}
+prob_penguins_over_3500_g <- penguins_over_3500_g / penguin_count
+prob_penguins_over_3500_g
+```
+
+#### Calculate P(B|A)  
+
+Divide P(A and B) / P(A)
+```{r}
+prob_species_given_over_3500_g <- prob_species_over_3500_g / prob_penguins_over_3500_g
+prob_species_given_over_3500_g
+```
+$$P((penguin\: is\: Adelie) | (mass\: over\: 3.5kg)) = `r round(prob_species_given_over_3500_g[1], 2)`\%$$
+
+$$P((penguin\: is\: Chinstrap) | (mass\: over\: 3.5kg)) = `r round(prob_species_given_over_3500_g[2], 2)`\%$$
+
+$$P((penguin\: is\: Gentoo) | (mass\: over\: 3.5kg)) = `r round(prob_species_given_over_3500_g[3], 2)`\%$$
+
 
 ---
 

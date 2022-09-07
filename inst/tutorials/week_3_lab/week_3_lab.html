@@ -158,60 +158,19 @@ variety is in your dataset’s variables
 </div>
 <div id="section-dataset" class="section level2">
 <h2>Dataset</h2>
-<div id="section-filter-practice" class="section level3">
-<h3><span style="opacity:0;">filter practice</span></h3>
-<img src="SharedResources/datasets/PalmerPenguins/banner.png"
-style="width:100.0%"
-alt="Palmer Penguins, showing drawings of the Chinstrap (left), Gentoo (center), and Adélie (right) penguins" />
-<p align="center">
-“Artwork by <a href="https://twitter.com/allison_horst?lang=en"><span
-class="citation">@allison_horst</span></a>”
+<div id="section-next-section-placeholder" class="section level3">
+<h3><span style="opacity:0;">Next Section Placeholder</span></h3>
+<pre class="r"><code>insert_description(&quot;palmerpenguins&quot;)</code></pre>
+<div>
+<img src="../man/figures/palmerpenguins_banner.png" alt="Palmer Penguins, showing drawings of the Chinstrap (left), Gentoo (center), and Adélie (right) penguins" style="width:100%;"/>
+<p>
+Artwork by 
+<a href="https://twitter.com/allison_horst?lang=en">@allison_horst</a>
 </p>
-<p>The <a href="https://allisonhorst.github.io/palmerpenguins/">Palmer
-Penguins Dataset</a> provides the recorded attributes of 344 penguins.
-Each row represents a single penguin and each column is a variable
-representing a specific characteristic of that penguin. If you review
-the help page (?penguins), you’ll find the following information on each
-variable:<br />
-</p>
-<ul>
-<li><strong>species</strong> : a factor denoting penguin species
-(Adélie, Chinstrap and Gentoo)<br />
-</li>
-<li><strong>island</strong>: a factor denoting island in Palmer
-Archipelago, Antarctica (Biscoe, Dream or Torgersen)<br />
-</li>
-<li><strong>bill_length_mm</strong> : a number denoting bill length
-(millimeters)<br />
-</li>
-<li><strong>bill_depth_mm</strong> : a number denoting bill depth
-(millimeters)</li>
-<li><strong>flipper_length_mm</strong> : an integer denoting flipper
-length (millimeters)<br />
-</li>
-<li><strong>body_mass_g</strong> : an integer denoting body mass
-(grams)<br />
-</li>
-<li><strong>sex</strong> : a factor denoting penguin sex (female,
-male)<br />
-</li>
-<li><strong>year</strong> : an integer denoting the study year (2007,
-2008, or 2009)</li>
-</ul>
-<pre class="r"><code>head(penguins)</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["species"],"name":[1],"type":["fct"],"align":["left"]},{"label":["island"],"name":[2],"type":["fct"],"align":["left"]},{"label":["bill_length_mm"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["bill_depth_mm"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["flipper_length_mm"],"name":[5],"type":["int"],"align":["right"]},{"label":["body_mass_g"],"name":[6],"type":["int"],"align":["right"]},{"label":["sex"],"name":[7],"type":["fct"],"align":["left"]},{"label":["year"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"Adelie","2":"Torgersen","3":"39.1","4":"18.7","5":"181","6":"3750","7":"male","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"39.5","4":"17.4","5":"186","6":"3800","7":"female","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"40.3","4":"18.0","5":"195","6":"3250","7":"female","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"NA","4":"NA","5":"NA","6":"NA","7":"NA","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"36.7","4":"19.3","5":"193","6":"3450","7":"female","8":"2007"},{"1":"Adelie","2":"Torgersen","3":"39.3","4":"20.6","5":"190","6":"3650","7":"male","8":"2007"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
 </div>
-<p>Reference: Horst AM, Hill AP, Gorman KB (2020). palmerpenguins:
-Palmer Archipelago (Antarctica) penguin data. R package version 0.1.0.
-<a href="https://allisonhorst.github.io/palmerpenguins/"
-class="uri">https://allisonhorst.github.io/palmerpenguins/</a>. doi:
-10.5281/zenodo.3960218.</p>
 </div>
-<div id="section-filter-practice-1" class="section level3">
-<h3><span style="opacity:0;">filter practice</span></h3>
+<div id="section-next-section-placeholder-1" class="section level3">
+<h3><span style="opacity:0;">Next Section Placeholder</span></h3>
 <div class="quick_note_box">
 <p class="quick_note_header">
 📑 Quick Note
@@ -727,15 +686,15 @@ Dream\: Island) = 0.37\%\]</span> <span
 class="math display">\[P(penguin\: is\: from\: Torgersen\: Island) =
 0.13\%\]</span></p>
 </div>
-<div id="section-pba" class="section level3">
-<h3>P(B|A)</h3>
+<div id="section-pba---single-event" class="section level3">
+<h3>P(B|A) - Single Event</h3>
 <p>Given that a randomly chosen penguin has a body mass over 3.5 kg,
 what is probability it is a Chinstrap?</p>
-<p><span class="math display">\[P((penguin\: is\: Chinstrap) | (mass\:
-over\: 3.5kg)) = \frac{P((mass\: over\: 3.5kg) AND (penguin\: is\:
-Chinstrap))}{P(mass\: over\: 3.5kg)} \]</span></p>
+<p><span class="math display">\[P((penguin\: is\: Chinstrap)\: |\:
+(mass\: over\: 3.5kg)) = \frac{P((mass\: over\: 3.5kg) and (penguin\:
+is\: Chinstrap))}{P(mass\: over\: 3.5kg)} \]</span></p>
 <div id="section-calculate-pa-and-b" class="section level4">
-<h4>Calculate P(A AND B)</h4>
+<h4>Calculate P(A and B)</h4>
 <p>Step 1: Count the number of Chinstrap penguins over 3.5kg (3,500
 g)</p>
 <pre class="r"><code>chinstrap_over_3500_g &lt;- penguins_2009 %&gt;%
@@ -771,13 +730,73 @@ prob_penguins_over_3500_g</code></pre>
 </div>
 <div id="section-calculate-pba" class="section level4">
 <h4>Calculate P(B|A)</h4>
-<p>Divide P(A AND B) / P(A)</p>
+<p>Divide P(A and B) / P(A)</p>
 <pre class="r"><code>prob_chinstrap_given_over_3500_g &lt;- prob_chinstrap_over_3500_g / prob_penguins_over_3500_g
 prob_chinstrap_given_over_3500_g</code></pre>
 <pre><code>## [1] 0.1888889</code></pre>
 <p><span class="math display">\[P((penguin\: is\: Chinstrap) | (mass\:
-over\: 3.5kg)) = \frac{P((mass\: over\: 3.5kg) AND (penguin\: is\:
+over\: 3.5kg)) = \frac{P((mass\: over\: 3.5kg) and (penguin\: is\:
 Chinstrap))}{P(mass\: over\: 3.5kg)} = 0.19\%\]</span></p>
+</div>
+</div>
+<div id="section-pba---multiple-event" class="section level3">
+<h3>P(B|A) - Multiple Event</h3>
+<p>Given that a randomly chosen penguin has a body mass over 3.5 kg,
+what is probability for it to belong to each species?</p>
+<p><span class="math display">\[P((penguin\: is\: Adelie)\: |\: (mass\:
+over\: 3.5kg)) \]</span></p>
+<p><span class="math display">\[P((penguin\: is\: Chinstrap)\: |\:
+(mass\: over\: 3.5kg)) \]</span></p>
+<p><span class="math display">\[P((penguin\: is\: Gentoo)\: |\: (mass\:
+over\: 3.5kg)) \]</span> #### Calculate P(A and B)</p>
+<p>Step 1: Count the number of penguins over 3.5kg (3,500 g) for each
+species</p>
+<pre class="r"><code>species_over_3500_g &lt;- penguins_2009 %&gt;%
+                            filter(body_mass_g &gt;= 3500) %&gt;%
+                            count(species)
+species_over_3500_g</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["species"],"name":[1],"type":["fct"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"Adelie","2":"30"},{"1":"Chinstrap","2":"17"},{"1":"Gentoo","2":"43"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Step 2: Count total number of penguins</p>
+<pre class="r"><code>penguin_count &lt;- nrow(penguins_2009)
+penguin_count</code></pre>
+<pre><code>## [1] 120</code></pre>
+<p>Step 3: Divide</p>
+<pre class="r"><code>prob_species_over_3500_g &lt;- species_over_3500_g$n / penguin_count
+prob_species_over_3500_g</code></pre>
+<pre><code>## [1] 0.2500000 0.1416667 0.3583333</code></pre>
+<div id="section-calculate-pa-1" class="section level4">
+<h4>Calculate P(A)</h4>
+<p>Step 1: Count the number of penguins over 3.5 kg</p>
+<pre class="r"><code>penguins_over_3500_g &lt;- penguins_2009 %&gt;%
+                          filter(body_mass_g &gt;= 3500) %&gt;%
+                          nrow()
+penguins_over_3500_g</code></pre>
+<pre><code>## [1] 90</code></pre>
+<p>Step 2: Count total number of penguins</p>
+<pre class="r"><code>penguin_count &lt;- nrow(penguins_2009)
+penguin_count</code></pre>
+<pre><code>## [1] 120</code></pre>
+<p>Step 3: Divide</p>
+<pre class="r"><code>prob_penguins_over_3500_g &lt;- penguins_over_3500_g / penguin_count
+prob_penguins_over_3500_g</code></pre>
+<pre><code>## [1] 0.75</code></pre>
+</div>
+<div id="section-calculate-pba-1" class="section level4">
+<h4>Calculate P(B|A)</h4>
+<p>Divide P(A and B) / P(A)</p>
+<pre class="r"><code>prob_species_given_over_3500_g &lt;- prob_species_over_3500_g / prob_penguins_over_3500_g
+prob_species_given_over_3500_g</code></pre>
+<pre><code>## [1] 0.3333333 0.1888889 0.4777778</code></pre>
+<p><span class="math display">\[P((penguin\: is\: Adelie) | (mass\:
+over\: 3.5kg)) = 0.33\%\]</span></p>
+<p><span class="math display">\[P((penguin\: is\: Chinstrap) | (mass\:
+over\: 3.5kg)) = 0.19\%\]</span></p>
+<p><span class="math display">\[P((penguin\: is\: Gentoo) | (mass\:
+over\: 3.5kg)) = 0.48\%\]</span></p>
 <hr />
 </div>
 </div>
@@ -1006,7 +1025,7 @@ learnr:::store_exercise_cache(structure(list(label = "week-3_hmw1", global_setup
         opts = list(label = "\"week-3_hmw1\"", exercise = "TRUE", 
             exercise.blanks = "\"___+\""), engine = "r")), code_check = NULL, 
     error_check = NULL, check = structure(c("grade_result(", 
-    "  pass_if(~identical(.result, select(penguins, island, species, flipp_length_mm)))#Replace TRUE with the solution's code", 
+    "  pass_if(~identical(.result, select(penguins, island, species, flipper_length_mm)))#Replace TRUE with the solution's code", 
     ")"), chunk_opts = list(label = "week-3_hmw1-check")), solution = NULL, 
     tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 

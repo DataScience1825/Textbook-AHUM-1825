@@ -16,6 +16,7 @@ Imports:
     learnr,
     reactable,
     rmarkdown,
+    rprojroot,
     shinyjs,
     tidyverse,
     palmerpenguins
